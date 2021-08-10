@@ -1,0 +1,70 @@
+2021-08-08T03:35:20+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_Product::get_attribute(), 0 passed in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\template-parts\attribute-product.php on line 15 and exactly 1 expected in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-product.php:1927
+Stack trace:
+#0 D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\template-parts\attribute-product.php(15): WC_Product->get_attribute()
+#1 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\template.php(772): require('D:\\APP\\XAMPP\\ht...')
+#2 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\template.php(716): load_template('D:\\APP\\XAMPP\\ht...', false, Array)
+#3 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#4 D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\func-part\custom-woo.php(95): get_template_part('template-parts/...', 'product')
+#5 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\class- in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-product.php on line 1927
+
+2021-08-08T03:35:33+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_Product::get_attribute(), 0 passed in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\template-parts\attribute-product.php on line 15 and exactly 1 expected in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-product.php:1927
+Stack trace:
+#0 D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\template-parts\attribute-product.php(15): WC_Product->get_attribute()
+#1 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\template.php(772): require('D:\\APP\\XAMPP\\ht...')
+#2 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\template.php(716): load_template('D:\\APP\\XAMPP\\ht...', false, Array)
+#3 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#4 D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\func-part\custom-woo.php(95): get_template_part('template-parts/...', 'product')
+#5 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\class- in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-product.php on line 1927
+
+2021-08-08T10:21:53+00:00 CRITICAL Uncaught Error: Call to undefined function woocommerce_template_loop_add_to_cart() in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\func-part\custom-woo.php:143
+Stack trace:
+#0 D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\functions.php(232): require_once()
+#1 D:\APP\XAMPP\htdocs\CauDat_Web\wp-settings.php(546): include('D:\\APP\\XAMPP\\ht...')
+#2 D:\APP\XAMPP\htdocs\CauDat_Web\wp-config.php(92): require_once('D:\\APP\\XAMPP\\ht...')
+#3 D:\APP\XAMPP\htdocs\CauDat_Web\wp-load.php(50): require_once('D:\\APP\\XAMPP\\ht...')
+#4 D:\APP\XAMPP\htdocs\CauDat_Web\wp-admin\admin-ajax.php(22): require_once('D:\\APP\\XAMPP\\ht...')
+#5 {main}
+  thrown in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\func-part\custom-woo.php on line 143
+
+2021-08-08T10:23:54+00:00 CRITICAL Uncaught Error: Call to undefined function woocommerce_template_loop_product_title() in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\func-part\custom-woo.php:144
+Stack trace:
+#0 D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\functions.php(232): require_once()
+#1 D:\APP\XAMPP\htdocs\CauDat_Web\wp-settings.php(546): include('D:\\APP\\XAMPP\\ht...')
+#2 D:\APP\XAMPP\htdocs\CauDat_Web\wp-config.php(92): require_once('D:\\APP\\XAMPP\\ht...')
+#3 D:\APP\XAMPP\htdocs\CauDat_Web\wp-load.php(50): require_once('D:\\APP\\XAMPP\\ht...')
+#4 D:\APP\XAMPP\htdocs\CauDat_Web\wp-admin\admin-ajax.php(22): require_once('D:\\APP\\XAMPP\\ht...')
+#5 {main}
+  thrown in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\func-part\custom-woo.php on line 144
+
+2021-08-08T10:25:27+00:00 CRITICAL Uncaught Error: Call to undefined function woocommerce_template_loop_product_title() in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\func-part\custom-woo.php:147
+Stack trace:
+#0 D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\functions.php(232): require_once()
+#1 D:\APP\XAMPP\htdocs\CauDat_Web\wp-settings.php(546): include('D:\\APP\\XAMPP\\ht...')
+#2 D:\APP\XAMPP\htdocs\CauDat_Web\wp-config.php(92): require_once('D:\\APP\\XAMPP\\ht...')
+#3 D:\APP\XAMPP\htdocs\CauDat_Web\wp-load.php(50): require_once('D:\\APP\\XAMPP\\ht...')
+#4 D:\APP\XAMPP\htdocs\CauDat_Web\wp-blog-header.php(13): require_once('D:\\APP\\XAMPP\\ht...')
+#5 D:\APP\XAMPP\htdocs\CauDat_Web\index.php(17): require('D:\\APP\\XAMPP\\ht...')
+#6 {main}
+  thrown in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\func-part\custom-woo.php on line 147
+
+2021-08-08T10:25:28+00:00 CRITICAL Uncaught Error: Call to undefined function woocommerce_template_loop_product_title() in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\func-part\custom-woo.php:147
+Stack trace:
+#0 D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\functions.php(232): require_once()
+#1 D:\APP\XAMPP\htdocs\CauDat_Web\wp-settings.php(546): include('D:\\APP\\XAMPP\\ht...')
+#2 D:\APP\XAMPP\htdocs\CauDat_Web\wp-config.php(92): require_once('D:\\APP\\XAMPP\\ht...')
+#3 D:\APP\XAMPP\htdocs\CauDat_Web\wp-load.php(50): require_once('D:\\APP\\XAMPP\\ht...')
+#4 D:\APP\XAMPP\htdocs\CauDat_Web\wp-blog-header.php(13): require_once('D:\\APP\\XAMPP\\ht...')
+#5 D:\APP\XAMPP\htdocs\CauDat_Web\index.php(17): require('D:\\APP\\XAMPP\\ht...')
+#6 {main}
+  thrown in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\func-part\custom-woo.php on line 147
+
+2021-08-08T10:25:55+00:00 CRITICAL Uncaught Error: Call to undefined function woocommerce_template_loop_product_title() in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\func-part\custom-woo.php:147
+Stack trace:
+#0 D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\functions.php(232): require_once()
+#1 D:\APP\XAMPP\htdocs\CauDat_Web\wp-settings.php(546): include('D:\\APP\\XAMPP\\ht...')
+#2 D:\APP\XAMPP\htdocs\CauDat_Web\wp-config.php(92): require_once('D:\\APP\\XAMPP\\ht...')
+#3 D:\APP\XAMPP\htdocs\CauDat_Web\wp-load.php(50): require_once('D:\\APP\\XAMPP\\ht...')
+#4 D:\APP\XAMPP\htdocs\CauDat_Web\wp-admin\admin-ajax.php(22): require_once('D:\\APP\\XAMPP\\ht...')
+#5 {main}
+  thrown in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\func-part\custom-woo.php on line 147
+

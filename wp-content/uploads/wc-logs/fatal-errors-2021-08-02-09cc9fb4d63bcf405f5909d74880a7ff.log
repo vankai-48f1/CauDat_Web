@@ -1,0 +1,32 @@
+2021-08-02T19:03:09+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Term as array in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\index.php:240
+Stack trace:
+#0 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\template-loader.php(106): include()
+#1 D:\APP\XAMPP\htdocs\CauDat_Web\wp-blog-header.php(19): require_once('D:\\APP\\XAMPP\\ht...')
+#2 D:\APP\XAMPP\htdocs\CauDat_Web\index.php(17): require('D:\\APP\\XAMPP\\ht...')
+#3 {main}
+  thrown in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\index.php on line 240
+
+2021-08-02T19:03:16+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Term as array in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\index.php:240
+Stack trace:
+#0 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\template-loader.php(106): include()
+#1 D:\APP\XAMPP\htdocs\CauDat_Web\wp-blog-header.php(19): require_once('D:\\APP\\XAMPP\\ht...')
+#2 D:\APP\XAMPP\htdocs\CauDat_Web\index.php(17): require('D:\\APP\\XAMPP\\ht...')
+#3 {main}
+  thrown in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\index.php on line 240
+
+2021-08-02T19:03:49+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Term as array in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\index.php:240
+Stack trace:
+#0 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\template-loader.php(106): include()
+#1 D:\APP\XAMPP\htdocs\CauDat_Web\wp-blog-header.php(19): require_once('D:\\APP\\XAMPP\\ht...')
+#2 D:\APP\XAMPP\htdocs\CauDat_Web\index.php(17): require('D:\\APP\\XAMPP\\ht...')
+#3 {main}
+  thrown in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\index.php on line 240
+
+2021-08-02T19:07:46+00:00 CRITICAL Uncaught Error: Call to undefined function mini_blog_pagination() in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\category.php:26
+Stack trace:
+#0 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\template-loader.php(106): include()
+#1 D:\APP\XAMPP\htdocs\CauDat_Web\wp-blog-header.php(19): require_once('D:\\APP\\XAMPP\\ht...')
+#2 D:\APP\XAMPP\htdocs\CauDat_Web\index.php(17): require('D:\\APP\\XAMPP\\ht...')
+#3 {main}
+  thrown in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\category.php on line 26
+

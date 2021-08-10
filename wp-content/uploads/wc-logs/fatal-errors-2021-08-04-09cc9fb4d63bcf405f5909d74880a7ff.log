@@ -1,0 +1,16 @@
+2021-08-04T13:47:20+00:00 CRITICAL Uncaught Error: Call to undefined function mini_blog_pagination() in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\category.php:26
+Stack trace:
+#0 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\template-loader.php(106): include()
+#1 D:\APP\XAMPP\htdocs\CauDat_Web\wp-blog-header.php(19): require_once('D:\\APP\\XAMPP\\ht...')
+#2 D:\APP\XAMPP\htdocs\CauDat_Web\index.php(17): require('D:\\APP\\XAMPP\\ht...')
+#3 {main}
+  thrown in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\category.php on line 26
+
+2021-08-04T14:57:51+00:00 CRITICAL Uncaught Error: Call to undefined function mini_blog_pagination() in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\category.php:26
+Stack trace:
+#0 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\template-loader.php(106): include()
+#1 D:\APP\XAMPP\htdocs\CauDat_Web\wp-blog-header.php(19): require_once('D:\\APP\\XAMPP\\ht...')
+#2 D:\APP\XAMPP\htdocs\CauDat_Web\index.php(17): require('D:\\APP\\XAMPP\\ht...')
+#3 {main}
+  thrown in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\category.php on line 26
+

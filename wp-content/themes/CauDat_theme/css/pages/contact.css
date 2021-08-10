@@ -1,0 +1,111 @@
+/* .contact {
+    padding: 50px 0;
+} */
+
+.map-view {
+    width: 100%;
+    position: relative;
+    padding-top: 30%;
+}
+
+.map-view iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+
+.contact__infor-ctn {
+    padding: 50px 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact__infor {
+    display: flex;
+}
+
+.contact__infor-icon {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+}
+
+.contact__infor-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+.contact__infor-ct {
+    width: calc(100% - 95px);
+    margin-left: 25px;
+}
+
+.contact__infor-ct h4 {
+    font-size: 15px;
+    font-family: var(--font-third-rgl);
+    line-height: 1.5;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.contact__infor-ct p {
+    font-size: 13px;
+    font-family: var(--font-third-rgl);
+    line-height: 1.3;
+}
+
+.contact__form {
+    width: 80%;
+}
+
+.contact__content form input[type="submit"] {
+    background-color: var(--color-prm);
+    border-color: transparent;
+}
+
+.contact__content .wpcf7 .ajax-loader {
+    display: none; 
+}
+
+
+.contact__note {
+    width: 88%;
+    margin-left: auto;
+    padding: 50px;
+    border-radius: 50px;
+    background-color: #F5F6F1;
+}
+
+.contact__note p {
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.contact__note a {
+    border: 1px solid #000;
+    width: 60%;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 5px 20px;
+    display: inline-block;
+}
+
+.contact__note button {
+    text-transform: uppercase;
+    padding: 3px 15px;
+    background-color: var(--color-prm);
+    border-color: transparent;
+    font-size: 14px;
+}
+
+.btn-submit-form {
+    text-align: right;
+}
