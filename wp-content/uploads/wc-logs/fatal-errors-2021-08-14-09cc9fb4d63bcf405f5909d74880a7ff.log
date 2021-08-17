@@ -1,0 +1,11 @@
+2021-08-14T16:48:08+00:00 CRITICAL Uncaught Error: Call to a member function is_on_sale() on null in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\woocommerce\single-product\sale-flash.php:25
+Stack trace:
+#0 D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\plugins\woocommerce\includes\wc-template-functions.php(1609): wc_get_template('single-product/...')
+#2 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\class-wp-hook.php(303): woocommerce_show_product_sale_flash('')
+#3 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\class-wp-hook.php(327): WP_Hook->apply_filters('', Array)
+#4 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\plugin.php(470): WP_Hook->do_action(Array)
+#5 D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\woocommerce\content-single-product.php(47): do_action('woocommerce_bef...')
+#6 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\template.php(772): require('D:\\APP\\XAMPP\\ht...')
+#7 D:\APP\XAMPP\htdocs\CauDat_Web\wp-co in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\woocommerce\single-product\sale-flash.php on line 25
+

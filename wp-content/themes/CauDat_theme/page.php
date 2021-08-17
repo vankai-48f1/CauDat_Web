@@ -4,26 +4,17 @@
 <!-- Page Content -->
 <div class="container">
 
-    <div class="row">
-        <div class="col-lg-4">
-            <?php get_sidebar() ?>
-        </div>
+    <?php if (have_posts()) : ?>
 
-        <!-- Blog Entries Column -->
-        <div class="col-lg-8">
-            <?php if (have_posts()) : ?>
+        <?php while (have_posts()) : the_post(); ?>
 
-                <?php while (have_posts()) : the_post(); ?>
-                    <?php get_template_part('template-parts/content-page', get_post_format()); ?>
+            <div class="page-content pd-t-3">
+                <?php the_content(); ?>
+            </div>
 
-                <?php endwhile; ?>
+        <?php endwhile; ?>
 
-            <?php endif; ?>
-
-        </div>
-
-
-    </div>
+    <?php endif; ?>
     <!-- /.row -->
 
 </div>

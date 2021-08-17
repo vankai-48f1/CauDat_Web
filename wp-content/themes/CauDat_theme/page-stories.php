@@ -21,20 +21,33 @@ Template Name: Câu chuyện
             </div>
         </div>
 
-        <div class="container">
+        <div class="container-stories">
             <?php if (have_rows('production_process')) : $i = 0; ?>
                 <div class="production-process__content">
                     <?php while (have_rows('production_process')) : the_row();
                         ++$i;
                         $image = get_sub_field('image');
                         $content = get_sub_field('content');
+                        $step_title = get_sub_field('step_title');
+                        $step_desciption = get_sub_field('step_desciption');
 
                     ?>
                         <div class="production-process__item <?php echo $i % 2 == 0 ? 'production-process__item-even' : 'production-process__item-odd' ?>">
-                            <div class="production-process__item-thumb">
-                                <a href="<?php echo  $image ?>">
-                                    <img src="<?php echo  $image ?>" alt="production process image">
-                                </a>
+                            <div class="production-process__step">
+                                <div class="production-process__step-wrap">
+                                    <div class="production-process__step-image">
+                                        <img src="<?php echo  $image ?>" alt="production process image">
+                                    </div>
+                                    <div class="production-process__step-meta">
+                                        <div class="production-process__step-logo"></div>
+                                        <div class="production-process__step-content">
+                                            <div class="production-process__label">Bước <?php echo $i . ':'; ?></div>
+                                            <div class="production-process__step-title"><?php echo $step_title ?></div>
+                                            <div class="production-process__step-desc"><?php echo $step_desciption ?></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="production-process__step-bottom"></div>
                             </div>
                             <div class="production-process__item-ct">
                                 <?php echo $content ?>

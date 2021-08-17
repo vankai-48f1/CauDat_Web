@@ -2,7 +2,7 @@
 <footer>
     <div class="footer">
         <?php if (is_front_page() || is_shop() || is_product_category() || is_product()) : ?>
-            <div class="footer-top align-ct bg-white">
+            <div class="footer-top align-ct">
                 <div class="container">
                     <div class="footer-top__contact mg-bt-2">
                         <p>HOTLINE: <a class="hover-red" href="tel:<?php the_field('hotline', 'option') ?>"><span><?php the_field('hotline', 'option') ?></span></a></p>
@@ -32,6 +32,39 @@
                 </div>
             </div>
         <?php endif; ?>
+
+        <?php if (is_front_page()) : ?>
+            <section class="pd-t-3 pd-bt-3">
+                <div class="container">
+                    <?php if (have_rows('members')) : ?>
+                        <ul class="members">
+                            <?php while (have_rows('members')) : the_row();
+                                $avatar = get_sub_field('avatar');
+                                $description = get_sub_field('description');
+                                $name = get_sub_field('name');
+
+                            ?>
+                                <li class="members__item">
+                                    <div class="members__content">
+                                        <div class="members__avatar">
+                                            <img src="<?php echo $avatar ?>" alt="">
+                                        </div>
+
+                                        <div class="members__desc">
+                                            <?php echo $description ?>
+                                        </div>
+
+                                        <div class="members__name">
+                                            <?php echo $name ?>
+                                        </div>
+                                    </div>
+                                </li>
+                            <?php endwhile; ?>
+                        </ul>
+                    <?php endif; ?>
+                </div>
+            </section>
+        <?php endif ?>
 
         <div class="footer-mid">
             <div class="container">
@@ -236,7 +269,7 @@ if (!is_front_page()) : ?>
         let header_part = document.getElementById('header-part');
 
         let offset_header = header.offsetHeight + 'px';
-        if(header_part) {
+        if (header_part) {
             header_part.style.marginTop = offset_header;
         }
     </script>

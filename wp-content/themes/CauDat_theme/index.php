@@ -11,7 +11,9 @@ Template Name: Home
             <?php while (have_rows('slider_prm')) : the_row();
                 $title = get_sub_field('title');
                 $description = get_sub_field('description');
-                $image = get_sub_field('image');
+                $image = get_sub_field('image_product');
+                $background = get_sub_field('background');
+
             ?>
                 <div class="section-slider__item">
                     <div class="section-slider__content">
@@ -22,7 +24,7 @@ Template Name: Home
                             </div>
                         </div>
                     </div>
-                    <div class="section-slider__image">
+                    <div class="section-slider__image" style="background-image: url(<?php echo $background ?>);">
                         <img src="<?php echo $image ?>" alt="image slider">
                     </div>
                 </div>
@@ -59,8 +61,9 @@ Template Name: Home
                         while ($query_product->have_posts()) : $query_product->the_post(); ?>
                             <div class="ss-product__item">
                                 <div class="ss-product__thumb-wrap">
-                                    <a href="<?php echo get_the_permalink() ?>" class="ss-product__thumb hover-red">
+                                    <a href="<?php echo get_the_permalink() ?>" class="ss-product__thumb hover-black">
                                         <?php echo woocommerce_get_product_thumbnail() ?>
+                                        <?php get_template_part('template-parts/attribute', 'product'); ?>
                                     </a>
                                 </div>
                                 <div class="ss-product__content align-ct">
@@ -106,7 +109,7 @@ Template Name: Home
 
     <section class="bg-white-dark">
         <div class="container">
-            <div class="ss-collections  pd-t-2 pd-bt-3">
+            <div class="ss-collections pd-t-2">
                 <div class="ss-title align-ct mg-bt-3">
                     <p class="ss-title__subtitle">Khám phá</p>
                     <h3 class="title-type-prm">Bộ sưu tập</h3>
@@ -137,7 +140,7 @@ Template Name: Home
                                 <div class="ss-collections__item bg-prm">
                                     <div class="ss-collections__thumb">
                                         <div class="ss-collections__thumb-wrap">
-                                            <?php echo woocommerce_get_product_thumbnail() ?>
+                                            <?php echo woocommerce_get_product_thumbnail('woo_large') ?>
                                         </div>
                                     </div>
                                     <div class="ss-collections__content">

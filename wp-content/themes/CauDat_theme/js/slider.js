@@ -14,6 +14,7 @@ jQuery(document).ready( function () {
 
     generalSingleSlider('.section-slider')
     generalSingleSlider('.ss-collections__list')
+    generalSingleSlider('.members')
 
 
 

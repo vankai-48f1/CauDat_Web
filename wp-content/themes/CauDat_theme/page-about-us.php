@@ -86,7 +86,7 @@ Template Name: Về chúng tôi
                     ?>
                         <div class="about-us__detail-item">
                             <div class="about-us__detail-head">
-                                <div></div>
+                                <div>A</div>
                             </div>
                             <div class="about-us__detail-content">
                                 <div class="about-us__detail-name">

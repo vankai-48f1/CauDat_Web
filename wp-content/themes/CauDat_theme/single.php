@@ -9,8 +9,9 @@
         <div class="container">
 
             <div class="row">
-
-                <?php get_sidebar() ?>
+                <div class="col-lg-4">
+                    <?php get_sidebar() ?>
+                </div>
 
                 <div class="col-lg-8">
                     <div class="category__right">
@@ -53,13 +54,14 @@
                                     <?php next_post_link('%link', 'Previous', true); ?>
                                 </div>
                                 <div class="single__nav-title mg-bt-1">
-                                    <?php echo get_next_post()->post_title ?>
+                                    <a href="<?php echo get_next_post()->guid ?>">
+                                        <?php echo get_next_post()->post_title ?>
+                                    </a>
                                 </div>
                                 <div class="list-posts__item-date">
-                                    <!-- < ?php var_dump(get_next_post()); ?> -->
-                                    <?php  
+                                    <?php
                                     $date_prev = date_create(get_next_post()->post_date);
-                                    echo date_format($date_prev,"F j, Y");
+                                    echo date_format($date_prev, "F j, Y");
                                     ?>
                                 </div>
                             </div>
@@ -69,19 +71,24 @@
                                     <?php previous_post_link('%link', 'Next', true); ?>
                                 </div>
                                 <div class="single__nav-title mg-bt-1">
-                                    <?php echo get_previous_post()->post_title ?>
+                                    <a href="<?php echo get_previous_post()->guid ?>">
+                                        <?php echo get_previous_post()->post_title ?>
+                                    </a>
                                 </div>
                                 <div class="list-posts__item-date">
-                                    <!-- < ?php var_dump(get_next_post()); ?> -->
-                                    <?php  
+                                    <?php
                                     $date_next = date_create(get_previous_post()->post_date);
-                                    echo date_format($date_next,"F j, Y");
+                                    echo date_format($date_next, "F j, Y");
                                     ?>
                                 </div>
                             </div>
-
-
                         </div>
+
+                        <?php
+                        if (comments_open() || get_comments_number()) {
+                            comments_template();
+                        }
+                        ?>
                     </div>
                 </div>
             </div>

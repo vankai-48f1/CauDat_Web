@@ -89,12 +89,13 @@
                                 wp_nav_menu(
                                     array(
                                         'theme_location'  => 'main-menu',
-                                        'depth'  => 2,
+                                        'depth'  => 3,
                                         'container'  => 'nav',
                                         'menu_class'  => 'header-nav__menu',
                                     )
                                 );
                                 ?>
+                                
                             </div>
 
                             <div class="col-lg-3">

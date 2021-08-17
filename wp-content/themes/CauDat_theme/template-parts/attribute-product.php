@@ -30,12 +30,19 @@
         </li>
         <li>
             <div class="attr-product__row">
-                <div class="attr-product__name">Vị(độ đắng)</div>
+                <div class="attr-product__name">Vị (độ đắng)</div>
                 <div class="attr-product__value">
-                    <!-- < ?php 
-                            $koostis = $product->get_attribute('pa_thanh-phan');
-                            echo $koostis;
-                            ?> -->
+                    <?php
+                    $taste = $product->get_attribute('pa_vi-do-dang');
+                    ?>
+                    <span class="attr-product__percent-taste" data-percent="<?php echo $taste;?>"></span>
+                    <ul class="attr-product__circle attr-product__circle--taste">
+                        <li><span></span></li>
+                        <li><span></span></li>
+                        <li><span></span></li>
+                        <li><span></span></li>
+                        <li><span></span></li>
+                    </ul>
                 </div>
             </div>
         </li>
@@ -43,10 +50,17 @@
             <div class="attr-product__row">
                 <div class="attr-product__name">Độ đậm (thể chất)</div>
                 <div class="attr-product__value">
-                    <!-- < ?php
-                            $koostis = $product->get_attribute('pa_thanh-phan');
-                            echo $koostis;
-                            ?> -->
+                    <?php
+                    $taste_bold = $product->get_attribute('pa_do-dam-the-chat');
+                    ?>
+                    <span class="attr-product__percent-taste-bold" data-percent="<?php echo $taste_bold; ?>"></span>
+                    <ul class="attr-product__circle attr-product__circle--taste-bold">
+                        <li><span></span></li>
+                        <li><span></span></li>
+                        <li><span></span></li>
+                        <li><span></span></li>
+                        <li><span></span></li>
+                    </ul>
                 </div>
             </div>
         </li>
@@ -54,10 +68,17 @@
             <div class="attr-product__row">
                 <div class="attr-product__name">Vị chua đặc trưng</div>
                 <div class="attr-product__value">
-                    <!-- < ?php
-                            $koostis = $product->get_attribute('pa_thanh-phan');
-                            echo $koostis;
-                            ?> -->
+                    <?php
+                    $sour = $product->get_attribute('pa_vi-chua-dac-trung');
+                    ?>
+                    <span class="attr-product__percent-sour" data-percent="<?php echo $sour; ?>"></span>
+                    <ul class="attr-product__circle attr-product__circle--sour">
+                        <li><span></span></li>
+                        <li><span></span></li>
+                        <li><span></span></li>
+                        <li><span></span></li>
+                        <li><span></span></li>
+                    </ul>
                 </div>
             </div>
         </li>

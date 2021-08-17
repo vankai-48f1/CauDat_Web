@@ -18,7 +18,30 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 
-<div class="woocommerce-order">
+
+<div class="complete">
+    <span class="step">
+        <span class="step-number">1</span>
+        <span class="step-name">
+            Đặt hàng
+        </span>
+    </span>
+    <span class="step step-center">
+        <span class="step-line">
+            <span class="step-number">2</span>
+        </span>
+        <span class="step-name">
+            Thông tin khách hàng
+        </span>
+    </span>
+    <span class="step step-current">
+        <span class="step-number">3</span>
+        <span class="step-name">
+            Xác nhận
+        </span>
+    </span>
+</div>
+<div class="woocommerce-order thankyou-page">
 
 	<?php
 	if ( $order ) :
@@ -39,45 +62,121 @@ defined( 'ABSPATH' ) || exit;
 
 		<?php else : ?>
 
-			<p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', esc_html__( 'Thank you. Your order has been received.', 'woocommerce' ), $order ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+			<!-- <p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received">< ?php echo apply_filters( 'woocommerce_thankyou_order_received_text', esc_html__( 'Thank you. Your order has been received.', 'woocommerce' ), $order ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p> -->
 
-			<ul class="woocommerce-order-overview woocommerce-thankyou-order-details order_details">
+            <div class="row">
+                <div class="col-lg-7">
+                    <!-- < ?php do_action( 'woocommerce_thankyou_' . $order->get_payment_method(), $order->get_id() ); ?> -->
+		            <!-- < ?php do_action( 'woocommerce_thankyou', $order->get_id() ); ?> -->
+                    <div class="thankyou-product">
+                        <div class="heading">
+                            <h3>Sản phẩm</h3>
+                        </div>
+                        <ul class="thankyou-product-list">
+                            <?php
+                            $order_product = wc_get_order( $order->get_id() );
 
-				<li class="woocommerce-order-overview__order order">
-					<?php esc_html_e( 'Order number:', 'woocommerce' ); ?>
-					<strong><?php echo $order->get_order_number(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></strong>
-				</li>
+                            $items_data = array();
+                        
+                            foreach ($order_product->get_items() as $item_id => $item ) {
+                        
+                                // Get an instance of corresponding the WC_Product object
+                                $product = $item->get_product();
 
-				<li class="woocommerce-order-overview__date date">
-					<?php esc_html_e( 'Date:', 'woocommerce' ); ?>
-					<strong><?php echo wc_format_datetime( $order->get_date_created() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></strong>
-				</li>
+                                echo '<li class="thankyou-product-item">
+                                        <div class="thankyou-product-thumb">'. $product->get_image() .'</div>
+                                        <div class="thankyou-product-name">'. $product->get_name() ;
+                                wc_display_item_meta( $item );
+                                echo '</div>
+                                    <div class="thankyou-product-name">'. $attribute .'</div>
+                                    <div class="thankyou-product-qty">SL:&ensp;'. $item->get_quantity() .'</div>
+                                    <div class="thankyou-product-total-price">'.  $order->get_formatted_line_subtotal( $item ) .'</div>
+                                </li>'; ;
+                            }
+                            
+                            ?>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="thank-infor-order">
+                        <div class="heading">
+                            <h3>Thông tin đơn hàng</h3>
+                            <!-- <p>Trạng thái: <strong>< ?php echo $order->get_status()  ?></strong></p> -->
+                        </div>
+                        <ul class="woocommerce-order-overview woocommerce-thankyou-order-details order_details" style="display: none">
 
-				<?php if ( is_user_logged_in() && $order->get_user_id() === get_current_user_id() && $order->get_billing_email() ) : ?>
-					<li class="woocommerce-order-overview__email email">
-						<?php esc_html_e( 'Email:', 'woocommerce' ); ?>
-						<strong><?php echo $order->get_billing_email(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></strong>
-					</li>
-				<?php endif; ?>
+                            <li class="woocommerce-order-overview__order order">
+                                <?php esc_html_e('Order number:', 'woocommerce'); ?>
+                                <strong><?php echo $order->get_order_number(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+                                                ?></strong>
+                            </li>
 
-				<li class="woocommerce-order-overview__total total">
-					<?php esc_html_e( 'Total:', 'woocommerce' ); ?>
-					<strong><?php echo $order->get_formatted_order_total(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></strong>
-				</li>
+                            <li class="woocommerce-order-overview__date date">
+                                <?php esc_html_e('Date:', 'woocommerce'); ?>
+                                <strong><?php echo wc_format_datetime($order->get_date_created()); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+                                                ?></strong>
+                            </li>
 
-				<?php if ( $order->get_payment_method_title() ) : ?>
-					<li class="woocommerce-order-overview__payment-method method">
-						<?php esc_html_e( 'Payment method:', 'woocommerce' ); ?>
-						<strong><?php echo wp_kses_post( $order->get_payment_method_title() ); ?></strong>
-					</li>
-				<?php endif; ?>
+                            <?php if (is_user_logged_in() && $order->get_user_id() === get_current_user_id() && $order->get_billing_email()) : ?>
+                                <li class="woocommerce-order-overview__email email">
+                                    <?php esc_html_e('Email:', 'woocommerce'); ?>
+                                    <strong><?php echo $order->get_billing_email(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+                                                        ?></strong>
+                                </li>
+                            <?php endif; ?>
 
-			</ul>
+                            <li class="woocommerce-order-overview__total total">
+                                <?php esc_html_e('Total:', 'woocommerce'); ?>
+                                <strong><?php echo $order->get_formatted_order_total(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+                                                ?></strong>
+                            </li>
 
+                            <?php if ($order->get_payment_method_title()) : ?>
+                                <li class="woocommerce-order-overview__payment-method method">
+                                    <?php esc_html_e('Payment method:', 'woocommerce'); ?>
+                                    <strong><?php echo wp_kses_post($order->get_payment_method_title()); ?></strong>
+                                </li>
+                            <?php endif; ?>
+
+                        </ul>
+                        <ul class="thank-order-detail mg-bt-2">
+                            <?php
+                                    global $woocommerce;
+                                    $c = new WC_Coupon();
+
+                                    ?>
+                            <li><?php echo $order->get_billing_first_name() ?></li>
+                            <li><?php echo $order->get_billing_phone() ?></li>
+                            <li><?php echo $order->get_billing_address_1() ?></li>
+                        </ul>
+                        <div class="thank-totals">
+                            <div class="sub-totals">
+                                <span>Tạm tính:</span>
+                                <span><?php echo $order->get_subtotal_to_display(); ?></span>
+                            </div>
+                            <div class="shipping">
+                                <span>Phí giao hàng:</span>
+                                <span><?php echo $order->get_shipping_total(); ?><span class="woocommerce-Price-currencySymbol"><?php echo get_woocommerce_currency_symbol() ?></span></span>
+                            </div>
+                            <?php
+                                    if ($order->get_discount_total()) { ?>
+                                <div class="m-promotion">
+                                    <span>Giảm giá:</span>
+                                    <span><?php echo $order->get_discount_to_display(); ?></span>
+                                </div>
+                            <?php } ?>
+                            <div class="total">
+                                <span>Tổng cộng</span>
+                                <span><strong><?php echo $order->get_formatted_order_total(); ?></strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 		<?php endif; ?>
 
-		<?php do_action( 'woocommerce_thankyou_' . $order->get_payment_method(), $order->get_id() ); ?>
-		<?php do_action( 'woocommerce_thankyou', $order->get_id() ); ?>
+		
 
 	<?php else : ?>
 

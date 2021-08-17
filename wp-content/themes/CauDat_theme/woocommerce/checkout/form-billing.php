@@ -42,6 +42,7 @@ defined( 'ABSPATH' ) || exit;
 	</div>
 
 	<?php do_action( 'woocommerce_after_checkout_billing_form', $checkout ); ?>
+    <p class="form-row billing-note mg-bt-2">Những trường có dấu ( * ) là bắt buộc phải nhập</p>
 </div>
 
 <?php if ( ! is_user_logged_in() && $checkout->is_registration_enabled() ) : ?>

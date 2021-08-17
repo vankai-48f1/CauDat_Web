@@ -38,29 +38,68 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 				$product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
 				?>
 				<li class="woocommerce-mini-cart-item <?php echo esc_attr( apply_filters( 'woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key ) ); ?>">
-					<?php
-					echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-						'woocommerce_cart_item_remove_link',
-						sprintf(
-							'<a href="%s" class="remove remove_from_cart_button" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s">&times;</a>',
-							esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
-							esc_attr__( 'Remove this item', 'woocommerce' ),
-							esc_attr( $product_id ),
-							esc_attr( $cart_item_key ),
-							esc_attr( $_product->get_sku() )
-						),
-						$cart_item_key
-					);
-					?>
+                    
 					<?php if ( empty( $product_permalink ) ) : ?>
-						<?php echo $thumbnail . wp_kses_post( $product_name ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						<?php echo $thumbnail; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					<?php else : ?>
-						<a href="<?php echo esc_url( $product_permalink ); ?>">
-							<?php echo $thumbnail . wp_kses_post( $product_name ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						<a class="mini-cart-thumb" href="<?php echo esc_url( $product_permalink ); ?>">
+							<?php echo $thumbnail; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 						</a>
 					<?php endif; ?>
-					<?php echo wc_get_formatted_cart_item_data( $cart_item ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-					<?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+
+                    <div class="mini-cart-product-name">
+                        <p><?php echo wp_kses_post( $product_name ) ?></p>
+                        <?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                    </div>
+
+                    <ul class="mini-cart-list-attr">
+					<?php
+                    //  echo wc_get_formatted_cart_item_data( $cart_item ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+                        if ( $cart_item['data']->is_type( 'variation' ) && is_array( $cart_item['variation'] ) ) {
+                            foreach ( $cart_item['variation'] as $name => $value ) {
+                                $taxonomy = wc_attribute_taxonomy_name( str_replace( 'attribute_pa_', '', urldecode( $name ) ) );
+                    
+                                if ( taxonomy_exists( $taxonomy ) ) {
+                                    // If this is a term slug, get the term's nice name.
+                                    $term = get_term_by( 'slug', $value, $taxonomy );
+                                    if ( ! is_wp_error( $term ) && $term && $term->name ) {
+                                        $value = $term->name;
+                                    }
+                                    $label = wc_attribute_label( $taxonomy );
+                                } else {
+                                    // If this is a custom option slug, get the options name.
+                                    $value = apply_filters( 'woocommerce_variation_option_name', $value, null, $taxonomy, $cart_item['data'] );
+                                    $label = wc_attribute_label( str_replace( 'attribute_', '', $name ), $cart_item['data'] );
+                                }
+                    
+                                // Check the nicename against the title.
+                                if ( '' === $value || wc_is_attribute_in_product_name( $value, $cart_item['data']->get_name() ) ) {
+                                    continue;
+                                }
+                    
+                                echo    '<li>
+                                            <span class="name-attr">'.$label.':</span>&ensp;
+                                            <span class="value-attr">'.$value.'</span>
+                                        </li>';
+                            }
+                        }
+                    ?>
+                    </ul>
+
+                    <?php
+                        echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                            'woocommerce_cart_item_remove_link',
+                            sprintf(
+                                '<a href="%s" class="remove remove_from_cart_button" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s"><i class="fal fa-times"></i></a>',
+                                esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
+                                esc_attr__( 'Remove this item', 'woocommerce' ),
+                                esc_attr( $product_id ),
+                                esc_attr( $cart_item_key ),
+                                esc_attr( $_product->get_sku() )
+                            ),
+                            $cart_item_key
+                        );
+                    ?>
 				</li>
 				<?php
 			}

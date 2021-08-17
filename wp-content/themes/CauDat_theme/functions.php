@@ -221,7 +221,7 @@ if (!function_exists('m_paginate')) {
                 ));
                 ?>
             </div>
-<?php }
+        <?php }
     }
 }
 
@@ -230,5 +230,169 @@ if (!function_exists('m_paginate')) {
 require_once get_template_directory() . '/func-part/breadcrumbs.php';
 require_once get_template_directory() . '/func-part/custom-woo.php';
 
+
 // Ajax add to cart 
+
 require_once get_template_directory() . '/func-part/ajax-add-to-cart.php';
+
+
+// custom menu
+
+add_filter('nav_menu_link_attributes', 'caudat_main_menu', 10, 3);
+function caudat_main_menu($atts, $item, $args)
+{
+
+    $main_menu = wp_get_nav_menu_items('main-menu');
+    $page_ids = array();
+
+    foreach ($main_menu as $menu_item) {
+
+        // echo '<pre>', var_dump($menu_item), '</pre>';
+
+        if ($item->ID == $menu_item->ID) {
+            $atts['class'] = 'menu-item-link';
+            if ($menu_item->type === 'post_type') {
+                $atts['data-thumb'] = get_the_post_thumbnail_url($menu_item->object_id);
+                $atts['data-excerpt'] = $menu_item->description;
+            }
+            if ($menu_item->type === 'taxonomy') {
+                $thumb_id    = get_term_meta($menu_item->object_id, 'thumbnail_id', true);
+                $img_src     = wp_get_attachment_url($thumb_id);
+
+                $atts['data-title'] = $menu_item->title;
+                $atts['data-url'] = $menu_item->url;
+
+                $atts['data-thumb'] = $img_src;
+                $atts['data-excerpt'] = category_description($menu_item->object_id);
+            }
+        }
+    }
+
+
+
+    return $atts;
+}
+
+// custom comment
+
+if (!class_exists('Caudat_Custom_Walker_Comment')) {
+    class Caudat_Custom_Walker_Comment extends Walker_Comment
+    {
+        protected function comment($comment, $depth, $args)
+        {
+            if ('div' === $args['style']) {
+                $tag       = 'div';
+                $add_below = 'comment';
+            } else {
+                $tag       = 'li';
+                $add_below = 'div-comment';
+            }
+
+            $commenter          = wp_get_current_commenter();
+            $show_pending_links = isset($commenter['comment_author']) && $commenter['comment_author'];
+
+            if ($commenter['comment_author_email']) {
+                $moderation_note = __('Your comment is awaiting moderation.');
+            } else {
+                $moderation_note = __('Your comment is awaiting moderation. This is a preview; your comment will be visible after it has been approved.');
+            }
+        ?>
+            <<?php echo $tag; ?> <?php comment_class($this->has_children ? 'parent' : '', $comment); ?> id="comment-<?php comment_ID(); ?>">
+                <?php if ('div' !== $args['style']) : ?>
+                    <div id="div-comment-<?php comment_ID(); ?>" class="comment-body comment-row">
+                    <?php endif; ?>
+
+                    <div class="comment-awaiting">
+                        <?php if ('0' == $comment->comment_approved) : ?>
+                            <em class="comment-awaiting-moderation"><?php echo $moderation_note; ?></em>
+                            <br />
+                        <?php endif; ?>
+                    </div>
+                    <div class="comment-author vcard comment-block">
+                        <?php
+                        if (0 != $args['avatar_size']) {
+                            echo get_avatar($comment, $args['avatar_size']);
+                        }
+                        ?>
+                        <div class="comment-meta-wrap">
+                            <div class="comment-author-name">
+                                <?php
+                                $comment_author = get_comment_author_link($comment);
+
+                                if ('0' == $comment->comment_approved && !$show_pending_links) {
+                                    $comment_author = get_comment_author($comment);
+                                }
+
+                                printf(
+                                    /* translators: %s: Comment author link. */
+                                    __('%s <span class="says">says:</span>'),
+                                    sprintf('<cite class="fn">%s</cite>', $comment_author)
+                                );
+                                ?>
+
+                                <div class="comment-meta commentmetadata ">
+                                    <?php
+                                    printf(
+                                        '<a href="%s">%s</a>',
+                                        esc_url(get_comment_link($comment, $args)),
+                                        sprintf(
+                                            /* translators: 1: Comment date, 2: Comment time. */
+                                            __('%1$s'),
+                                            get_comment_date('', $comment)
+                                        )
+                                    );
+
+                                    edit_comment_link(__('(Edit)'), ' &nbsp;&nbsp;', '');
+                                    ?>
+                                </div>
+                            </div>
+
+                            <div class="comment-user-content">
+                                <?php
+                                comment_text(
+                                    $comment,
+                                    array_merge(
+                                        $args,
+                                        array(
+                                            'add_below' => $add_below,
+                                            'depth'     => $depth,
+                                            'max_depth' => $args['max_depth'],
+                                        )
+                                    )
+                                );
+                                ?>
+                            </div>
+                            <?php
+                            comment_reply_link(
+                                array_merge(
+                                    $args,
+                                    array(
+                                        'add_below' => $add_below,
+                                        'depth'     => $depth,
+                                        'max_depth' => $args['max_depth'],
+                                        'before'    => '<div class="reply">',
+                                        'after'     => '</div>',
+                                    )
+                                )
+                            );
+                            ?>
+                        </div>
+                    </div>
+
+                    <?php if ('div' !== $args['style']) : ?>
+                    </div>
+                <?php endif; ?>
+    <?php
+        }
+    }
+}
+
+
+// change reply text
+
+function caudat_comment_reply_text($link)
+{
+    $link = str_replace('Reply', 'Trả lời 123', $link);
+    return $link;
+}
+add_filter('comment_reply_link', 'caudat_comment_reply_text');

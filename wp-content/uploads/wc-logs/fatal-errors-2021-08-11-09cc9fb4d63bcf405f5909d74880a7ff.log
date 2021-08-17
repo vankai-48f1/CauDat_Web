@@ -1,0 +1,24 @@
+2021-08-11T03:41:01+00:00 CRITICAL Uncaught Error: Call to a member function get_attributes() on bool in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\func-part\ajax-add-to-cart.php:30
+Stack trace:
+#0 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\class-wp-hook.php(303): caudat_woocommerce_ajax_add_to_cart('')
+#1 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\class-wp-hook.php(327): WP_Hook->apply_filters('', Array)
+#2 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\plugin.php(470): WP_Hook->do_action(Array)
+#3 D:\APP\XAMPP\htdocs\CauDat_Web\wp-admin\admin-ajax.php(202): do_action('wp_ajax_nopriv_...')
+#4 {main}
+  thrown in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\func-part\ajax-add-to-cart.php on line 30
+
+2021-08-11T03:42:04+00:00 CRITICAL Uncaught Error: Call to a member function get_attributes() on bool in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\func-part\ajax-add-to-cart.php:30
+Stack trace:
+#0 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\class-wp-hook.php(303): caudat_woocommerce_ajax_add_to_cart('')
+#1 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\class-wp-hook.php(327): WP_Hook->apply_filters('', Array)
+#2 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\plugin.php(470): WP_Hook->do_action(Array)
+#3 D:\APP\XAMPP\htdocs\CauDat_Web\wp-admin\admin-ajax.php(202): do_action('wp_ajax_nopriv_...')
+#4 {main}
+  thrown in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\func-part\ajax-add-to-cart.php on line 30
+
+2021-08-11T16:20:52+00:00 CRITICAL syntax error, unexpected '}' in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\func-part\custom-woo.php on line 482
+
+2021-08-11T16:21:52+00:00 CRITICAL syntax error, unexpected '}' in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\func-part\custom-woo.php on line 482
+
+2021-08-11T17:28:44+00:00 CRITICAL syntax error, unexpected '}' in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\woocommerce\checkout\thankyou.php on line 93
+
