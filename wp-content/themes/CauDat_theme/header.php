@@ -39,6 +39,12 @@
     <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/slick/slick.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/slick/slick-theme.css">
 
+    <!-- lightbox -->
+    <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/lightGallery-master/dist/css/lightgallery.css" />
+    <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/lightGallery-master/dist/css/lg-zoom.css" />
+    <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/lightGallery-master/dist/css/lg-thumbnail.css" />
+    
+    <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/lightGallery-master/dist/css/lightgallery-bundle.css" />
     <?php wp_head() ?>
 </head>
 

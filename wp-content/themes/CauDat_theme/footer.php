@@ -260,6 +260,12 @@
 <script src="<?php echo get_template_directory_uri() ?>/js/main.js"></script>
 <script src="<?php echo get_template_directory_uri() ?>/js/slider.js"></script>
 
+<!-- minified version -->
+<script src="<?php echo get_template_directory_uri() ?>/lightGallery-master/dist/lightgallery.min.js"></script>
+
+<!-- lightgallery plugins -->
+<script src="<?php echo get_template_directory_uri() ?>/lightGallery-master/dist/plugins/thumbnail/lg-thumbnail.umd.js"></script>
+<script src="<?php echo get_template_directory_uri() ?>/lightGallery-master/dist/plugins/zoom/lg-zoom.umd.js"></script>
 <?php
 if (!is_front_page()) : ?>
     <script>
@@ -274,6 +280,16 @@ if (!is_front_page()) : ?>
         }
     </script>
 <?php endif; ?>
+
+<script type="text/javascript">
+    lightGallery(document.getElementById('showroom-gallery'), {
+        thumbnail: true,
+        animateThumb: false,
+        zoomFromOrigin: false,
+        allowMediaOverlap: true,
+        toggleThumb: true,
+    });
+</script>
 <?php wp_footer() ?>
 </body>
 

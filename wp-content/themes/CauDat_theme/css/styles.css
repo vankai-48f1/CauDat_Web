@@ -1334,3 +1334,20 @@ form input[type="submit"] {
   padding: 5px 30px;
   border-color: transparent;
 }
+
+
+.page-content {
+    padding-bottom: 4rem;
+}
+
+.page-content h2,
+.page-content h3,
+.page-content h4,
+.page-content h5,
+.page-content p {
+    font-size: revert;
+    margin: revert;
+    padding: revert;
+    font-weight: revert;
+    line-height: 1.3;
+}
