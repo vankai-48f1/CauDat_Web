@@ -58,7 +58,9 @@ Template Name: Home
 
                     // The Loop
                     if ($query_product->have_posts()) :
-                        while ($query_product->have_posts()) : $query_product->the_post(); ?>
+                        while ($query_product->have_posts()) : $query_product->the_post(); 
+                        global $product;
+                        ?>
                             <div class="ss-product__item">
                                 <div class="ss-product__thumb-wrap">
                                     <a href="<?php echo get_the_permalink() ?>" class="ss-product__thumb hover-black">
@@ -69,7 +71,7 @@ Template Name: Home
                                 <div class="ss-product__content align-ct">
                                     <a href="<?php echo get_the_permalink() ?>" class="hover-red">
                                         <h3 class="ss-product__name mg-bt-1"><?php echo  get_the_title() ?></h3>
-                                        <p class="mg-bt-1">Pha máy</p>
+                                        <p class="mg-bt-1"><?php echo $product->get_attribute('pa_loai-pha') ?></p>
                                     </a>
                                     <div class="ss-product__ratings mg-bt-1">
                                         <i class="fas fa-star"></i>
