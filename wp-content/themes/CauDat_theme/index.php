@@ -147,7 +147,7 @@ Template Name: Home
                                         <div class="ss-collections__content-wrap mg-bt-2">
                                             <h3><?php echo  get_the_title() ?></h3>
                                             <div class="ss-collections__subtitle">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum,
+                                                <?php echo get_field('subtitle') ?>
                                             </div>
                                         </div>
 

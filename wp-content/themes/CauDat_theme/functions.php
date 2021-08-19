@@ -30,6 +30,7 @@ function register_my_menu()
     register_nav_menu('footer-menu', __('Footer Menu'));
     register_nav_menu('language', __('Language'));
     register_nav_menu('cate_product', __('Danh mục sản phẩm'));
+    register_nav_menu('cate_news', __('Danh mục tin tức'));
 }
 add_action('init', 'register_my_menu');
 

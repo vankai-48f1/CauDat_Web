@@ -1193,6 +1193,10 @@ header.header-main {
     text-transform: uppercase;
 }
 
+#menu-danh-muc-tin-tuc li a {
+    text-transform: uppercase;
+}
+
 .tags-news li {
   display: inline-block;
   margin-right: 10px;

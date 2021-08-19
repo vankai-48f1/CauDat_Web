@@ -43,9 +43,9 @@
         <div class="sidebar-row">
             <h3>Danh mục</h3>
 
-            <ul class="sidebar-list">
+            <!-- <ul class="sidebar-list">
 
-                <?php
+                < ?php
                 $args_news = array(
                     'type'      => 'post',
                     'parent'    => 19,
@@ -59,13 +59,24 @@
                 $cate_news = get_categories($args_news);
                 foreach ($cate_news as $category) : ?>
                     <li>
-                        <a href="<?php echo $category->slug; ?>">
-                            <?php echo $category->name; ?>
+                        <a href="< ?php echo $category->slug; ?>">
+                            < ?php echo $category->name; ?>
                         </a>
                     </li>
-                <?php endforeach; ?>
+                < ?php endforeach; ?>
 
-            </ul>
+            </ul> -->
+
+            <?php
+            wp_nav_menu(
+                array(
+                    'theme_location'  => 'cate_news',
+                    'depth'  => 2,
+                    'container'  => '',
+                    'menu_class'  => 'sidebar-list',
+                )
+            );
+            ?>
         </div>
 
         <div class="sidebar-row">
