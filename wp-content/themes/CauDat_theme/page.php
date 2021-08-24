@@ -7,10 +7,15 @@
     <?php if (have_posts()) : ?>
 
         <?php while (have_posts()) : the_post(); ?>
-
-            <div class="page-content pd-t-3">
-                <?php the_content(); ?>
-            </div>
+            <?php if (is_shop() || is_cart() || is_checkout()) : ?>
+                <div class="pd-t-3 pd-bt-3">
+                    <?php the_content(); ?>
+                </div>
+            <?php else : ?>
+                <div class="page-content pd-t-3">
+                    <?php the_content(); ?>
+                </div>
+            <?php endif; ?>
 
         <?php endwhile; ?>
 

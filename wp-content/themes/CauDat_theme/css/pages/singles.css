@@ -44,8 +44,8 @@
 }
 
 .list-posts__content {
-  padding-left: 25px;
-  padding-right: 15px;
+  /* padding-left: 25px;
+  padding-right: 15px; */
 }
 
 .list-posts__content .post-categories li {
@@ -318,6 +318,12 @@
   padding-right: 7px;
 }
 
+#commentform .logged-in-as {
+    padding-left: 7px;
+    padding-right: 7px;
+    margin-bottom: 15px;
+}
+
 #commentform input,
 #commentform textarea {
   background-color: #f5f5f5;
@@ -372,6 +378,10 @@
     font-size: 13px;
     color: #888888;
     margin-bottom: 10px;
+}
+
+.comment-author-name .comment-meta .comment-edit-link {
+    color: #ff0000;
 }
 
 .comment-awaiting {

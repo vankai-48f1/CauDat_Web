@@ -411,6 +411,7 @@ h1.product_title {
   margin-bottom: 0;
   padding: 0;
   width: 50px;
+  pointer-events: none;
 }
 
 .product-description-tabs .tabs.wc-tabs li {
@@ -683,7 +684,7 @@ table.shop_table .product-thumbnail {
 }
 
 .woocommerce .woocommerce-cart-form input[name="coupon_code"] {
-    width: auto !important;
+  width: auto !important;
 }
 
 .page-cart .cart_totals h2 {
@@ -1012,3 +1013,79 @@ table.shop_table .product-thumbnail {
   background-color: #fda72f;
 }
 
+/* ---- My Account ---- */
+.myaccount-ctn {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.myaccount-ctn form button[type="submit"] {
+  border-color: transparent;
+  background-color: #000;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 0 17px;
+  min-height: 42px;
+  margin-bottom: 15px;
+  float: none !important;
+  margin-right: 0 !important;
+  /* position: relative;
+    left: 50%;
+
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -o-transform: translateX(-50%); */
+}
+
+.myaccount-ctn form button[type="submit"]:hover {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+.myaccount-ctn form a {
+  color: #60a00d;
+}
+
+.myaccount-ctn form a:hover {
+  color: #60a00d;
+  display: inline-block;
+}
+
+.woocommerce-MyAccount-navigation ul {
+  margin-bottom: 2rem;
+}
+
+.woocommerce-MyAccount-navigation > ul > li {
+  display: inline-block;
+}
+
+.woocommerce-MyAccount-navigation > ul > li > a {
+  font-size: 15px;
+  font-weight: 500;
+  color: #000;
+  padding: 10px 20px;
+  display: inline-block;
+}
+
+.woocommerce-MyAccount-navigation > ul > li.is-active > a {
+  background: #212121;
+  color: #ffffff;
+}
+
+.woocommerce-MyAccount-content a {
+  color: #60a00d;
+}
+
+.woocommerce #respond input#submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button {
+  border-color: transparent !important;
+  background-color: #000 !important;
+  color: #fff !important;
+  text-transform: uppercase;
+  padding: 0 17px !important;
+  min-height: 42px;
+}

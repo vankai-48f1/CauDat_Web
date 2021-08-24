@@ -36,7 +36,7 @@ Template Name: Home
         <div class="container">
             <div class="ss-product">
                 <div class="ss-title align-ct">
-                    <h3 class="title-type-prm">Sản Phẩm</h3>
+                    <h3 class="ss-product__title title-type-prm">Sản Phẩm</h3>
                 </div>
                 <div class="ss-product__slider pd-t-3 pd-bt-3">
                     <?php

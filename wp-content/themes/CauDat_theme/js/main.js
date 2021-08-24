@@ -154,6 +154,8 @@ jQuery(document).ready(function () {
     jQuery('.quantity input[type="number"]').on('change', function () {
         console.log(123);
         jQuery('.woocommerce-cart-form .actions button.button').removeAttr("disabled");
+        jQuery('.woocommerce-cart-form .actions button.button').attr("aria-disabled", false);
+
     })
 
 
@@ -241,22 +243,22 @@ jQuery(document).ready(function () {
         });
     }
 
-    function getDataPercent (data) {
-        data.each( (index, element) => {
+    function getDataPercent(data) {
+        data.each((index, element) => {
             var percent = jQuery(element).attr('data-percent');
             var circle = jQuery(element).closest('.attr-product__value').find('ul li span');
-            setWidthCircle(circle,percent);
+            setWidthCircle(circle, percent);
         })
     }
 
     let taste_percent = jQuery('.attr-product__percent-taste');
     let taste_bold_percent = jQuery('.attr-product__percent-taste-bold');
     let sour_percent = jQuery('.attr-product__percent-sour');
-    
-    getDataPercent (taste_percent);
-    getDataPercent (taste_bold_percent);
-    getDataPercent (sour_percent);
-    
+
+    getDataPercent(taste_percent);
+    getDataPercent(taste_bold_percent);
+    getDataPercent(sour_percent);
+
 
 
 })
@@ -289,4 +291,25 @@ if (parentCoupon) {
         buttonHiddenSubmit.click();
 
     });
+}
+
+
+// back to top
+
+let buttonBackToTop = document.getElementById('backtotop-btn');
+
+window.onscroll = function () { scrollFunction() };
+
+function scrollFunction() {
+
+    if (document.body.scrollTop > 1500 || document.documentElement.scrollTop > 1500) {
+        buttonBackToTop.classList.add('show-btn')
+    } else {
+        buttonBackToTop.classList.remove('show-btn');
+    }
+}
+
+function backToTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
 }

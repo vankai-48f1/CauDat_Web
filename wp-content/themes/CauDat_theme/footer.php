@@ -253,6 +253,12 @@
 </div>
 <div class="shadow-screen"></div>
 
+<!-- backtotop -->
+
+<div class="backtotop">
+    <button onclick="backToTop()" id="backtotop-btn" class="backtotop__btn" >A</button>
+</div>
+
 <!-- Bootstrap core JavaScript -->
 <script src="<?php echo get_template_directory_uri() ?>/vendor/jquery/jquery.min.js"></script>
 <script src="<?php echo get_template_directory_uri() ?>/vendor/bootstrap/js/bootstrap.min.js"></script>

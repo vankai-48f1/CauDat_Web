@@ -133,19 +133,23 @@ Template Name: Về chúng tôi
                         </div>
                     </div>
 
-                    <?php if (have_rows('mission_content')) : ?>
-                        <div class="about-us__mission-row">
-                            <?php while (have_rows('mission_content')) : the_row();
-                                $name = get_sub_field('name');
-                                $content = get_sub_field('content');
-                            ?>
-                                <div class="about-us__mission-col">
-                                    <h3 class="about-us__mission-name"><?php echo $name ?></h3>
-                                    <div class="about-us__mission-ct-item"><?php echo $content ?></div>
+                    <?php
+                    if (have_rows('mission')) : while (have_rows('mission')) : the_row();
+                            if (have_rows('mission_content')) : ?>
+                                <div class="about-us__mission-row">
+                                    <?php while (have_rows('mission_content')) : the_row();
+                                        $name = get_sub_field('name');
+                                        $content = get_sub_field('content');
+                                    ?>
+                                        <div class="about-us__mission-col">
+                                            <h3 class="about-us__mission-name"><?php echo $name ?></h3>
+                                            <div class="about-us__mission-ct-item"><?php echo $content ?></div>
+                                        </div>
+                                    <?php endwhile; ?>
                                 </div>
-                            <?php endwhile; ?>
-                        </div>
-                    <?php endif; ?>
+                    <?php endif;
+                        endwhile;
+                    endif; ?>
                 </div>
             </div>
         </div>
