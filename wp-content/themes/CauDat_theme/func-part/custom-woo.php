@@ -118,8 +118,8 @@ if (!function_exists('caudat_woocommerce_template_loop_product_thumbnail')) {
         echo woocommerce_get_product_thumbnail();
 
         $categories = $product->get_category_ids();
-
-        if (!in_array(25, $categories)) :
+        
+        if ( !(in_array(21, $categories) || in_array(22, $categories) || in_array(23, $categories) || in_array(24, $categories) || in_array(25, $categories)) ) :
             get_template_part('template-parts/attribute', 'product');
         endif;
         echo '</div>';
@@ -176,7 +176,7 @@ if (!function_exists('caudat_woocommerce_template_loop_add_to_cart')) {
 
         $categories = $product->get_category_ids();
 
-        if (!in_array(25, $categories)) :
+        if ( !(in_array(21, $categories) || in_array(22, $categories) || in_array(23, $categories) || in_array(24, $categories) || in_array(25, $categories)) ) :
             get_template_part('template-parts/attribute', 'product');
         endif;
 
@@ -228,7 +228,7 @@ function caudat_attribute_after_price()
     global $product;
     $categories = $product->get_category_ids();
 
-    if (!in_array(25, $categories)) :
+    if ( !(in_array(21, $categories) || in_array(22, $categories) || in_array(23, $categories) || in_array(24, $categories) || in_array(25, $categories)) ) :
         get_template_part('template-parts/attribute', 'product');
     endif;
 }

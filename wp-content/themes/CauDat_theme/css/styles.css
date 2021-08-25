@@ -426,11 +426,19 @@ header.header-main {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-}
 
-.m-breadcrumb {
   font-size: 15px;
   font-weight: 600;
+}
+
+/* .m-breadcrumb {
+    font-size: 15px;
+    font-weight: 600;
+} */
+
+.m-breadcrumb li {
+    display: inline-block;
+    /* margin-right: 10px; */
 }
 
 .m-breadcrumb a:hover {
@@ -440,7 +448,12 @@ header.header-main {
 .breadcrumb-delimiter {
   display: inline-block;
   margin: 0 10px;
+  /* margin-right: 10px; */
 }
+/* 
+.m-breadcrumb span {
+    margin-right: 10px;
+} */
 
 .breadcrumb-delimiter i {
   vertical-align: middle;

@@ -457,6 +457,10 @@ h1.product_title {
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
 }
 
+/* .related-product .related ul.products > li {
+    max-width: calc( (100% / 5));
+} */
+
 .product-description .wrap-add-to-cart {
   display: flex;
   flex-wrap: wrap;
