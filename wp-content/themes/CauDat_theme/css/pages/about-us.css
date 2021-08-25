@@ -5,11 +5,6 @@
   line-height: 1.2;
 }
 
-.about-us__intro,
-.about-us__detail {
-    display: none;
-}
-
 .about-us__intro-ctn {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

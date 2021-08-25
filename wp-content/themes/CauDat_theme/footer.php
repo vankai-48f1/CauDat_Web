@@ -5,7 +5,8 @@
             <div class="footer-top align-ct">
                 <div class="container">
                     <div class="footer-top__contact mg-bt-2">
-                        <p>HOTLINE: <a class="hover-red" href="tel:<?php the_field('hotline', 'option') ?>"><span><?php the_field('hotline', 'option') ?></span></a></p>
+                        <p>HOTLINE: <a class="footer-top__contact-hotline hover-red" href="tel:<?php the_field('hotline', 'option') ?>"><span><?php the_field('hotline', 'option') ?></span></a></p>
+                        <p>EMAIL: <a class="hover-red" href="mailto:<?php the_field('email', 'option') ?>"><?php the_field('email', 'option') ?></a></p>
                         <p>SHOWROOM: <?php the_field('showroom', 'option') ?></p>
                     </div>
 
@@ -20,7 +21,7 @@
 
                                 ?>
                                     <li class="ecommerce-list__item">
-                                        <a href="<?php echo $ecommerce_link; ?>">
+                                        <a href="<?php echo $ecommerce_link; ?>" target="_blank">
                                             <img src="<?php echo $ecommerce_logo['url'] ?>" alt="logo">
                                         </a>
                                     </li>
@@ -130,16 +131,16 @@
         <div class="footer-bottom bg-black">
             <div class="container footer-bottom__container">
                 <div class="row">
-                    <div class="col-lg-3 col-12">
+                    <!-- <div class="col-lg-3 col-12">
                         <div class="footer-bottom__content">
-                            <h3>Hotline: <?php the_field('hotline', 'option') ?></h3>
-                            <p><?php the_field('email', 'option') ?></p>
+                            <h3>Hotline: < ?php the_field('hotline', 'option') ?></h3>
+                            <p>< ?php the_field('email', 'option') ?></p>
                             <div class="footer-bottom__border">
                                 <i class="fas fa-map-marker-alt"></i>
                                 <span class="footer-bottom__border-line"></span>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col-lg-3 col-12">
                         <?php if (have_rows('branch_1', 'option')) : ?>
                             <div class="footer-bottom__content">
@@ -189,17 +190,23 @@
                                     <h3><?php echo $name ?></h3>
                                     <p><?php echo $address; ?></p>
                                 <?php endwhile; ?>
+
+                                <div class="footer-bottom__border">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span class="footer-bottom__border-line"></span>
+                                </div>
                             </div>
                         <?php endif; ?>
                     </div>
-                </div>
-
-                <div class="float-logo">
-                    <div class="float-logo__wrap">
-                        <div class="float-logo__image"></div>
-                        <!-- <div class="float-logo__registered">
+                    <div class="col-lg-3 col-12">
+                        <div class="float-logo">
+                            <div class="float-logo__wrap">
+                                <div class="float-logo__image"></div>
+                                <!-- <div class="float-logo__registered">
                             <i class="fal fa-registered"></i>
                         </div> -->
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -256,7 +263,7 @@
 <!-- backtotop -->
 
 <div class="backtotop">
-    <button onclick="backToTop()" id="backtotop-btn" class="backtotop__btn" >A</button>
+    <button onclick="backToTop()" id="backtotop-btn" class="backtotop__btn">A</button>
 </div>
 
 <!-- Bootstrap core JavaScript -->

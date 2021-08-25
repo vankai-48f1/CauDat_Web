@@ -1,0 +1,35 @@
+2021-08-25T09:19:55+00:00 CRITICAL Uncaught Error: Call to a member function get_category_ids() on null in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\func-part\custom-woo.php:174
+Stack trace:
+#0 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\class-wp-hook.php(303): caudat_woocommerce_template_loop_add_to_cart('')
+#1 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\class-wp-hook.php(327): WP_Hook->apply_filters(NULL, Array)
+#2 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\plugin.php(470): WP_Hook->do_action(Array)
+#3 D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\woocommerce\content-product.php(65): do_action('woocommerce_aft...')
+#4 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\template.php(772): require('D:\\APP\\XAMPP\\ht...')
+#5 D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('D:\\APP\\XAMPP\\ht...', false)
+#6 D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\woocommerce\single-product\related.php(43): wc_get_template_part('content', 'product')
+#7 in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\func-part\custom-woo.php on line 174
+
+2021-08-25T09:21:08+00:00 CRITICAL Uncaught Error: Call to a member function get_category_ids() on null in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\func-part\custom-woo.php:174
+Stack trace:
+#0 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\class-wp-hook.php(303): caudat_woocommerce_template_loop_add_to_cart('')
+#1 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\class-wp-hook.php(327): WP_Hook->apply_filters(NULL, Array)
+#2 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\plugin.php(470): WP_Hook->do_action(Array)
+#3 D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\woocommerce\content-product.php(65): do_action('woocommerce_aft...')
+#4 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\template.php(772): require('D:\\APP\\XAMPP\\ht...')
+#5 D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('D:\\APP\\XAMPP\\ht...', false)
+#6 D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\woocommerce\single-product\related.php(43): wc_get_template_part('content', 'product')
+#7 in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\func-part\custom-woo.php on line 174
+
+2021-08-25T09:22:14+00:00 CRITICAL Uncaught Error: Call to a member function get_category_ids() on null in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\func-part\custom-woo.php:224
+Stack trace:
+#0 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\class-wp-hook.php(303): caudat_attribute_after_price('')
+#1 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\class-wp-hook.php(327): WP_Hook->apply_filters(NULL, Array)
+#2 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\plugin.php(470): WP_Hook->do_action(Array)
+#3 D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\woocommerce\content-single-product.php(67): do_action('woocommerce_sin...')
+#4 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\template.php(772): require('D:\\APP\\XAMPP\\ht...')
+#5 D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('D:\\APP\\XAMPP\\ht...', false)
+#6 D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\woocommerce\single-product.php(40): wc_get_template_part('content', 'single-product')
+#7 D:\APP\XA in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\func-part\custom-woo.php on line 224
+
+2021-08-25T09:31:48+00:00 CRITICAL syntax error, unexpected ')' in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\func-part\custom-woo.php on line 226
+

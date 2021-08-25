@@ -111,12 +111,17 @@ if (!function_exists('caudat_woocommerce_template_loop_product_thumbnail')) {
      */
     function caudat_woocommerce_template_loop_product_thumbnail()
     {
+        global $product;
         // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         echo '<div class="woo-loop-thumbnail">';
 
         echo woocommerce_get_product_thumbnail();
-        get_template_part('template-parts/attribute', 'product');
 
+        $categories = $product->get_category_ids();
+
+        if (!in_array(25, $categories)) :
+            get_template_part('template-parts/attribute', 'product');
+        endif;
         echo '</div>';
     }
 
@@ -162,12 +167,19 @@ if (!function_exists('caudat_woocommerce_catalog_ordering')) {
 if (!function_exists('caudat_woocommerce_template_loop_add_to_cart')) {
     function caudat_woocommerce_template_loop_add_to_cart()
     {
+        global $product;
         echo '<div class="product-info">';
         woocommerce_template_loop_product_link_open(); // Open link
         woocommerce_template_loop_product_title(); // Title product
         caudat_add_rating(); // Rating
         woocommerce_template_loop_price(); // Price product
-        get_template_part('template-parts/attribute', 'product');
+
+        $categories = $product->get_category_ids();
+
+        if (!in_array(25, $categories)) :
+            get_template_part('template-parts/attribute', 'product');
+        endif;
+
         woocommerce_template_loop_product_link_close(); // Close link
 
         woocommerce_template_loop_add_to_cart();
@@ -193,7 +205,10 @@ if (!function_exists('caudat_single_product_description')) {
 function caudat_single_product_gu()
 {
     global $product;
-    echo '<div class="sg-product-gu">( ' . $product->get_attribute('pa_gu') . ')</div>';
+
+    if ($product->get_attribute('pa_gu')) :
+        echo '<div class="sg-product-gu">( ' . $product->get_attribute('pa_gu') . ')</div>';
+    endif;
 }
 
 add_action('woocommerce_single_product_summary', 'caudat_single_product_gu', 7);
@@ -210,7 +225,12 @@ add_action('caudat_descriptions', 'caudat_descriptions_content', 5);
 // add addtribute product after price
 function caudat_attribute_after_price()
 {
-    get_template_part('template-parts/attribute', 'product');
+    global $product;
+    $categories = $product->get_category_ids();
+
+    if (!in_array(25, $categories)) :
+        get_template_part('template-parts/attribute', 'product');
+    endif;
 }
 
 add_action('woocommerce_single_product_summary', 'caudat_attribute_after_price', 15);
@@ -502,6 +522,3 @@ function caudat_pagination_product()
 }
 
 add_action('woocommerce_after_shop_loop', 'caudat_pagination_product', 10);
-
-
-

@@ -1089,3 +1089,18 @@ table.shop_table .product-thumbnail {
   padding: 0 17px !important;
   min-height: 42px;
 }
+
+#review_form .comment-form-comment {
+    margin-top: 15px;
+}
+
+#review_form .comment-form input,
+#review_form .comment-form textarea {
+    border-width: 1px;
+}
+
+.woocommerce-product-details__short-description {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}

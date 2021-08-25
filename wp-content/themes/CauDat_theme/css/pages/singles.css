@@ -286,7 +286,7 @@
   margin-bottom: 25px;
 }
 
-#commentform {
+.single #commentform {
   display: flex;
   flex-wrap: wrap;
   /* flex-direction: column; */

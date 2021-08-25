@@ -25,7 +25,6 @@ Template Name: Home
                         </div>
                     </div>
                     <div class="section-slider__image" style="background-image: url(<?php echo $background ?>);">
-                        <img src="<?php echo $image ?>" alt="image slider">
                     </div>
                 </div>
             <?php endwhile; ?>
@@ -42,7 +41,7 @@ Template Name: Home
                     <?php
                     $products = array(
                         'post_type' => 'product',
-                        'showposts'  => 6,
+                        'showposts'  => 9,
                         'orderby'     => 'date',
                         'order'     => 'DESC',
                         'tax_query' => array(
