@@ -118,8 +118,8 @@ if (!function_exists('caudat_woocommerce_template_loop_product_thumbnail')) {
         echo woocommerce_get_product_thumbnail();
 
         $categories = $product->get_category_ids();
-        
-        if ( in_array(20, $categories) ) :
+
+        if (in_array(20, $categories)) :
             get_template_part('template-parts/attribute', 'product');
         endif;
         echo '</div>';
@@ -176,7 +176,7 @@ if (!function_exists('caudat_woocommerce_template_loop_add_to_cart')) {
 
         $categories = $product->get_category_ids();
 
-        if ( in_array(20, $categories) ) :
+        if (in_array(20, $categories)) :
             get_template_part('template-parts/attribute', 'product');
         endif;
 
@@ -228,7 +228,7 @@ function caudat_attribute_after_price()
     global $product;
     $categories = $product->get_category_ids();
 
-    if ( in_array(20, $categories) ) :
+    if (in_array(20, $categories)) :
         get_template_part('template-parts/attribute', 'product');
     endif;
 }
@@ -245,15 +245,26 @@ function caudat_rename_tabs_product($tabs)
 {
     $tabs['description']['title'] = 'Chi tiết sản phẩm';
 
-    $tabs['additional_information']['title'] = 'Cách pha';
-    $tabs['additional_information']['callback'] = 'caudat_cach_pha';
+    $cach_pha = get_field('cach_pha');
+    if ($cach_pha) {
+        $tabs['additional_information']['title'] = 'Cách pha';
+        $tabs['additional_information']['callback'] = 'caudat_cach_pha';
+    } else {
+
+        add_filter( 'woocommerce_product_tabs', 
+        function ($tabs) {
+            unset( $tabs['additional_information'] );
+            return $tabs;
+        }
+        , 98 );
+    }
 
     return $tabs;
 }
 
 function caudat_cach_pha()
 {
-    echo get_field('cach_pha');;
+    echo get_field('cach_pha');
 }
 // Rename tabs description heading product
 add_filter('woocommerce_product_description_heading', 'caudat_rename_tabs_heading_product');

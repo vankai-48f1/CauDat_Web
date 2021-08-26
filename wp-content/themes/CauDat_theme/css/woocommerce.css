@@ -453,12 +453,18 @@ h1.product_title {
   padding-bottom: 15px;
 }
 
+@media (min-width: 1400px) {
+  .related-product .related ul.products {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
 .related-product .related ul.products {
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  /* grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); */
+  grid-template-columns: repeat(3, 1fr);
 }
 
 /* .related-product .related ul.products > li {
-    max-width: calc( (100% / 5));
+    max-width: calc( (100% / 5)); 
 } */
 
 .product-description .wrap-add-to-cart {
@@ -1095,16 +1101,70 @@ table.shop_table .product-thumbnail {
 }
 
 #review_form .comment-form-comment {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 #review_form .comment-form input,
 #review_form .comment-form textarea {
-    border-width: 1px;
+  border-width: 1px;
 }
 
 .woocommerce-product-details__short-description {
-    font-size: 14px;
-    line-height: 1.5;
-    margin-bottom: 15px;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+/* ---- Search Product ---- */
+/* ---- Search Product ---- */
+/* ---- Search Product ---- */
+
+.search-product form .wc-block-product-search__label {
+  display: none;
+}
+
+.search-product form input.wc-block-product-search__field {
+  border-radius: 0;
+  border: none;
+  min-width: 3em;
+  padding: 3px 0 3px 0.25em;
+  flex-grow: 1;
+}
+
+.search-product form button.wc-block-product-search__button {
+  border: none;
+  background-color: transparent;
+  padding: 5px 17px;
+  display: inline-block;
+}
+
+.search-product form button::before {
+  font-family: "FontAwesome";
+  content: "\f002";
+  display: inline-block;
+  font-size: 14px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 25px;
+
+  background: #f7f7f7;
+  border: 1px solid #ccc;
+  color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  -ms-transform: scaleX(-1);
+}
+
+.search-product form button svg {
+  display: none;
+}
+
+.search-product .wc-block-product-search__fields {
+  padding: 4px;
+  border: 1px solid #949494;
 }

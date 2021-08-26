@@ -50,6 +50,14 @@ function mini_blog_widgets_init()
     ));
 
     register_sidebar(array(
+        'name'            => __('Search product'),
+        'id'             => 'search-product',
+        'description'     => __('Search product'),
+        'before_widget'   => '<div class="search-product">',
+        'after_widget'   => '</div>',
+    ));
+
+    register_sidebar(array(
         'name'            => __('Login'),
         'id'             => 'login',
         'description'     => __('Login')

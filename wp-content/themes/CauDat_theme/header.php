@@ -112,8 +112,8 @@
                                         <button class="search-block__open">
                                             <span class="search-block__open-icon"></span>&ensp;<span>Tìm kiếm</span>
                                         </button>
-                                        <ul class="search-block__form">
-                                            <?php dynamic_sidebar('search'); ?>
+                                        <ul class="search-block__form search-block__product">
+                                            <?php dynamic_sidebar('search-product'); ?>
                                         </ul>
                                     </div>
 

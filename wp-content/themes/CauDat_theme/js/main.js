@@ -170,6 +170,7 @@ jQuery(document).ready(function () {
         let excerpt = jQuery(this).find('.menu-item-link').attr('data-excerpt');
         let url = jQuery(this).find('.menu-item-link').attr('data-url');
 
+        let thumb_html = thumb ? `<img src="${thumb}" alt="">` : '';
         let html_submenu_info = `
                                 <div class="submenu-info">
                                     <div class="submenu-info__ctn">
@@ -179,7 +180,7 @@ jQuery(document).ready(function () {
                                             <div class="submenu-info__link"><a href="${url}">Xem tất cả</a></div>
                                         </div>
                                         <div class="submenu-info__thumb">
-                                            <img src="${thumb}" alt="">
+                                          ${thumb_html}
                                         </div>
                                     </div>
                                 </div>`;

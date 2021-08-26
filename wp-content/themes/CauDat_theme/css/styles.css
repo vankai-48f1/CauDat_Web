@@ -428,6 +428,7 @@ header.header-main {
   justify-content: flex-end;
 
   font-size: 15px;
+  line-height: 1.5;
   font-weight: 600;
 }
 
@@ -925,7 +926,7 @@ h3.ss-product__title {
 .footer-bottom__content {
   padding-top: 20px;
   padding-bottom: 20px;
-  padding-right: 20px;
+  padding-left: 30px;
   position: relative;
   height: 100%;
 }
@@ -983,7 +984,7 @@ h3.ss-product__title {
 
 .footer-bottom__border {
   position: absolute;
-  right: 0;
+  left: 0;
   top: 0;
   font-size: 16px;
   color: var(--color-prm);

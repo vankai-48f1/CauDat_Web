@@ -226,7 +226,7 @@
             </a>
         </div>
         <ul class="search-block__form">
-            <?php dynamic_sidebar('search'); ?>
+            <?php dynamic_sidebar('search-product'); ?>
         </ul>
 
         <?php

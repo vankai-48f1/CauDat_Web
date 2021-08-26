@@ -28,7 +28,6 @@
                                         </a>
                                     </div>
                                     <div class="list-posts__content">
-                                        <?php the_category() ?>
 
                                         <h4>
                                             <a href="<?php the_permalink() ?>" class="list-posts__item-title hover-black">
@@ -52,6 +51,23 @@
                                                 <span class="list-posts__delimiter">/</span>
                                                 <span class="list-posts__item-comment"><?php echo get_comments_number() ?>&ensp;Comments</span>
                                             <?php endif; ?>
+                                        </div>
+
+                                        <div class="mg-t-1">
+                                            <ul class="post-categories">
+                                                <?php
+                                                // echo '<pre>',var_dump(get_the_category()), '</pre>';
+
+                                                $categories = get_the_category();
+
+                                                foreach ($categories as $category) :
+                                                    if ($category->term_id != 19) : ?>
+                                                        <li><a href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name; ?></a></li>
+                                                <?php
+                                                        break;
+                                                    endif;
+                                                endforeach; ?>
+                                            </ul>
                                         </div>
                                     </div>
                                 </article>

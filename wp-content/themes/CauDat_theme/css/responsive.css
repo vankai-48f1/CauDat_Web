@@ -277,6 +277,19 @@
     min-height: auto;
     padding-top: 56%;
   }
+
+  .float-logo {
+      display: none;
+  }
+
+  .footer-bottom {
+      padding-top: 25px;
+      padding-bottom: 25px;
+  }
+
+  .related-product .related ul.products {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 767px) {
@@ -441,11 +454,6 @@
     transform: translateX(0%);
   }
 
-  .footer-bottom__content {
-    padding-right: 110px;
-    transform: translateX(0);
-  }
-
   .contact__note {
     padding: 25px;
   }
@@ -472,7 +480,7 @@
   }
 
   .title-type-prm {
-    font-size: 30px;
+    font-size: 27px;
   }
 
   .list-posts {
@@ -533,5 +541,41 @@
 
   .about-us__detail-head {
       padding-top: 20px;
+  }
+
+  .related-product .related > h2 {
+      font-size: 23px;
+  }
+  
+  .header-part__title {
+      font-size: 23px;
+  }
+
+  h1.product_title {
+      font-size: 23px;
+  }
+
+  .woocommerce-loop-product__title {
+      font-size: 14px;
+  }
+  
+  .ss-product__name {
+      font-size: 16px;
+  }
+
+  .ss-product__content {
+      padding: 0 10px;
+  }
+
+  .about-us__title {
+      font-size: 23px;
+  }
+
+  .partner__content .partner__infor-title, .partner__content .partner__success-story-title {
+      font-size: 27px;
+  }
+
+  .comment-form-ctn {
+      padding: 25px 15px;
   }
 }
