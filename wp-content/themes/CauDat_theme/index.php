@@ -25,6 +25,9 @@ Template Name: Home
                         </div>
                     </div>
                     <div class="section-slider__image" style="background-image: url(<?php echo $background ?>);">
+                        <?php if ($image) : ?>
+                            <img src="<?php echo $image; ?>" alt="image product">
+                        <?php endif; ?>
                     </div>
                 </div>
             <?php endwhile; ?>
@@ -57,9 +60,9 @@ Template Name: Home
 
                     // The Loop
                     if ($query_product->have_posts()) :
-                        while ($query_product->have_posts()) : $query_product->the_post(); 
-                        global $product;
-                        ?>
+                        while ($query_product->have_posts()) : $query_product->the_post();
+                            global $product;
+                    ?>
                             <div class="ss-product__item">
                                 <div class="ss-product__thumb-wrap">
                                     <a href="<?php echo get_the_permalink() ?>" class="ss-product__thumb hover-black">
@@ -213,8 +216,8 @@ Template Name: Home
                     $query_news = new WP_Query($news);
                     // The Loop
                     if ($query_news->have_posts()) :
-                        while ($query_news->have_posts()) : $query_news->the_post(); 
-                        ?>
+                        while ($query_news->have_posts()) : $query_news->the_post();
+                    ?>
                             <article class="ss-news__item mg-bt-1">
                                 <div class="ss-news__item-thumb">
                                     <a href="<?php the_permalink() ?>" class="ss-news__item-thumb-wrap">

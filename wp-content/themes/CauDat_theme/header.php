@@ -27,6 +27,7 @@
     <link href="<?php echo get_template_directory_uri() ?>/css/pages/singles.css" rel="stylesheet">
     <link href="<?php echo get_template_directory_uri() ?>/css/pages/contact.css" rel="stylesheet">
     <link href="<?php echo get_template_directory_uri() ?>/css/pages/stories.css" rel="stylesheet">
+    <link href="<?php echo get_template_directory_uri() ?>/css/pages/partner.css" rel="stylesheet">
     <link href="<?php echo get_template_directory_uri() ?>/css/woocommerce.css" rel="stylesheet">
 
     <link href="<?php echo get_template_directory_uri() ?>/css/responsive.css" rel="stylesheet"> <!-- Responsive CSS -->

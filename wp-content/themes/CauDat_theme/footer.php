@@ -271,6 +271,8 @@
 <script src="<?php echo get_template_directory_uri() ?>/vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="<?php echo get_template_directory_uri() ?>/slick/slick.js"></script>
 <script src="<?php echo get_template_directory_uri() ?>/js/main.js"></script>
+<script src="<?php echo get_template_directory_uri() ?>/js/tabs.js"></script>
+
 <script src="<?php echo get_template_directory_uri() ?>/js/slider.js"></script>
 
 <!-- minified version -->
