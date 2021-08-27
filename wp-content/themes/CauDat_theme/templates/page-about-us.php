@@ -182,6 +182,24 @@ Template Name: Về chúng tôi
             </div>
         </div>
     </section>
+
+
+    <?php if (have_rows('about_us_slider')) : ?>
+        <section class="about-us__ss">
+            <div class="container">
+                <div class="about-us__slider">
+                    <?php while (have_rows('about_us_slider')) : the_row();
+                        $slider_img = get_sub_field('image');
+                    ?>
+                        <div class="about-us__slider-image">
+                            <img src="<?php echo $slider_img; ?>" alt="">
+                        </div>
+                    <?php endwhile; ?>
+                </div>
+            </div>
+        </section>
+    <?php endif; ?>
+
     <!-- /.container -->
 </div>
 <?php get_footer() ?>

@@ -197,6 +197,19 @@ Template Name: Home
         </div>
     </section>
 
+    <!-- section image -->
+    <?php $ss_image = get_field('section_image');
+
+    if ($ss_image) : ?>
+        <section>
+            <div class="container">
+                <div class="ss-image-wrap">
+                    <img src="<?php echo $ss_image['url'] ?>" alt="">
+                </div>
+            </div>
+        </section>
+    <?php endif; ?>
+
     <section>
         <div class="ss-news" style="background-image: url(<?php the_field('background_news_home') ?>);">
             <div class="container">

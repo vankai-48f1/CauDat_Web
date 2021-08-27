@@ -341,6 +341,10 @@ function caudat_variable_product_elements()
             // remove gu after defaul title
             remove_action('woocommerce_single_product_summary', 'caudat_attribute_after_price', 15);
             add_action('woocommerce_before_variations_form', 'caudat_attribute_after_price', 22);
+
+            // remove rating defaul single product
+            remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10);
+            add_action('woocommerce_before_variations_form', 'caudat_template_single_rating', 18);
         }
     }
 }
@@ -356,6 +360,14 @@ add_action('woocommerce_before_single_product', 'caudat_variable_product_element
 // // add the filter 
 // add_filter( 'woocommerce_cart_contents_count', 'filter_woocommerce_cart_contents_count', 15, 1 );
 
+
+// custom rating 
+
+function caudat_template_single_rating () {
+    if ( post_type_supports( 'product', 'comments' ) ) {
+        wc_get_template( 'single-product/rating.php' );
+    }
+}
 
 
 
@@ -377,6 +389,9 @@ function remove_field_checkout($fields)
 
     return $fields;
 }
+
+
+
 
 add_filter('woocommerce_checkout_fields', 'm_custom_override_checkout_fields');
 
@@ -418,24 +433,6 @@ function m_custom_override_checkout_fields($fields)
         'priority' => 4
     );
 
-    // $fields['billing']['billing_hour'] = array(
-    //     'type' => 'number',
-    //     'label' => __(null, 'woocommerce'),
-    //     'placeholder' => _x('0 giờ*', 'placeholder', 'woocommerce'),
-    //     'required' => true,
-    //     'class' => array('m-col-25 billing_hour'),
-    //     'priority' => 5
-    // );
-
-    // $fields['billing']['billing_minus'] = array(
-    //     'type' => 'number',
-    //     'label' => __(null, 'woocommerce'),
-    //     'placeholder' => _x('00 phút*', 'placeholder', 'woocommerce'),
-    //     'required' => true,
-    //     'class' => array('m-col-25 billing_minus'),
-    //     'priority' => 6,
-    // );
-
     $fields['billing']['billing_last_name'] = array(
         'type' => 'hidden',
         'label' => __(null, 'woocommerce'),
@@ -466,6 +463,9 @@ function m_custom_override_checkout_fields($fields)
     return $fields;
 }
 
+
+
+
 // Before checkout add container
 
 function caudat_open_container_checkout()
@@ -479,6 +479,10 @@ function caudat_close_container_checkout()
     echo '</div>';
 }
 add_action('woocommerce_after_checkout_form', 'caudat_close_container_checkout');
+
+
+
+
 
 // custom coupon
 function caudat_checkout_coupon_form()
@@ -514,6 +518,7 @@ function thankyou_custom_items_data($order_id)
         );
     }
 }
+
 
 
 // pagination product

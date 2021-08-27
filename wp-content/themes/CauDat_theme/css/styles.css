@@ -1422,3 +1422,14 @@ form input[type="submit"] {
     opacity: 1;
     visibility: visible;
 }
+
+.ss-image-wrap {
+    padding: 50px 0;
+    background-color: #fff;
+}
+
+.ss-image-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
