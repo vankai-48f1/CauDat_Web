@@ -60,6 +60,9 @@ function my_remove_default_woo()
     remove_action('woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10);
     remove_action('woocommerce_checkout_order_review', 'woocommerce_order_review', 10);
     remove_action('woocommerce_after_shop_loop', 'woocommerce_pagination', 10);
+
+    // remove rating defaul single product
+    remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10);
 }
 add_action('init', 'my_remove_default_woo', 10);
 
@@ -344,7 +347,7 @@ function caudat_variable_product_elements()
 
             // remove rating defaul single product
             remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10);
-            add_action('woocommerce_before_variations_form', 'caudat_template_single_rating', 18);
+            // add_action('woocommerce_before_variations_form', 'caudat_template_single_rating', 21);
         }
     }
 }

@@ -152,7 +152,6 @@ jQuery(document).ready(function () {
 
     // enable update cart
     jQuery('.quantity input[type="number"]').on('change', function () {
-        console.log(123);
         jQuery('.woocommerce-cart-form .actions button.button').removeAttr("disabled");
         jQuery('.woocommerce-cart-form .actions button.button').attr("aria-disabled", false);
 
@@ -262,8 +261,78 @@ jQuery(document).ready(function () {
 
 
 
-})
+    // rating 
 
+    jQuery(document).on('mouseover', '.woocommerce-Reviews .comment-form .stars a', function (e) {
+        e.stopPropagation();
+
+        var prevStars = jQuery(this).prevAll();
+
+        jQuery(this).addClass('hovered');
+        prevStars.addClass('hovered');
+    });
+
+    jQuery(document).on('mouseout', '.woocommerce-Reviews .comment-form .stars a', function (e) {
+        e.stopPropagation();
+
+        var prevStars = jQuery(this).prevAll();
+
+        jQuery(this).removeClass('hovered');
+        prevStars.removeClass('hovered');
+    });
+
+    setTimeout(() => {
+        let ratings = jQuery('.comment-text .star-rating .rating');
+        ratings.each((index, rating) => {
+
+            var rating_ct = jQuery(rating).text();
+            var rating_num = Number(rating_ct.trim());
+            rating_num ? rating_num : 0;
+
+        
+            if (rating_num != 0) {
+                jQuery(rating).closest('.star-rating').append('<div class="star-icon">Được xếp hạng&ensp;</div>');
+
+                for (var i = 0; i < rating_num; ++i) {
+                    jQuery(rating).closest('.star-rating').find('.star-icon').append('<i class="fas fa-star"></i>');
+                }
+            }
+        });
+
+    }, 500)
+}); // close ready 
+
+window.onload = function () {
+
+    setTimeout(() => {
+        var stars = document.querySelectorAll('.woocommerce-Reviews .comment-form .stars a');
+
+        stars.forEach((star) => {
+
+            star.addEventListener('click', function (e) {
+
+                stars.forEach((sibling) => {
+                    if (sibling.classList.contains('selected')) {
+                        sibling.classList.remove('selected');
+                    }
+                })
+
+                var prevStars = e.target.previousElementSibling;
+
+                e.target.classList.add('selected');
+
+                for (let i = 0; prevStars != null; ++i) {
+
+                    prevStars.classList.add('selected');
+
+                    prevStars = prevStars.previousElementSibling;
+                }
+            })
+        });
+
+    }, 500)
+
+}
 
 // coupon checkout
 var parentCoupon = document.getElementById("m_coupon_code_field");

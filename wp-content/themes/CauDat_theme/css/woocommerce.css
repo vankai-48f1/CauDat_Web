@@ -1166,6 +1166,21 @@ table.shop_table .product-thumbnail {
   border: 1px solid #949494;
 }
 
+
+
+.woocommerce-product-rating {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.woocommerce-product-rating a {
+    color: #bd3a3a;
+}
+
+.woocommerce-product-rating a:hover {
+    color: #bd3a3a;
+}
+
 .woocommerce-Reviews-title {
     font-weight: bold;
     font-size: 16px;
@@ -1174,6 +1189,10 @@ table.shop_table .product-thumbnail {
 
 .woocommerce-Reviews ol.commentlist {
     list-style: none;
+}
+
+.woocommerce-Reviews ol.commentlist li.review {
+    margin-bottom: 15px;
 }
 
 
@@ -1193,6 +1212,81 @@ table.shop_table .product-thumbnail {
     flex-grow: 1;
 }
 
+.comment-text .star-rating .rating {
+
+}
+
 .woocommerce-Reviews #comments {
     margin-bottom: 30px;
+}
+
+.woocommerce-Reviews .comment-form .stars > span {
+    display: flex;
+}
+
+.woocommerce-Reviews .comment-form .stars a[class^="star"] {
+    font-size: 0;
+    display: inline-block;
+    
+}
+
+.woocommerce-Reviews .comment-form .stars a[class^="star"]::before {
+    font-family: "FontAwesome";
+    content: "\f006";
+    display: inline-block;
+    font-size: 16px;
+    padding: 0 3px;
+
+    transition: all 200ms ease-in;
+    -webkit-transition: all 200ms ease-in;
+    -ms-transition: all 200ms ease-in;
+    -o-transition: all 200ms ease-in;
+}
+
+.woocommerce-Reviews .comment-form .stars a[class^="star"].active::before {
+    content: "\f005";
+    color: var(--color-prm);
+}
+
+.woocommerce-Reviews .comment-form .stars a[class^="star"].hovered::before {
+    content: "\f005";
+    color: var(--color-prm);
+}
+
+
+.woocommerce-Reviews .comment-form .stars a[class^="star"].selected::before {
+    content: "\f005";
+    color: var(--color-prm);
+}
+
+.woocommerce-Reviews .comment-reply-title {
+    font-size: 15px;
+    line-height: 1.5;
+    display: inline-block;
+}
+
+.woocommerce-Reviews .comment-notes {
+    margin-bottom: 15px;
+    color: #bd3a3a;
+}
+
+.woocommerce-Reviews .comment-notes .required {
+    color: #bd3a3a;
+}
+
+.comment-form label .required {
+    color: #bd3a3a;
+}
+
+.woocommerce-Reviews #review_form {
+    padding-top: 15px;
+    border-top: 1px solid #ececec;
+}
+
+.woocommerce-Reviews .comment-text .star-rating > span {
+    display: none;
+}
+
+.woocommerce-Reviews .comment-text .star-rating .star-icon i {
+    color: var(--color-prm);
 }

@@ -531,8 +531,8 @@ h3.ss-product__title {
     line-height: 1.8;
 }
 
-.ss-product .slick-prev::before,
-.ss-product .slick-next::before {
+.slick-slider .slick-prev::before,
+.slick-slider .slick-next::before {
   font-family: var(--font-second-black);
   font-size: 25px;
   font-weight: 900;
@@ -541,12 +541,12 @@ h3.ss-product__title {
   opacity: 1;
 }
 
-.ss-product .slick-prev::before {
+.slick-slider .slick-prev::before {
   content: "A";
   transform: rotate(-90deg);
 }
 
-.ss-product .slick-next::before {
+.slick-slider .slick-next::before {
   content: "A";
   transform: rotate(90deg);
 }

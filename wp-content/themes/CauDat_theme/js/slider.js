@@ -15,7 +15,6 @@ jQuery(document).ready( function () {
     generalSingleSlider('.section-slider')
     generalSingleSlider('.ss-collections__list')
     generalSingleSlider('.members')
-    generalSingleSlider('.about-us__slider')
 
 
 
@@ -35,5 +34,15 @@ jQuery(document).ready( function () {
               }
             }
         ]
+    });
+
+    jQuery('.about-us__slider').slick({
+        dots: false,
+        arrows: true,
+        infinite: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        Speed: 1000
     });
 })

@@ -334,14 +334,14 @@
 
 .about-us__slider-image {
     position: relative;
-    padding-top: 45%;
+    /* padding-top: 45%; */
     width: 100%;
 }
 
 .about-us__slider-image img {
-    position: absolute;
+    /* position: absolute;
     top: 0;
-    left: 0;
+    left: 0; */
 
     width: 100%;
     height: 100%;
