@@ -6,6 +6,8 @@
                     <div class="header-part__title">
 
                         <?php
+
+// var_dump(get_query_var('post_type'));
                         if (is_page()) : ?>
                             <h1><?php echo get_the_title() ?></h1>
                         <?php endif; ?>
@@ -26,7 +28,7 @@
                         <?php endif; ?>
 
                         <?php
-                        if (is_product()) :
+                        if (is_product() || get_query_var('post_type') == 'product') :
                             $post_type = get_post_type_object(get_post_type());
                         ?>
                             <h1><?php echo $post_type->labels->singular_name ?></h1>
@@ -51,7 +53,7 @@
                         ?>
 
                         <?php
-                        if (is_product()) :
+                        if (is_product() || get_query_var('post_type') == 'product') :
                             
                             $shop_page = get_option( 'woocommerce_shop_page_id' );
                             echo get_field('description_page', $shop_page) ;
