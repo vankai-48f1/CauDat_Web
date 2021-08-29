@@ -78,6 +78,7 @@
                             <?php } ?>
                         </a>
                     </div>
+                    <p class="pd-t-1">HOTLINE: <a class="footer-top__contact-hotline hover-red" href="tel:<?php the_field('hotline', 'option') ?>"><span><?php the_field('hotline', 'option') ?></span></a></p>
 
                     <?php if (have_rows('social', 'option')) : ?>
                         <ul class="footer-mid__social mg-t-2">

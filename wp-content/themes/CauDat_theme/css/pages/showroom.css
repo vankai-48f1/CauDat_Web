@@ -34,7 +34,7 @@
 }
 
 .showroom__excerpt {
-    font-family: var(--font-third-rgl);
+    /* font-family: var(--font-third-rgl); */
     font-size: 13px;
     line-height: 1.5;
 }
@@ -110,6 +110,7 @@
 .showrom-info__desc {
     font-size: 16px;
     line-height: 1.5;
+    text-align: justify;
 }
 
 /* ---- Menu thức uống ---- */
