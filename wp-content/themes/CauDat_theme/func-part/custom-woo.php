@@ -50,6 +50,8 @@ function my_remove_default_woo()
 
     remove_action('woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10);
     remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
+    remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5);
+
     remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10);
 
 
@@ -74,12 +76,24 @@ add_action('init', 'my_remove_default_woo', 10);
 
 function caudat_add_rating()
 {
-    echo    '<div class="ratings-wrap cl-prm">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
+    global $product;
+    echo   '<div class="ratings-wrap">
+                <div class="back-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+
+                    <div class="front-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="average-rating mg-bt-1"><input type="hidden" class="val-average-rating" value="' . $product->get_average_rating() .'"></div>
             </div>';
 }
 
@@ -254,12 +268,14 @@ function caudat_rename_tabs_product($tabs)
         $tabs['additional_information']['callback'] = 'caudat_cach_pha';
     } else {
 
-        add_filter( 'woocommerce_product_tabs', 
-        function ($tabs) {
-            unset( $tabs['additional_information'] );
-            return $tabs;
-        }
-        , 98 );
+        add_filter(
+            'woocommerce_product_tabs',
+            function ($tabs) {
+                unset($tabs['additional_information']);
+                return $tabs;
+            },
+            98
+        );
     }
 
     return $tabs;
@@ -366,9 +382,10 @@ add_action('woocommerce_before_single_product', 'caudat_variable_product_element
 
 // custom rating 
 
-function caudat_template_single_rating () {
-    if ( post_type_supports( 'product', 'comments' ) ) {
-        wc_get_template( 'single-product/rating.php' );
+function caudat_template_single_rating()
+{
+    if (post_type_supports('product', 'comments')) {
+        wc_get_template('single-product/rating.php');
     }
 }
 

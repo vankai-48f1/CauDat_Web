@@ -76,11 +76,24 @@ Template Name: Home
                                         <p class="mg-bt-1"><?php echo $product->get_attribute('pa_loai-pha') ?></p>
                                     </a>
                                     <div class="ss-product__ratings mg-bt-1">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
+                                        <div class="ratings-wrap">
+                                            <div class="back-stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+
+                                                <div class="front-stars">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                            </div>
+                                            <div class="average-rating mg-bt-1"><input type="hidden" class="val-average-rating" value="<?php echo $product->get_average_rating() ?>"></div>
+                                        </div>
                                     </div>
                                     <div class="ss-product__price mg-bt-1">
                                         <?php
@@ -139,7 +152,8 @@ Template Name: Home
                 // The Loop
                 if ($query_collection->have_posts()) : ?>
                     <div class="ss-collections__list">
-                        <?php while ($query_collection->have_posts()) : $query_collection->the_post(); ?>
+                        <?php while ($query_collection->have_posts()) : $query_collection->the_post();
+                            global $product; ?>
                             <div class="ss-collections__wrap">
                                 <div class="ss-collections__item bg-prm">
                                     <div class="ss-collections__thumb">
@@ -159,19 +173,28 @@ Template Name: Home
                                             <?php the_excerpt() ?>
                                         </div>
 
-                                        <div class="mg-bt-1 cl-white">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
+                                        <div class="ss-collections__rating mg-bt-1 cl-white">
+                                            <div class="ratings-wrap">
+                                                <div class="back-stars">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+
+                                                    <div class="front-stars">
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="average-rating mg-bt-1"><input type="hidden" class="val-average-rating" value="<?php echo $product->get_average_rating() ?>"></div>
+                                            </div>
                                         </div>
 
                                         <div class="ss-product__price mg-bt-1">
-                                            <?php
-
-                                            global $product;
-                                            ?>
 
                                             <?php if ($price_html = $product->get_price_html()) : ?>
                                                 <a href="<?php echo get_the_permalink() ?>" class="hover-red">

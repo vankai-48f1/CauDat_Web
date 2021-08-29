@@ -299,7 +299,27 @@ jQuery(document).ready(function () {
             }
         });
 
-    }, 500)
+    }, 500);
+
+
+    // average rating star product
+
+    let average_ratings = jQuery('.average-rating .val-average-rating');
+
+    average_ratings.each( (index, average_rating) => {
+
+        let val_rating = jQuery(average_rating).val();
+        let num_rating = Number(val_rating.trim());
+
+        let full_star = 5; // 5 sao = 100
+        let one_star  = 1;  // 1 sao = 20
+
+        let percent_rating = ( num_rating / full_star ) * 100;
+        jQuery(average_rating).closest('.ratings-wrap').find('.front-stars').css('width', percent_rating + '%');
+        console.log(percent_rating);
+    }); 
+
+
 }); // close ready 
 
 window.onload = function () {
