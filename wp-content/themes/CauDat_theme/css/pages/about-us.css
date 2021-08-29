@@ -363,3 +363,15 @@
     color: #000;
     opacity: 1;
 }
+
+.about-us__slider .slick-next {
+    right: -40px;
+}
+
+.about-us__slider .slick-prev {
+    left: -40px;
+}
+
+.about-us__slider-ctn {
+    padding: 0 30px;
+}

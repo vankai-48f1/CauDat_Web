@@ -1,0 +1,60 @@
+2021-08-29T07:05:58+00:00 CRITICAL Uncaught Error: Call to undefined function m_breadcrumbs() in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\template-parts\header.php:64
+Stack trace:
+#0 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\template.php(772): require()
+#1 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\template.php(716): load_template('D:\\APP\\XAMPP\\ht...', false, Array)
+#2 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\page.php(2): get_template_part('template-parts/...')
+#4 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\template-loader.php(106): include('D:\\APP\\XAMPP\\ht...')
+#5 D:\APP\XAMPP\htdocs\CauDat_Web\wp-blog-header.php(19): require_once('D:\\APP\\XAMPP\\ht...')
+#6 D:\APP\XAMPP\htdocs\CauDat_Web\index.php(17): require('D:\\APP\\XAMPP\\ht...')
+#7 {main}
+  thrown in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\template-parts\header.php on line 64
+
+2021-08-29T07:53:31+00:00 CRITICAL Uncaught Error: Call to undefined function m_breadcrumbs() in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\template-parts\header.php:64
+Stack trace:
+#0 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\template.php(772): require()
+#1 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\template.php(716): load_template('D:\\APP\\XAMPP\\ht...', false, Array)
+#2 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\page.php(2): get_template_part('template-parts/...')
+#4 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\template-loader.php(106): include('D:\\APP\\XAMPP\\ht...')
+#5 D:\APP\XAMPP\htdocs\CauDat_Web\wp-blog-header.php(19): require_once('D:\\APP\\XAMPP\\ht...')
+#6 D:\APP\XAMPP\htdocs\CauDat_Web\index.php(17): require('D:\\APP\\XAMPP\\ht...')
+#7 {main}
+  thrown in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\template-parts\header.php on line 64
+
+2021-08-29T07:53:37+00:00 CRITICAL Uncaught Error: Call to undefined function m_breadcrumbs() in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\template-parts\header.php:64
+Stack trace:
+#0 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\template.php(772): require()
+#1 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\template.php(716): load_template('D:\\APP\\XAMPP\\ht...', false, Array)
+#2 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\page.php(2): get_template_part('template-parts/...')
+#4 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\template-loader.php(106): include('D:\\APP\\XAMPP\\ht...')
+#5 D:\APP\XAMPP\htdocs\CauDat_Web\wp-blog-header.php(19): require_once('D:\\APP\\XAMPP\\ht...')
+#6 D:\APP\XAMPP\htdocs\CauDat_Web\index.php(17): require('D:\\APP\\XAMPP\\ht...')
+#7 {main}
+  thrown in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\template-parts\header.php on line 64
+
+2021-08-29T07:55:08+00:00 CRITICAL Uncaught Error: Call to undefined function m_breadcrumbs() in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\template-parts\header.php:64
+Stack trace:
+#0 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\template.php(772): require()
+#1 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\template.php(716): load_template('D:\\APP\\XAMPP\\ht...', false, Array)
+#2 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\page.php(2): get_template_part('template-parts/...')
+#4 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\template-loader.php(106): include('D:\\APP\\XAMPP\\ht...')
+#5 D:\APP\XAMPP\htdocs\CauDat_Web\wp-blog-header.php(19): require_once('D:\\APP\\XAMPP\\ht...')
+#6 D:\APP\XAMPP\htdocs\CauDat_Web\index.php(17): require('D:\\APP\\XAMPP\\ht...')
+#7 {main}
+  thrown in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\template-parts\header.php on line 64
+
+2021-08-29T07:55:26+00:00 CRITICAL Uncaught Error: Call to undefined function m_breadcrumbs() in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\template-parts\header.php:64
+Stack trace:
+#0 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\template.php(772): require()
+#1 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\template.php(716): load_template('D:\\APP\\XAMPP\\ht...', false, Array)
+#2 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\page.php(2): get_template_part('template-parts/...')
+#4 D:\APP\XAMPP\htdocs\CauDat_Web\wp-includes\template-loader.php(106): include('D:\\APP\\XAMPP\\ht...')
+#5 D:\APP\XAMPP\htdocs\CauDat_Web\wp-blog-header.php(19): require_once('D:\\APP\\XAMPP\\ht...')
+#6 D:\APP\XAMPP\htdocs\CauDat_Web\index.php(17): require('D:\\APP\\XAMPP\\ht...')
+#7 {main}
+  thrown in D:\APP\XAMPP\htdocs\CauDat_Web\wp-content\themes\CauDat_theme\template-parts\header.php on line 64
+
