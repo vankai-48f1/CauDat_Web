@@ -66,7 +66,7 @@ Template Name: Home
                             <div class="ss-product__item">
                                 <div class="ss-product__thumb-wrap">
                                     <a href="<?php echo get_the_permalink() ?>" class="ss-product__thumb hover-black">
-                                        <?php echo woocommerce_get_product_thumbnail() ?>
+                                        <?php echo woocommerce_get_product_thumbnail('woocommerce_thumbnail') ?>
                                         <?php get_template_part('template-parts/attribute', 'product'); ?>
                                     </a>
                                 </div>
@@ -158,7 +158,7 @@ Template Name: Home
                                 <div class="ss-collections__item bg-prm">
                                     <div class="ss-collections__thumb">
                                         <div class="ss-collections__thumb-wrap">
-                                            <?php echo woocommerce_get_product_thumbnail('woo_large') ?>
+                                            <?php echo woocommerce_get_product_thumbnail('woocommerce_single') ?>
                                         </div>
                                     </div>
                                     <div class="ss-collections__content">
@@ -229,6 +229,13 @@ Template Name: Home
                 <div class="ss-image-wrap">
                     <img src="<?php echo $ss_image['url'] ?>" alt="">
                 </div>
+                <?php $button_read_more = get_field('button_read_more');
+
+                if ($button_read_more) : ?>
+                    <div class="align-ct mg-bt-2">
+                        <a class="ss-image__button bg-prm hover-red" href="<?php echo $button_read_more['url'] ?>"><?php echo $button_read_more['title'] ?></a>
+                    </div>
+                <?php endif; ?>
             </div>
         </section>
     <?php endif; ?>
@@ -257,7 +264,7 @@ Template Name: Home
                             <article class="ss-news__item mg-bt-1">
                                 <div class="ss-news__item-thumb">
                                     <a href="<?php the_permalink() ?>" class="ss-news__item-thumb-wrap">
-                                        <?php the_post_thumbnail() ?>
+                                        <?php the_post_thumbnail('post-small') ?>
                                     </a>
                                 </div>
 

@@ -3,7 +3,7 @@ var navigationTarget = jQuery('.partner__nav li a');
 
 jQuery('.partner__content').css("display", "none");
 
-// console.log(navigationTarget);
+
 itemTabsContent.css("display", "none");
 
 navigationTarget.each((index, elemt) => {
@@ -42,3 +42,19 @@ navigationTarget.each((index, elemt) => {
     })
 });
 
+// tabs form page my account
+
+var activeTab = jQuery('.tabs-form-account li a.active').attr('href');
+jQuery(activeTab).fadeIn();
+
+jQuery('.tabs-form-account li a').click(function (e) {
+    e.preventDefault();
+
+    jQuery('.tabs-form-account li a').removeClass('active');
+    jQuery(this).addClass('active');
+    jQuery('.form-page-account').hide();
+
+    var activeTab = jQuery(this).attr('href');
+    jQuery(activeTab).fadeIn();
+
+});

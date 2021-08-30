@@ -23,15 +23,26 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 <div class="myaccount-ctn">
     <?php if ( 'yes' === get_option( 'woocommerce_enable_myaccount_registration' ) ) : ?>
 
-    <div class="u-columns col2-set" id="customer_login">
+    <div class="u-columns" id="customer_login">
 
-        <div class="u-column1 col-1">
+        <div class="u-column1">
 
     <?php endif; ?>
+            <ul class="tabs-form-account">
+                <li>
+                    <a class="login-name active" href="#formLoginAccount">
+                        <?php esc_html_e('Login', 'woocommerce'); ?>
+                    </a>
+                </li>
+                <li>
+                    <a class="reg-name" href="#formRegisterAccount">
+                        <?php esc_html_e('Register', 'woocommerce'); ?>
+                    </a>
+                </li>
+            </ul>
+            <h2 style="display: none"><?php esc_html_e( 'Login', 'woocommerce' ); ?></h2>
 
-            <h2><?php esc_html_e( 'Login', 'woocommerce' ); ?></h2>
-
-            <form class="woocommerce-form woocommerce-form-login login" method="post">
+            <form class="woocommerce-form woocommerce-form-login login form-page-account" method="post" id="formLoginAccount">
 
                 <?php do_action( 'woocommerce_login_form_start' ); ?>
 
@@ -51,7 +62,7 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
                         <input class="woocommerce-form__input woocommerce-form__input-checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" /> <span><?php esc_html_e( 'Remember me', 'woocommerce' ); ?></span>
                     </label>
                     <?php wp_nonce_field( 'woocommerce-login', 'woocommerce-login-nonce' ); ?>
-                    <button type="submit" class="woocommerce-button button woocommerce-form-login__submit" name="login" value="<?php esc_attr_e( 'Log in', 'woocommerce' ); ?>"><?php esc_html_e( 'Log in', 'woocommerce' ); ?></button>
+                    <br><button type="submit" class="woocommerce-button button woocommerce-form-login__submit" name="login" value="<?php esc_attr_e( 'Log in', 'woocommerce' ); ?>"><?php esc_html_e( 'Log in', 'woocommerce' ); ?></button>
                 </p>
                 <p class="woocommerce-LostPassword lost_password align-ct">
                     <a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php esc_html_e( 'Lost your password?', 'woocommerce' ); ?></a>
@@ -65,11 +76,11 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 
         </div>
 
-        <div class="u-column2 col-2">
+        <div class="u-column2 ">
 
-            <h2><?php esc_html_e( 'Register', 'woocommerce' ); ?></h2>
+            <h2 style="display: none"><?php esc_html_e( 'Register', 'woocommerce' ); ?></h2>
 
-            <form method="post" class="woocommerce-form woocommerce-form-register register" <?php do_action( 'woocommerce_register_form_tag' ); ?> >
+            <form method="post" class="woocommerce-form woocommerce-form-register register form-page-account" <?php do_action( 'woocommerce_register_form_tag' ); ?> id="formRegisterAccount">
 
                 <?php do_action( 'woocommerce_register_form_start' ); ?>
 
@@ -102,9 +113,9 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 
                 <?php do_action( 'woocommerce_register_form' ); ?>
 
-                <p class="woocommerce-form-row form-row">
+                <p class="woocommerce-form-row form-row align-ct">
                     <?php wp_nonce_field( 'woocommerce-register', 'woocommerce-register-nonce' ); ?>
-                    <button type="submit" class="woocommerce-Button woocommerce-button button woocommerce-form-register__submit" name="register" value="<?php esc_attr_e( 'Register', 'woocommerce' ); ?>"><?php esc_html_e( 'Register', 'woocommerce' ); ?></button>
+                    <br><button type="submit" class="woocommerce-Button woocommerce-button button woocommerce-form-register__submit" name="register" value="<?php esc_attr_e( 'Register', 'woocommerce' ); ?>"><?php esc_html_e( 'Register', 'woocommerce' ); ?></button>
                 </p>
 
                 <?php do_action( 'woocommerce_register_form_end' ); ?>

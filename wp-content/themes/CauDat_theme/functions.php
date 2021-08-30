@@ -20,7 +20,7 @@ add_image_size('blog-thumbnail', 700, 350, true);
 // Ảnh này sẽ hiện ở trong post
 add_image_size('post-large', 900, 600, true);
 
-add_image_size('post-small', 250, 200, true);
+add_image_size('post-small', 300, 300, true);
 
 
 // Khai báo menu
@@ -391,7 +391,7 @@ if (!class_exists('Caudat_Custom_Walker_Comment')) {
                     <?php if ('div' !== $args['style']) : ?>
                     </div>
                 <?php endif; ?>
-    <?php
+        <?php
         }
     }
 }
@@ -405,3 +405,25 @@ function caudat_comment_reply_text($link)
     return $link;
 }
 add_filter('comment_reply_link', 'caudat_comment_reply_text');
+
+
+// change logo login
+function my_login_logo()
+{ ?>
+        <style type="text/css">
+            #login h1 a,
+            .login h1 a {
+                background-image: url('<?php echo get_template_directory_uri(); ?>/images/Logo-from-cau-dat.png');
+                background-size: 150px;
+                background-position: center;
+                width: 100%;
+            }
+        </style>
+    <?php }
+add_action('login_enqueue_scripts', 'my_login_logo');
+
+function my_login_logo_url()
+{
+    return home_url();
+}
+add_filter('login_headerurl', 'my_login_logo_url');

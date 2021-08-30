@@ -44,7 +44,7 @@
     <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/lightGallery-master/dist/css/lightgallery.css" />
     <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/lightGallery-master/dist/css/lg-zoom.css" />
     <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/lightGallery-master/dist/css/lg-thumbnail.css" />
-    
+
     <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/lightGallery-master/dist/css/lightgallery-bundle.css" />
     <?php wp_head() ?>
 </head>
@@ -102,7 +102,7 @@
                                     )
                                 );
                                 ?>
-                                
+
                             </div>
 
                             <div class="col-lg-3">
@@ -118,7 +118,17 @@
                                     </div>
 
                                     <ul class="usser-login">
-                                        <?php dynamic_sidebar('login'); ?>
+                                        <!-- < ?php dynamic_sidebar('login'); ?> -->
+
+                                    
+
+                                        <?php
+                                        if (is_user_logged_in()) { ?>
+                                            <li><a href="<?php echo  wp_logout_url(get_permalink(wc_get_page_id('myaccount'))) ?>">Đăng xuất</a></li>
+                                        <?php } elseif (!is_user_logged_in()) { ?>
+                                            <li><a href="<?php echo get_permalink(wc_get_page_id('myaccount')) ?>">Đăng nhập</a></li>
+                                        <?php }
+                                        ?>
                                     </ul>
 
                                     <div class="mini-cart">

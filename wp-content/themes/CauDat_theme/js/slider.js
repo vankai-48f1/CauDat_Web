@@ -8,7 +8,8 @@ jQuery(document).ready( function () {
             infinite: false,
             slidesToShow: 1,
             slidesToScroll: 1,
-            autoplay: false,
+            autoplay: true,
+            autoplaySpeed: 5000,
         });
     }
 
@@ -24,7 +25,9 @@ jQuery(document).ready( function () {
         infinite: false,
         slidesToShow: 3,
         slidesToScroll: 1,
-        autoplay: false,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        speed: 2000,
         responsive: [
             {
               breakpoint: 990,
@@ -43,6 +46,7 @@ jQuery(document).ready( function () {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        Speed: 1000
+        speed: 2000,
+        autoplaySpeed: 5000,
     });
 })

@@ -237,22 +237,22 @@ ul.products {
 }
 
 .products.grid-row .woocommerce-loop-product__link {
-    width: 100%;
-    padding-top: 15px;
+  width: 100%;
+  padding-top: 15px;
 }
 
 @media (min-width: 768px) {
-    .products.grid-row .woocommerce-loop-product__link {
-        width: 30%;
-    }
+  .products.grid-row .woocommerce-loop-product__link {
+    width: 30%;
+  }
 }
 
 .products.grid-row .woocommerce-loop-product__link .woo-loop-thumbnail {
-    height: 100%;
+  height: 100%;
 }
 
 .products.grid-row .ratings-wrap {
-    justify-content: flex-start;
+  justify-content: flex-start;
 }
 
 .filter-price .price_slider_wrapper .price_slider {
@@ -1135,6 +1135,7 @@ table.shop_table .product-thumbnail {
   text-transform: uppercase;
   padding: 0 17px !important;
   min-height: 42px;
+  line-height: 42px !important;
 }
 
 #review_form .comment-form-comment {
@@ -1150,6 +1151,12 @@ table.shop_table .product-thumbnail {
   font-size: 14px;
   line-height: 1.5;
   margin-bottom: 15px;
+}
+
+.woocommerce-product-details__short-description ul ,
+.woocommerce-product-details__short-description ol {
+    list-style: revert;
+    list-style-position: inside;
 }
 
 /* ---- Search Product ---- */
@@ -1326,6 +1333,50 @@ table.shop_table .product-thumbnail {
 }
 
 #payment .wc_payment_methods input[type="radio"] {
-    width: auto;
-    text-align: left;
+  width: auto;
+  text-align: left;
+}
+
+/* ---- My Account ---- */
+
+#formLoginAccount,
+#formRegisterAccount {
+  display: none;
+}
+
+.tabs-form-account {
+  display: flex;
+  list-style: none;
+}
+
+.tabs-form-account li {
+    flex-grow: 1;
+}
+
+
+.tabs-form-account li a.active {
+  color: #212121;
+  border-bottom: 2px solid #212121;
+}
+
+.tabs-form-account li a {
+  display: inline-block;
+  color: #999999;
+  font-weight: 700;
+  font-size: 21px;
+  cursor: pointer;
+
+  text-decoration: none;
+}
+
+.form-page-account {
+
+}
+
+.woocommerce-MyAccount-navigation ul {
+    padding: 0;
+}
+
+.woocommerce-MyAccount-navigation a {
+    text-decoration: none;
 }

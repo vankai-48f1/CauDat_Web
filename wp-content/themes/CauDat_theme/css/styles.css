@@ -348,12 +348,12 @@ header.header-main {
   text-decoration: none;
 }
 
-.usser-login .wp-block-loginout a {
+.usser-login li a {
   display: flex;
   align-items: center;
 }
 
-.usser-login .wp-block-loginout a::before {
+.usser-login li a::before {
   content: "";
   width: 21px;
   height: 24px;
@@ -575,6 +575,8 @@ h3.ss-product__title {
 .ss-product__name {
   font-family: var(--font-second-bold);
   font-size: 18px;
+  line-height: 1.5;
+  padding-top: 10px;
 }
 
 .ss-product__buy-now a {
@@ -703,15 +705,15 @@ h3.ss-product__title {
 }
 
 .ss-collections__rating .ratings-wrap {
-    justify-content: flex-start;
+  justify-content: flex-start;
 }
 
 .ss-collections__rating .ratings-wrap .back-stars {
-    color: #000;
+  color: #000;
 }
 
 .ss-collections__rating .ratings-wrap .front-stars {
-    color: #fff;
+  color: #fff;
 }
 
 .ss-news {
@@ -983,7 +985,7 @@ h3.ss-product__title {
   background-position: bottom;
   position: absolute;
   width: 100%;
-  height: calc(100% + 80px);
+  height: calc(100% + 95px);
   bottom: 0;
 }
 
@@ -1462,4 +1464,13 @@ form input[type="submit"] {
   width: 100%;
   height: auto;
   display: block;
+}
+
+
+.ss-image__button {
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 400;
+    color: #000;
+    padding: 10px 30px;
 }
