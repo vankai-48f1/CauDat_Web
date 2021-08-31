@@ -49,4 +49,16 @@ jQuery(document).ready( function () {
         speed: 2000,
         autoplaySpeed: 5000,
     });
+
+
+    jQuery('.showroom-info__gallery').slick({
+        dots: false,
+        arrows: true,
+        infinite: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        speed: 2000,
+        autoplaySpeed: 5000,
+    });
 })

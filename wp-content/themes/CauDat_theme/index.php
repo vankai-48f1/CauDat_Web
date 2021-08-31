@@ -233,7 +233,7 @@ Template Name: Home
 
                 if ($button_read_more) : ?>
                     <div class="align-ct mg-bt-2">
-                        <a class="ss-image__button bg-prm hover-red" href="<?php echo $button_read_more['url'] ?>"><?php echo $button_read_more['title'] ?></a>
+                        <a class="ss-image__button bg-prm hover-red" href="<?php echo $button_read_more['url'] ?>/#aboutUsSlider"><?php echo $button_read_more['title'] ?></a>
                     </div>
                 <?php endif; ?>
             </div>

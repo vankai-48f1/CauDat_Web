@@ -1,116 +1,160 @@
 .showroom {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-column-gap: 30px;
-    padding-top: 5rem;
-    padding-bottom: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-column-gap: 30px;
+  padding-top: 5rem;
+  padding-bottom: 30px;
 }
 
 .showroom__item {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .showroom__image-wrap {
-    display: inline-block;
-    position: relative;
-    padding-top: 75%;
-    width: 100%;
-    margin-bottom: 15px;
+  display: inline-block;
+  position: relative;
+  padding-top: 75%;
+  width: 100%;
+  margin-bottom: 15px;
 }
 
 .showroom__image-wrap img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .showroom__title {
-    font-family: var(--font-second-black);
-    font-size: 18px;
-    line-height: 1.3;
+  font-family: var(--font-second-black);
+  font-size: 18px;
+  line-height: 1.3;
 }
 
 .showroom__excerpt {
-    /* font-family: var(--font-third-rgl); */
-    font-size: 13px;
-    line-height: 1.5;
+  /* font-family: var(--font-third-rgl); */
+  font-size: 13px;
+  line-height: 1.5;
 }
 
 .showroom__link {
-    display: inline-block;
-    padding: 10px 25px;
-    background-color: var(--color-prm);
+  display: inline-block;
+  padding: 10px 25px;
+  background-color: var(--color-prm);
 }
-
 
 /* ---- Thông tin showroom ---- */
 /* ---- Thông tin showroom ---- */
 /* ---- Thông tin showroom ---- */
 
 .showrom-child__title {
-    font-family: var(--font-second-black);
-    font-size: 25px;
-    line-height: 1.3;
-    padding: 50px 0;
+  font-family: var(--font-second-black);
+  font-size: 25px;
+  line-height: 1.3;
+  padding: 50px 0;
 }
 
 .showroom-info__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.showroom-info__gallery-item {
+  position: relative;
+  width: 100%;
+  padding-top: 74%;
+}
+
+.showroom-info__gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .showrom-info__item {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 30px;
-    grid-row-gap: 20px;
-    margin-bottom: 30px;
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.showroom-info__gallery .slick-arrow {
+  width: 30px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.showroom-info__gallery .slick-arrow:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.showroom-info__gallery .slick-prev {
+  left: 15px;
+  z-index: 5;
+}
+
+.showroom-info__gallery .slick-next {
+  right: 15px;
+  z-index: 5;
+}
+
+@media (min-width: 993px) {
+  .showrom-info__item > div {
+    /* flex: 1; */
+    width: 50%;
+  }
+
+  .showroom-info__content {
+    margin-left: 30px;
+  }
 }
 
 .showrom-info__item-title {
-    font-family: var(--font-second-black);
-    font-size: 20px;
-    line-height: 1.3;
-    margin-bottom: 10px;
+  font-family: var(--font-second-black);
+  font-size: 20px;
+  line-height: 1.3;
+  margin-bottom: 10px;
 }
 
 .showrom-info__head {
-    font-size: 13px;
-    line-height: 1.5;
-    margin-bottom: 15px;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 15px;
 }
 
 .showroom-info__map {
-    margin-bottom: 15px;
-    display: flex;
+  margin-bottom: 15px;
+  display: flex;
 }
 
 .showroom-info__map-icon {
-    width: 30px;
-    height: 30px;
-    display: inline-block;
-    object-fit: contain;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  object-fit: contain;
 }
 
 .showroom-info__map-link {
-    display: inline-block;
-    height: 30px;
-    line-height: 30px;
-    vertical-align: middle;
-    padding: 0 20px;
-    background-color: var(--color-prm);
-    margin-left: 15px;
-    font-size: 13px;
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  vertical-align: middle;
+  padding: 0 20px;
+  background-color: var(--color-prm);
+  margin-left: 15px;
+  font-size: 13px;
 }
 
 .showrom-info__desc {
-    font-size: 16px;
-    line-height: 1.5;
-    text-align: justify;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: justify;
 }
 
 /* ---- Menu thức uống ---- */
@@ -118,32 +162,43 @@
 /* ---- Menu thức uống ---- */
 
 .showroom-menu__image {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
-
 
 /* ---- Các hoạt động trải nghiệm ---- */
 
 .showroom-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) ;
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
 }
 
 .showroom-gallery__image-wrap {
-    display: inline-block;
-    width: 100%;
-    padding-top: 80%;
-    position: relative;
+  display: inline-block;
+  width: 100%;
+  padding-top: 80%;
+  position: relative;
 }
 .showroom-gallery__image {
-    position: absolute;
-    top: 0;
-    left: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.list-posts-activities {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 30px;
+    column-gap: 50px;
+}
+
+.list-posts-activities .list-posts__item-title {
+    font-size: 15px;
 }

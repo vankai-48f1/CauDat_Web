@@ -185,7 +185,7 @@ Template Name: Về chúng tôi
 
 
     <?php if (have_rows('about_us_slider')) : ?>
-        <section class="about-us__ss">
+        <section class="about-us__ss" id="aboutUsSlider">
             <div class="container">
                 <div class="about-us__slider-ctn">
                     <div class="about-us__slider">

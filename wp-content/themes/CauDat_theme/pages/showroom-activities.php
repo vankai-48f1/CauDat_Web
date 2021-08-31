@@ -52,17 +52,68 @@ Template Name: Các hoạt động trải nghiệm
         </div>
 
         <div class="mg-bt-5">
-            <?php
+            <!-- < ?php
             $images = get_field('gallery');
             if ($images) : ?>
                 <div class="showroom-gallery" id="showroom-gallery">
-                    <?php foreach ($images as $image) : ?>
-                        <a href="<?php echo esc_url($image['url']); ?>" class="showroom-gallery__image-wrap">
-                            <img class="showroom-gallery__image" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo $image['alt']; ?>" />
+                    < ?php foreach ($images as $image) : ?>
+                        <a href="< ?php echo esc_url($image['url']); ?>" class="showroom-gallery__image-wrap">
+                            <img class="showroom-gallery__image" src="< ?php echo esc_url($image['url']); ?>" alt="< ?php echo $image['alt']; ?>" />
                         </a>
-                    <?php endforeach; ?>
+                    < ?php endforeach; ?>
                 </div>
-            <?php endif; ?>
+            < ?php endif; ?> -->
+
+            <div class="activities">
+                <div class="list-posts-activities">
+
+                    <?php
+                    $news = array(
+                        'post_status' => 'publish',
+                        'post_type' => 'post',
+                        'showposts' => -1,
+                        'cat' => 82,
+                    );
+
+                    $query_news = new WP_Query($news);
+                    // The Loop
+                    if ($query_news->have_posts()) :
+                        while ($query_news->have_posts()) : $query_news->the_post();
+                    ?>
+                            <article class="list-posts__item <?php echo $i === 1 ? 'list-posts__item-first' : '' ?>">
+                                <div class="list-posts__thumb">
+                                    <a href="<?php the_permalink() ?>" class="list-posts__thumb-wrap">
+                                        <?php the_post_thumbnail() ?>
+                                    </a>
+                                </div>
+                                <div class="list-posts__content">
+
+                                    <h4>
+                                        <a href="<?php the_permalink() ?>" class="list-posts__item-title hover-black">
+                                            <?php the_title() ?>
+                                        </a>
+                                    </h4>
+                                    <div class="list-posts__item-excerpt">
+                                        <a href="<?php the_permalink() ?>" class="hover-black">
+                                            <?php the_excerpt() ?>
+                                        </a>
+                                    </div>
+
+                                    <div class="mg-t-1">
+                                        <a class="list-posts__read-more bg-prm hover-red" href="<?php the_permalink() ?>">Xem thêm</a>
+                                    </div>
+                                </div>
+                            </article>
+                    <?php endwhile;
+                    endif;
+
+                    // Reset Post Data
+                    wp_reset_postdata();
+
+                    ?>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

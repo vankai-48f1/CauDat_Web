@@ -1,4 +1,7 @@
 <?php
+// Thêm ảnh đại diện
+add_theme_support('post-thumbnails');
+
 function my_custom_wc_theme_support()
 {
 
@@ -11,8 +14,7 @@ function my_custom_wc_theme_support()
 }
 add_action('after_setup_theme', 'my_custom_wc_theme_support');
 
-// Thêm ảnh đại diện
-add_theme_support('post-thumbnails');
+
 
 // Ảnh này sẽ hiện ở ngoài blog
 add_image_size('blog-thumbnail', 700, 350, true);
@@ -22,6 +24,11 @@ add_image_size('post-large', 900, 600, true);
 
 add_image_size('post-small', 300, 300, true);
 
+add_theme_support('woocommerce', array(
+    'thumbnail_image_width' => 200,
+    'gallery_thumbnail_image_width' => 100,
+    'single_image_width' => 500,
+));
 
 // Khai báo menu
 function register_my_menu()

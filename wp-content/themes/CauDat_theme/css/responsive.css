@@ -176,7 +176,11 @@
   }
 
   .showrom-info__item {
-    grid-template-columns: repeat(1, 1fr);
+    flex-direction: column;
+  }
+
+  .showroom-info__image-block {
+    margin-bottom: 30px;
   }
 
   .btn-submit-form {
@@ -279,12 +283,12 @@
   }
 
   .float-logo {
-      display: none;
+    display: none;
   }
 
   .footer-bottom {
-      padding-top: 25px;
-      padding-bottom: 25px;
+    padding-top: 25px;
+    padding-bottom: 25px;
   }
 
   .related-product .related ul.products {
@@ -395,16 +399,16 @@
   }
 
   .container-stories {
-      max-width: 540px;
+    max-width: 540px;
   }
 
   .production-process__step {
-      width: 100%;
-      margin-bottom: 15px;
+    width: 100%;
+    margin-bottom: 15px;
   }
 
   .production-process__item-ct {
-      width: 100%;
+    width: 100%;
   }
 }
 
@@ -429,7 +433,7 @@
 
   .section-slider__image {
     position: static;
-    height: 100vh;
+    height: 25vh;
   }
 
   .section-slider__image img {
@@ -532,50 +536,59 @@
   }
 
   .about-us__detail-list {
-      grid-template-columns: auto;
+    grid-template-columns: auto;
   }
-  
+
   .about-us__detail-name {
-      min-height: auto;
+    min-height: auto;
   }
 
   .about-us__detail-head {
-      padding-top: 20px;
+    padding-top: 20px;
   }
 
   .related-product .related > h2 {
-      font-size: 23px;
+    font-size: 23px;
   }
-  
+
   .header-part__title {
-      font-size: 23px;
+    font-size: 23px;
   }
 
   h1.product_title {
-      font-size: 23px;
+    font-size: 23px;
   }
 
   .woocommerce-loop-product__title {
-      font-size: 14px;
+    font-size: 14px;
   }
-  
+
   .ss-product__name {
-      font-size: 16px;
+    font-size: 16px;
   }
 
   .ss-product__content {
-      padding: 0 10px;
+    padding: 0 10px;
   }
 
   .about-us__title {
-      font-size: 23px;
+    font-size: 23px;
   }
 
-  .partner__content .partner__infor-title, .partner__content .partner__success-story-title {
-      font-size: 27px;
+  .partner__content .partner__infor-title,
+  .partner__content .partner__success-story-title {
+    font-size: 27px;
   }
 
   .comment-form-ctn {
-      padding: 25px 15px;
+    padding: 25px 15px;
+  }
+
+  .section-slider {
+      padding-top: 90px;
+  }
+
+  .ss-product .attr-product {
+      display: none;
   }
 }

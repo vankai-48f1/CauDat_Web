@@ -64,7 +64,17 @@ Template Name: Thông tin Showroom
                     ?>
                         <div class="showrom-info__item">
                             <div class="showroom-info__image-block">
-                                <img src="<?php echo $image ?>" alt="" class="showroom-info__image">
+                                <?php
+                                $gallery = get_sub_field('gallery');
+                                if ($gallery) : ?>
+                                    <div class="showroom-info__gallery">
+                                        <?php foreach ($gallery as $image) : ?>
+                                            <div class="showroom-info__gallery-item">
+                                                <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                                            </div>
+                                        <?php endforeach; ?>
+                                    </div>
+                                <?php endif; ?>
                             </div>
 
                             <div class="showroom-info__content">
@@ -73,7 +83,7 @@ Template Name: Thông tin Showroom
                                     <p><?php echo $address ?></p>
                                     <p><?php echo $phone ?></p>
                                 </div>
-                                
+
                                 <div class="showroom-info__map">
                                     <img src="<?php echo get_template_directory_uri() ?>/images/map-icon.png" alt="" class="showroom-info__map-icon">
                                     <a target="_blank" href="<?php echo $location_map ?>" class="showroom-info__map-link hover-red">Xem trên google map</a>
