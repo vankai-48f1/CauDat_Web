@@ -316,7 +316,6 @@ jQuery(document).ready(function () {
 
         let percent_rating = ( num_rating / full_star ) * 100;
         jQuery(average_rating).closest('.ratings-wrap').find('.front-stars').css('width', percent_rating + '%');
-        console.log(percent_rating);
     }); 
 
 

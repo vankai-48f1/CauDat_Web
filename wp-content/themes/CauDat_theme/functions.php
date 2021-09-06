@@ -27,7 +27,7 @@ add_image_size('post-small', 300, 300, true);
 add_theme_support('woocommerce', array(
     'thumbnail_image_width' => 200,
     'gallery_thumbnail_image_width' => 100,
-    'single_image_width' => 500,
+    'medium_image' => 600,
 ));
 
 // Khai báo menu

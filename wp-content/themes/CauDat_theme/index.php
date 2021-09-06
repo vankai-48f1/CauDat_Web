@@ -66,7 +66,8 @@ Template Name: Home
                             <div class="ss-product__item">
                                 <div class="ss-product__thumb-wrap">
                                     <a href="<?php echo get_the_permalink() ?>" class="ss-product__thumb hover-black">
-                                        <?php echo woocommerce_get_product_thumbnail('woocommerce_thumbnail') ?>
+                                        <!-- <img src="< ?php echo wp_get_attachment_image_src($product->get_image_id(), 'medium_image')[0] ?>" /> -->
+                                        <?php echo woocommerce_get_product_thumbnail('medium_image') ?>
                                         <?php get_template_part('template-parts/attribute', 'product'); ?>
                                     </a>
                                 </div>
