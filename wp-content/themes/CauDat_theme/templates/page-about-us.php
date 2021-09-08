@@ -184,9 +184,9 @@ Template Name: Về chúng tôi
     </section>
 
 
-    <?php if (have_rows('about_us_slider')) : ?>
-        <section class="about-us__ss" id="aboutUsSlider">
-            <div class="container">
+    <section class="about-us__ss" id="aboutUsSlider">
+        <div class="container">
+            <?php if (have_rows('about_us_slider')) : ?>
                 <div class="about-us__slider-ctn">
                     <div class="about-us__slider">
                         <?php while (have_rows('about_us_slider')) : the_row();
@@ -198,9 +198,18 @@ Template Name: Về chúng tôi
                         <?php endwhile; ?>
                     </div>
                 </div>
-            </div>
-        </section>
-    <?php endif; ?>
+            <?php endif; ?>
+
+            <?php
+            $button = get_field('button_certificate');
+            if ($button) : ?>
+                <div class="align-ct">
+                    <a class="about-us__button bg-prm hover-red" href="<?php echo $button['url'] ?>"><?php echo $button['title'] ?></a>
+                </div>
+            <?php endif;
+            ?>
+        </div>
+    </section>
 
     <!-- /.container -->
 </div>
