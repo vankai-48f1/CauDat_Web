@@ -9,11 +9,18 @@ Template Name: Đối tác
 <!-- Page Content -->
 <div class="partner">
     <div class="container">
-
+        <div class="current-label">Xe Take Away</div>
         <ul class="partner__nav row">
-            <li class="col-md-4"><a href="#partner__section-1" class="active" data-id-section="partner__section-1"><?php the_field('label_xe_take_away') ?></a></li>
-            <li class="col-md-4"><a href="#partner__section-2" data-id-section="partner__section-2"><?php the_field('label_dong_hanh_thuong_hieu') ?></a></li>
-            <li class="col-md-4"><a href="#partner__section-3" data-id-section="partner__section-3"><?php the_field('label_cau_chuyen_doi_tac') ?></a></li>
+
+            <?php
+            for ($i = 1; $i < 9; ++$i) {
+                $label_target = get_field('label_' . $i);
+                if ($label_target) { ?>
+                    <li class="col-lg-3 col-md-4 mg-bt-1"><a href="#partner__section-<?php echo $i ?>" class="<?php echo $i === 1 ? 'active' : null  ?>" data-id-section="partner__section-<?php echo $i ?>"><?php echo $label_target ?></a></li>
+            <?php } else {
+                    break;
+                }
+            } ?>
         </ul>
 
         <?php
@@ -21,43 +28,53 @@ Template Name: Đối tác
         $cau_chuyen_thanh_cong = get_field('cau_chuyen_thanh_cong');
 
         ?>
-        <div class="partner__content" id="partner__section-1">
-            <div class="partner__infor-take-away mg-bt-3">
-                <h2 class="partner__infor-title align-ct mg-bt-2"><?php echo $info_take_away_car['title'] ?></h2>
-                <?php echo $info_take_away_car['content'] ?>
-            </div>
-            <div class="partner__success-story">
-                <h2 class="partner__success-story-title align-ct mg-bt-2"><?php echo $cau_chuyen_thanh_cong['title'] ?></h2>
-                <?php echo $cau_chuyen_thanh_cong['content'] ?>
-            </div>
 
-            <div class="partner__consult">
-                <h2 class="partner__consult-title">Tư vấn</h2>
-                <div class="partner__consult-form">
-                    <?php echo do_shortcode('[contact-form-7 id="671" title="Tư vấn"]') ?>
+        <?php
+        for ($i = 1; $i < 9; ++$i) {
+            $content = get_field('content_' . $i);
+            if ($i === 1) { ?>
+                <div class="partner__content" id="partner__section-1">
+                    <div class="partner__infor-take-away mg-bt-3">
+                        <h2 class="partner__infor-title align-ct mg-bt-2"><?php echo $info_take_away_car['title'] ?></h2>
+                        <?php echo $info_take_away_car['content'] ?>
+                    </div>
+                    <div class="partner__success-story">
+                        <h2 class="partner__success-story-title align-ct mg-bt-2"><?php echo $cau_chuyen_thanh_cong['title'] ?></h2>
+                        <?php echo $cau_chuyen_thanh_cong['content'] ?>
+                    </div>
+
+                    <div class="partner__consult">
+                        <h2 class="partner__consult-title">Tư vấn</h2>
+                        <div class="partner__consult-form">
+                            <?php echo do_shortcode('[contact-form-7 id="671" title="Tư vấn"]') ?>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+                <?php } else {
 
-        <div class="partner__content" id="partner__section-2">
-            <div class="partner__companion">
-                <?php the_field('dong_hanh_thuong_hieu_va_dieu_khoan_hop_tac') ?>
-            </div>
+                if ($content) { ?>
 
-            <div class="partner__consult">
-                <h2 class="partner__consult-title">Tư vấn</h2>
-                <div class="partner__consult-form">
-                    <?php echo do_shortcode('[contact-form-7 id="671" title="Tư vấn"]') ?>
-                </div>
-            </div>
-        </div>
+                    <div class="partner__content" id="partner__section-<?php echo $i ?>">
+                        <div class="partner__companion">
+                            <?php echo $content; ?>
+                        </div>
 
-        <div class="partner__content" id="partner__section-3">
-            <div class="partner__story">
-                <?php the_field('cau_chuyen_doi_tac') ?>
-            </div>
-        </div>
+                        <?php if ($i != 3) { ?>
+                            <div class="partner__consult">
+                                <h2 class="partner__consult-title">Tư vấn</h2>
+                                <div class="partner__consult-form">
+                                    <?php echo do_shortcode('[contact-form-7 id="671" title="Tư vấn"]') ?>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
+        <?php } else {
+                    break;
+                }
+            }
+        }
+
+        ?>
     </div>
 </div>
 <?php get_footer() ?>
-

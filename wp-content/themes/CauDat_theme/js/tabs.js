@@ -39,8 +39,23 @@ navigationTarget.each((index, elemt) => {
                 contentElement.css("display", "block");
             }
         });
+
+        setCurrentLabel ();
     })
 });
+
+
+function setCurrentLabel () {
+    var currentLabel = jQuery('.partner__nav li a.active').text();
+    jQuery('.current-label').html(currentLabel);
+}
+
+jQuery('.current-label').click(function () {
+    jQuery('.partner__nav').toggleClass('partner__nav--open');
+})
+
+setCurrentLabel ();
+
 
 // tabs form page my account
 
