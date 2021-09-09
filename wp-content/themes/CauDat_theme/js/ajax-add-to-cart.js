@@ -32,7 +32,6 @@
         };
 
 
-        console.log(ob_variation, data);
         $(document.body).trigger('adding_to_cart', [$thisbutton, data]);
 
         $.ajax({
