@@ -78,28 +78,43 @@ Template Name: Về chúng tôi
                 <img class="about-us__detail-image" src="<?php the_field('details_about_us_image') ?>" alt="">
             </div>
 
-            <?php if (have_rows('details_list')) : ?>
+            <?php
+            global $post;
+
+            $args = array(
+                'post_type'      => 'page',
+                'posts_per_page' => -1,
+                'post_parent'    => $post->ID,
+                'order'          => 'ASC',
+                'orderby'        => 'id'
+            );
+
+
+            $getChildPage = new WP_Query($args);
+
+            if ($getChildPage->have_posts()) : ?>
                 <div class="about-us__detail-list">
-                    <?php while (have_rows('details_list')) : the_row();
-                        $name = get_sub_field('name');
-                        $content = get_sub_field('content');
-                    ?>
+                    <?php while ($getChildPage->have_posts()) : $getChildPage->the_post(); ?>
+
                         <div class="about-us__detail-item">
                             <div class="about-us__detail-head">
                                 <div>A</div>
                             </div>
-                            <div class="about-us__detail-content">
+                            <div class="about-us__detail-content mg-bt-2">
                                 <div class="about-us__detail-name">
-                                    <h3><?php echo $name ?></h3>
+                                    <h3><?php the_title() ?></h3>
                                 </div>
                                 <div class="about-us__detail-content-desc">
-                                    <div><?php echo $content; ?></div>
+                                    <div><?php echo get_field('description_page', $post->ID); ?></div>
                                 </div>
+                            </div>
+                            <div class="about-us__detail-page-link">
+                                <a href="<?php the_permalink() ?>" class="mbtn-prm hover-red bg-prm">Tìm hiểu thêm</a>
                             </div>
                         </div>
                     <?php endwhile; ?>
                 </div>
-            <?php endif; ?>
+            <?php endif;wp_reset_postdata(); ?>
         </div>
     </section>
 
