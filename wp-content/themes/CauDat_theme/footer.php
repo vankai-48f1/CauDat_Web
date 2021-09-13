@@ -267,6 +267,28 @@
     <button onclick="backToTop()" id="backtotop-btn" class="backtotop__btn">A</button>
 </div>
 
+<!-- popup -->
+<?php $image_popup_global = get_field('image_popup', 'option'); ?>
+<?php $link_popup_global = get_field('link_popup', 'option'); ?>
+<?php
+if ($image_popup_global) : ?>
+    <div class="popup-global open">
+        <div class="popup-global-ctn">
+            <div class="popup-global-content">
+                <a href="<?php echo $link_popup_global['url'] ?>">
+
+                    <img src="<?php echo $image_popup_global['url'] ?>" alt="image popup">
+
+                </a>
+                <div class="close-float">
+                    <span class="close-float__icon"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php
+endif;
+?>
 <!-- Bootstrap core JavaScript -->
 <script src="<?php echo get_template_directory_uri() ?>/vendor/jquery/jquery.min.js"></script>
 <script src="<?php echo get_template_directory_uri() ?>/vendor/bootstrap/js/bootstrap.min.js"></script>

@@ -434,3 +434,14 @@ function my_login_logo_url()
     return home_url();
 }
 add_filter('login_headerurl', 'my_login_logo_url');
+
+
+
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page(
+        array(
+            'page_title'    => __('Popup'),
+            'icon_url'      => 'dashicons-admin-plugins',
+        )
+    );
+}

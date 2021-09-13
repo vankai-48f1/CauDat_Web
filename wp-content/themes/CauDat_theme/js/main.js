@@ -3,7 +3,7 @@ jQuery(document).ready(function () {
     let sidebar = jQuery('.sidebar-cart');
     let menubar = jQuery('.menubar');
     let filter_sidebar = jQuery('.filter-sidebar');
-
+    let popup_global = jQuery('.popup-global');
     // Shadow Screen
     function openShadowScreen() {
         jQuery('.shadow-screen').addClass('visible')
@@ -59,6 +59,7 @@ jQuery(document).ready(function () {
         removeOpenClass(sidebar);
         removeOpenClass(menubar);
         removeOpenClass(filter_sidebar);
+        removeOpenClass(popup_global);
     });
 
 
