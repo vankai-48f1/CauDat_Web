@@ -171,6 +171,17 @@ header.header-main {
   position: relative;
 }
 
+.header-nav__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 -15px;
+}
+
+.header-nav__col {
+    padding: 0 15px;
+}
+
 .header-nav__menu > li {
   display: inline-block;
 }
@@ -178,12 +189,12 @@ header.header-main {
 .header-nav__menu > li > a {
   font-family: var(--font-second-rgl);
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.2;
   color: #000;
   text-decoration: none;
   display: inline-block;
-  padding: 10px 10px;
+  padding: 5px 10px;
 }
 
 .header-nav__menu .sub-menu {
@@ -300,6 +311,11 @@ header.header-main {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.header-nav__mega > *:not(:last-child) {
+    margin-right: 15px;
+    white-space: nowrap;    
 }
 
 .search-block {
@@ -532,7 +548,7 @@ h3.ss-product__title {
 }
 
 .ss-product .slick-arrow {
-  z-index: 5;
+    z-index: 5;
 }
 
 .slick-slider .slick-prev::before,
@@ -1234,8 +1250,62 @@ h3.ss-product__title {
   margin-right: 5px;
 }
 
+.drop-sub-menu {
+    display: none;
+}
+
 #menu-danh-muc-san-pham li a {
   text-transform: uppercase;
+}
+
+#menu-danh-muc-san-pham > li > a {
+    padding: 8px 0;
+    margin-bottom: 0;
+}
+
+#menu-danh-muc-san-pham li.menu-item-has-children {
+    position: relative;
+    padding-right: 50px;
+}
+
+#menu-danh-muc-san-pham li.menu-item-has-children .sub-menu {
+    height: auto;
+    max-height: 0;
+
+    overflow: hidden;
+    padding-left: 15px;
+    transition: all 0.15s ease-out;
+    -webkit-transition: all 0.15s ease-out;
+    -ms-transition: all 0.15s ease-out;
+    -moz-transition: all 0.15s ease-out;
+    -o-transition: all 0.15s ease-out;
+}
+
+#menu-danh-muc-san-pham li.menu-item-has-children .sub-menu.open-sub-menu {
+    max-height: 500px;
+
+    transition: all 0.15s ease-in;
+    -webkit-transition: all 0.15s ease-in;
+    -ms-transition: all 0.15s ease-in;
+    -moz-transition: all 0.15s ease-in;
+    -o-transition: all 0.15s ease-in;
+}
+
+#menu-danh-muc-san-pham .drop-sub-menu  {
+    display: inline-block;
+    position: absolute;
+    top: 4px;
+    right: 20px;
+    width: 25px;
+    height: 25px;
+    /* background-color: #f0f4f7; */
+    text-align: center;
+    line-height: 25px;
+    cursor: pointer;
+}
+
+#menu-danh-muc-san-pham .sub-menu a {
+    margin-bottom: 0;
 }
 
 #menu-danh-muc-tin-tuc li a {
@@ -1477,6 +1547,8 @@ form input[type="submit"] {
   color: #000;
   padding: 10px 30px;
 }
+
+
 
 .popup-global {
   position: fixed;

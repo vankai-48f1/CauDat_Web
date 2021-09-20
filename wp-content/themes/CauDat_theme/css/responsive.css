@@ -72,6 +72,7 @@
 
   .menubar .menu-main-menu-container li a:hover {
     color: var(--color-prm);
+    background-color: transparent;
   }
 
   .menubar .sub-menu {
@@ -81,7 +82,7 @@
     -webkit-transition: all 250ms ease;
   }
 
-  .menubar .menu-item-has-children.show .sub-menu {
+  .menubar .menu-item-has-children .sub-menu.open-sub-menu {
     max-height: 1000px;
     overflow: hidden;
     transition: all 250ms ease;
@@ -93,7 +94,7 @@
     position: relative;
   }
 
-  .menubar__nav li.menu-item-has-children::after {
+  /* .menubar__nav li.menu-item-has-children::after {
     content: "\f107";
     font-family: "Font Awesome 5 Pro";
     font-size: 18px;
@@ -109,6 +110,19 @@
 
   .menubar__nav li.menu-item-has-children.show::after {
     transform: rotate(180deg);
+  } */
+
+  .menubar__nav .drop-sub-menu {
+    display: inline-block;
+    position: absolute;
+    top: 4px;
+    right: 20px;
+    width: 25px;
+    height: 25px;
+    /* background-color: #f0f4f7; */
+    text-align: center;
+    line-height: 25px;
+    cursor: pointer;
   }
 
   .contact__note {
@@ -416,6 +430,7 @@
   }
 
   .partner__nav {
+    display: block;
     max-height: 0;
     overflow: hidden;
     opacity: 0;

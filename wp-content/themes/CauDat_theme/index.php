@@ -9,11 +9,11 @@ Template Name: Home
     <?php if (have_rows('slider_prm')) : ?>
         <section class="section-slider">
             <?php while (have_rows('slider_prm')) : the_row();
-                $title = get_sub_field('title');
-                $description = get_sub_field('description');
-                $image = get_sub_field('image_product');
+                // $title = get_sub_field('title');
+                // $description = get_sub_field('description');
+                // $image = get_sub_field('image_product');
                 $background = get_sub_field('background');
-
+                $link_banner = get_sub_field('link');
             ?>
                 <div class="section-slider__item">
                     <div class="section-slider__content">
@@ -24,16 +24,17 @@ Template Name: Home
                             </div>
                         </div>
                     </div>
-                    <div class="section-slider__image" style="background-image: url(<?php echo $background ?>);">
-                        <?php if ($image) : ?>
-                            <img src="<?php echo $image; ?>" alt="image product">
-                        <?php endif; ?>
-                    </div>
+                    <a href="<?php echo $link_banner ?>">
+                        <div class="section-slider__image" style="background-image: url(<?php echo $background ?>);">
+                            <!-- < ?php if ($image) : ?>
+                            <img src="< ?php echo $image; ?>" alt="image product">
+                        < ?php endif; ?> -->
+                        </div>
+                    </a>
                 </div>
             <?php endwhile; ?>
         </section>
     <?php endif; ?>
-
     <section>
         <div class="container">
             <div class="ss-product">
@@ -66,8 +67,7 @@ Template Name: Home
                             <div class="ss-product__item">
                                 <div class="ss-product__thumb-wrap">
                                     <a href="<?php echo get_the_permalink() ?>" class="ss-product__thumb hover-black">
-                                        <!-- <img src="< ?php echo wp_get_attachment_image_src($product->get_image_id(), 'medium_image')[0] ?>" /> -->
-                                        <?php echo woocommerce_get_product_thumbnail('medium_image') ?>
+                                        <?php echo woocommerce_get_product_thumbnail('woocommerce_thumbnail') ?>
                                         <?php get_template_part('template-parts/attribute', 'product'); ?>
                                     </a>
                                 </div>

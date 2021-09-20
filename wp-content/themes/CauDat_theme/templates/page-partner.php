@@ -10,13 +10,13 @@ Template Name: Đối tác
 <div class="partner">
     <div class="container">
         <div class="current-label">Xe Take Away</div>
-        <ul class="partner__nav row">
+        <ul class="partner__nav partner__nav-row">
 
             <?php
             for ($i = 1; $i < 9; ++$i) {
-                $label_target = get_field('label_' . $i);
+                $label_target = get_field('label_partner_' . $i);
                 if ($label_target) { ?>
-                    <li class="col-lg-3 col-md-4 mg-bt-1"><a href="#partner__section-<?php echo $i ?>" class="<?php echo $i === 1 ? 'active' : null  ?>" data-id-section="partner__section-<?php echo $i ?>"><?php echo $label_target ?></a></li>
+                    <li class="partner__nav-cold mg-bt-1"><a href="#partner__section-<?php echo $i ?>" class="<?php echo $i === 1 ? 'active' : null  ?>" data-id-section="partner__section-<?php echo $i ?>"><?php echo $label_target ?></a></li>
             <?php } else {
                     break;
                 }

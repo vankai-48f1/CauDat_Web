@@ -78,9 +78,9 @@
             <div class="header-nav">
                 <div class="container">
                     <div class="header-nav__container">
-                        <div class="row">
+                        <div class="header-nav__row">
 
-                            <div class="col-lg-2">
+                            <div class="header-nav__col">
                                 <div class="header__logo">
                                     <?php $logo_home = get_theme_mod('Logo'); ?>
                                     <a href="<?php echo home_url() ?>">
@@ -91,7 +91,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-7">
+                            <div class="header-nav__col">
                                 <?php
                                 wp_nav_menu(
                                     array(
@@ -105,7 +105,7 @@
 
                             </div>
 
-                            <div class="col-lg-3">
+                            <div class="header-nav__col">
                                 <div class="header-nav__mega">
 
                                     <div class="search-block">
@@ -118,9 +118,6 @@
                                     </div>
 
                                     <ul class="usser-login">
-                                        <!-- < ?php dynamic_sidebar('login'); ?> -->
-
-                                    
 
                                         <?php
                                         if (is_user_logged_in()) { ?>

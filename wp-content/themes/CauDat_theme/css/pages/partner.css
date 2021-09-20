@@ -2,15 +2,18 @@
   padding: 50px 0;
 }
 
-.partner__nav {
+.partner__nav-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    grid-column-gap: 20px;
 }
 
 .partner__nav li a {
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.5;
   text-transform: uppercase;
   display: block;
-  padding: 15px 0;
+  padding: 15px 5px;
   background-color: #ededed;
   text-align: center;
   font-weight: bold;

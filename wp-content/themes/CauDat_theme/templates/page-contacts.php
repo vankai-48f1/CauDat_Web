@@ -9,7 +9,7 @@ Template Name: Liên hệ
 <!-- Page Content -->
 <div class="contact">
     <div class="map-view">
-        <iframe src="https://maps.google.com/maps?q=<?php echo get_field('coordinates') ?>&output=embed" width="600" height="450" frameborder="0" style="border:0"></iframe>
+        <?php echo get_field('coordinates') ?>
     </div>
 
     <div class="container">

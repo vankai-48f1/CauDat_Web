@@ -1,9 +1,50 @@
 <?php get_header() ?>
 <!-- Page Content -->
-<div class="single">
-    <div class="single__header">
-        <?php echo get_the_post_thumbnail() ?>
+<div class="header-part" id="header-part">
+    <div class="container">
+        <div class="header-part__content">
+            <!-- < ?php
+            global $post;
+            $postcat = get_the_category($post->ID);
+
+            if (!empty($postcat)) {
+                foreach ($postcat  as $category) {
+                }
+            }
+
+            ?> -->
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="header-part__title">
+
+                        <h2>
+                            <?php echo get_cat_name(19) ?>
+                        </h2>
+                    </div>
+
+                    <div class="header-part__description">
+
+                        <?php echo category_description(19) ?>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="header-part__breadcrumb mg-t-1">
+                        <!-- < ?php m_breadcrumbs() ?> -->
+                        <ul class="m-breadcrumb">
+                            <li><a href="<?php echo  get_bloginfo('url') ?>">Trang chủ</a></li>
+                            <span class="breadcrumb-delimiter"><i class="far fa-chevron-double-right"></i></span>
+                            <li><a href="<?php echo get_category_link(19) ?>"><?php echo get_cat_name(19) ?></a></li>
+                            <span class="breadcrumb-delimiter"><i class="far fa-chevron-double-right"></i></span>
+                            <span><?php echo get_the_title() ?></span>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
+
+<div class="single">
 
     <div class="single__main mg-t-5 mg-bt-5">
         <div class="container">

@@ -20,7 +20,7 @@
 
 // ** Thiết lập MySQL - Bạn có thể lấy các thông tin này từ host/server ** //
 /** Tên database MySQL */
-define( 'DB_NAME', 'CauDat_Web' );
+define( 'DB_NAME', 'caudat_web' );
 
 /** Username của database */
 define( 'DB_USER', 'root' );

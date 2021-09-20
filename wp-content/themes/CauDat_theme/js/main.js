@@ -4,6 +4,7 @@ jQuery(document).ready(function () {
     let menubar = jQuery('.menubar');
     let filter_sidebar = jQuery('.filter-sidebar');
     let popup_global = jQuery('.popup-global');
+
     // Shadow Screen
     function openShadowScreen() {
         jQuery('.shadow-screen').addClass('visible')
@@ -45,13 +46,13 @@ jQuery(document).ready(function () {
 
     // Open Submenu Mobile
 
-    jQuery('.menubar__nav > li.menu-item-has-children').on('click', function (e) {
-        e.stopPropagation();
-        jQuery(this).toggleClass('show')
-    });
-    jQuery('.menubar__nav > li > a').on('click', function (e) {
-        e.stopPropagation();
-    });
+    // jQuery('.menubar__nav > li.menu-item-has-children').on('click', function (e) {
+    //     e.stopPropagation();
+    //     jQuery(this).toggleClass('show')
+    // });
+    // jQuery('.menubar__nav > li > a').on('click', function (e) {
+    //     e.stopPropagation();
+    // });
     // close 
 
     jQuery('.close-float__icon').on('click', function () {
@@ -290,7 +291,7 @@ jQuery(document).ready(function () {
             var rating_num = Number(rating_ct.trim());
             rating_num ? rating_num : 0;
 
-        
+
             if (rating_num != 0) {
                 jQuery(rating).closest('.star-rating').append('<div class="star-icon">Được xếp hạng&ensp;</div>');
 
@@ -307,18 +308,27 @@ jQuery(document).ready(function () {
 
     let average_ratings = jQuery('.average-rating .val-average-rating');
 
-    average_ratings.each( (index, average_rating) => {
+    average_ratings.each((index, average_rating) => {
 
         let val_rating = jQuery(average_rating).val();
         let num_rating = Number(val_rating.trim());
 
         let full_star = 5; // 5 sao = 100
-        let one_star  = 1;  // 1 sao = 20
+        let one_star = 1;  // 1 sao = 20
 
-        let percent_rating = ( num_rating / full_star ) * 100;
+        let percent_rating = (num_rating / full_star) * 100;
         jQuery(average_rating).closest('.ratings-wrap').find('.front-stars').css('width', percent_rating + '%');
-    }); 
+    });
 
+
+    // add button has menu item has child
+    jQuery('ul li.menu-item-has-children').append('<span class="drop-sub-menu"><i class="fa fa-angle-down" aria-hidden="true"></i></span>');
+
+    jQuery('.drop-sub-menu').on('click', function (e) {
+        e.stopPropagation();
+        // jQuery('li.menu-item-has-children .sub-menu').toggleClass('open-sub-menu');
+        jQuery(this).closest('li.menu-item').find('.sub-menu').toggleClass('open-sub-menu');
+    })
 
 }); // close ready 
 
@@ -403,3 +413,25 @@ function backToTop() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
+
+// open popup
+
+
+if (typeof Storage !== "undefined") {
+    let popupElement = document.querySelector('.popup-global');
+
+    if (localStorage.numberAccess) {
+        localStorage.numberAccess = parseInt(localStorage.numberAccess, 10) + 1;
+        popupElement.classList.remove('open')
+
+    } else {
+        localStorage.numberAccess = 0;
+
+        popupElement.classList.add('open')
+    }
+
+}
+else {
+    alert('Browser not support Storage')
+}
+

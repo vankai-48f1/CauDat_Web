@@ -272,7 +272,7 @@
 <?php $link_popup_global = get_field('link_popup', 'option'); ?>
 <?php
 if ($image_popup_global) : ?>
-    <div class="popup-global open">
+    <div class="popup-global">
         <div class="popup-global-ctn">
             <div class="popup-global-content">
                 <a href="<?php echo $link_popup_global['url'] ?>">
@@ -289,6 +289,7 @@ if ($image_popup_global) : ?>
 <?php
 endif;
 ?>
+
 <!-- Bootstrap core JavaScript -->
 <script src="<?php echo get_template_directory_uri() ?>/vendor/jquery/jquery.min.js"></script>
 <script src="<?php echo get_template_directory_uri() ?>/vendor/bootstrap/js/bootstrap.min.js"></script>
