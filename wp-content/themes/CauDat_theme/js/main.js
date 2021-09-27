@@ -1,3 +1,13 @@
+const menuNavigation = document.querySelector('#header');
+
+setTimeout(()=> {
+    Object.assign(menuNavigation.style, {
+        'visibility': 'visible',
+        'opacity'  : 1 
+    });
+},0)
+
+
 jQuery(document).ready(function () {
 
     let sidebar = jQuery('.sidebar-cart');

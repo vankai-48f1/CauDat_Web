@@ -1,31 +1,26 @@
-<?php
-/*
-Template Name: Showroom
-*/
-?>
-
 <?php get_header() ?>
 
 <?php get_template_part('template-parts/header'); ?>
 <!-- Page Content -->
 <div class="container">
     <?php
-
-    $args = array(
+    $categories = get_the_category();
+    $category_id = $categories[0]->cat_ID;
+    $post_showroom = array(
         'post_status' => 'publish',
         'post_type' => 'post',
-        'showposts' => 4,
-        'cat' => 86,
+        'showposts' => 3,
+        'cat' => $category_id,
         'order'          => 'DESC',
         'orderby'        => 'date',
     );
 
 
-    $parent = new WP_Query($args);
+    $query_post_showroom = new WP_Query($post_showroom);
 
-    if ($parent->have_posts()) : ?>
+    if ($query_post_showroom->have_posts()) : ?>
         <div class="showroom">
-            <?php while ($parent->have_posts()) : $parent->the_post(); ?>
+            <?php while ($query_post_showroom->have_posts()) : $query_post_showroom->the_post(); ?>
                 <div class="showroom__item">
 
                     <a href="<?php the_permalink(); ?>" class="showroom__image-wrap">

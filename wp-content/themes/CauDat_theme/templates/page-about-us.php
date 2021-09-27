@@ -13,7 +13,57 @@ Template Name: Về chúng tôi
     <?php $intro = get_field('intro_about_us') ?>
     <section class="about-us__intro">
         <div class="container">
+
+            <?php
+
+            $slide_top = get_field('slide_top_abou_us');
+            $gallery = $slide_top['images_gallery_top']; ?>
+
+
+            <div class="showrom-info__item about-us__top-content">
+                <div class="showroom-info__image-block">
+                    <?php
+                    if ($gallery) : ?>
+                        <div class="showroom-info__gallery">
+                            <?php foreach ($gallery as $image) : ?>
+                                <div class="about-us__intro-image-block about-us__order-2">
+                                    <div class="about-us__intro-image-wrap">
+                                        <img class="about-us__intro-image" src="<?php echo esc_url($image); ?>" alt="">
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+
+                <div class="about-us__intro-content about-us__order-1">
+                    <div class="about-us__intro-title-block mg-bt-1">
+                        <h2 class="about-us__title"><?php echo $slide_top['title_top']; ?></h2>
+                    </div>
+
+                    <div class="about-us__intro-branch">
+                        <div class="about-us__branch-name about-us__branch-name--style">
+                            <h4><?php echo $slide_top['title_content_1'] ?></h4>
+                        </div>
+                        <div class="about-us__branch-description">
+                            <?php echo $slide_top['content_1'] ?>
+                        </div>
+                    </div>
+
+                    <div class="about-us__intro-branch">
+                        <div class="about-us__branch-name about-us__branch-name--style">
+                            <h4><?php echo $slide_top['title_content_2'] ?></h4>
+                        </div>
+                        <div class="about-us__branch-description">
+                            <?php echo $slide_top['content_2'] ?>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
             <div class="about-us__intro-ctn">
+
                 <div class="about-us__intro-content about-us__order-1">
                     <div class="about-us__intro-title-block mg-bt-1">
                         <h2 class="about-us__title"><?php echo $intro['title']; ?></h2>
@@ -114,7 +164,8 @@ Template Name: Về chúng tôi
                         </div>
                     <?php endwhile; ?>
                 </div>
-            <?php endif;wp_reset_postdata(); ?>
+            <?php endif;
+            wp_reset_postdata(); ?>
         </div>
     </section>
 

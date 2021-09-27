@@ -386,3 +386,11 @@
 
     text-transform: uppercase;
 }
+
+.about-us__top-content.showrom-info__item {
+    margin-bottom: 0;
+}
+
+.about-us__top-content .about-us__intro-image-block {
+    display: block !important;
+}
