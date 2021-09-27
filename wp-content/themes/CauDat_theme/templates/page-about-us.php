@@ -49,15 +49,6 @@ Template Name: Về chúng tôi
                             <?php echo $slide_top['content_1'] ?>
                         </div>
                     </div>
-
-                    <div class="about-us__intro-branch">
-                        <div class="about-us__branch-name about-us__branch-name--style">
-                            <h4><?php echo $slide_top['title_content_2'] ?></h4>
-                        </div>
-                        <div class="about-us__branch-description">
-                            <?php echo $slide_top['content_2'] ?>
-                        </div>
-                    </div>
                 </div>
 
             </div>
