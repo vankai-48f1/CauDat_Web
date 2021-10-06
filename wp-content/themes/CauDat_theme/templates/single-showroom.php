@@ -77,10 +77,14 @@
                                     <p><?php echo $phone ?></p>
                                 </div>
 
-                                <div class="showroom-info__map">
-                                    <img src="<?php echo get_template_directory_uri() ?>/images/map-icon.png" alt="" class="showroom-info__map-icon">
-                                    <a target="_blank" href="<?php echo $location_map ?>" class="showroom-info__map-link hover-red">Xem trên google map</a>
-                                </div>
+                                <?php
+                                if ($location_map) :
+                                ?>
+                                    <div class="showroom-info__map">
+                                        <img src="<?php echo get_template_directory_uri() ?>/images/map-icon.png" alt="" class="showroom-info__map-icon">
+                                        <a target="_blank" href="<?php echo $location_map ?>" class="showroom-info__map-link hover-red">Xem trên google map</a>
+                                    </div>
+                                <?php endif ?>
                                 <div class="showrom-info__desc">
                                     <?php echo $description ?>
                                 </div>
