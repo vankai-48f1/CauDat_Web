@@ -425,9 +425,9 @@ if (parentCoupon) {
 
 // back to top
 
-let buttonBackToTop = document.getElementById('backtotop-btn');
+const buttonBackToTop = document.getElementById('backtotop-btn');
 
-window.onscroll = function () { scrollFunction() };
+window.addEventListener("scroll",scrollFunction);
 
 function scrollFunction() {
 
