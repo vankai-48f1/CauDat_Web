@@ -85,6 +85,7 @@
                                         <a target="_blank" href="<?php echo $location_map ?>" class="showroom-info__map-link hover-red">Xem trên google map</a>
                                     </div>
                                 <?php endif ?>
+                                
                                 <div class="showrom-info__desc">
                                     <?php echo $description ?>
                                 </div>

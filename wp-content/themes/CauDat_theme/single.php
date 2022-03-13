@@ -34,8 +34,8 @@
                             <li><a href="<?php echo  get_bloginfo('url') ?>">Trang chủ</a></li>
                             <span class="breadcrumb-delimiter"><i class="far fa-chevron-double-right"></i></span>
                             <li><a href="<?php echo get_category_link(19) ?>"><?php echo get_cat_name(19) ?></a></li>
-                            <span class="breadcrumb-delimiter"><i class="far fa-chevron-double-right"></i></span>
-                            <span><?php echo get_the_title() ?></span>
+                            <!--<span class="breadcrumb-delimiter"><i class="far fa-chevron-double-right"></i></span>-->
+                            <!--<span>< ?php echo get_the_title() ?></span>-->
                         </ul>
                     </div>
                 </div>

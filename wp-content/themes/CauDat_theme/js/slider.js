@@ -61,7 +61,7 @@ jQuery(document).ready( function () {
         speed: 2000,
         autoplaySpeed: 5000,
     });
-
+    
     jQuery('.about-us__top-slide').slick({
         dots: false,
         arrows: true,

@@ -118,6 +118,9 @@
                                     </div>
 
                                     <ul class="usser-login">
+                                        <!-- < ?php dynamic_sidebar('login'); ?> -->
+
+                                    
 
                                         <?php
                                         if (is_user_logged_in()) { ?>

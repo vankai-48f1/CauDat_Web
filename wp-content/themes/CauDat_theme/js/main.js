@@ -1,11 +1,13 @@
 const menuNavigation = document.querySelector('#header');
 
-setTimeout(() => {
+setTimeout(()=> {
     Object.assign(menuNavigation.style, {
         'visibility': 'visible',
-        'opacity': 1
+        'opacity'  : 1 
     });
-}, 0)
+},0)
+
+
 
 
 jQuery(document).ready(function () {
@@ -338,10 +340,10 @@ jQuery(document).ready(function () {
         e.stopPropagation();
         // jQuery('li.menu-item-has-children .sub-menu').toggleClass('open-sub-menu');
         jQuery(this).closest('li.menu-item').find('.sub-menu').toggleClass('open-sub-menu');
-    })
-
-
-    // // prevent copy cut, f12 in website
+    });
+    
+    
+     // // prevent copy cut, f12 in website
 
     jQuery("body").bind("cut copy", function (e) {
         e.preventDefault();
@@ -359,6 +361,7 @@ jQuery(document).ready(function () {
         e.preventDefault();
     });
     
+
 }); // close ready 
 
 window.onload = function () {
@@ -425,9 +428,9 @@ if (parentCoupon) {
 
 // back to top
 
-const buttonBackToTop = document.getElementById('backtotop-btn');
+let buttonBackToTop = document.getElementById('backtotop-btn');
 
-window.addEventListener("scroll",scrollFunction);
+window.onscroll = function () { scrollFunction() };
 
 function scrollFunction() {
 

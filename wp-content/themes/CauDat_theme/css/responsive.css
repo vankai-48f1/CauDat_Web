@@ -308,7 +308,7 @@
   .related-product .related ul.products {
     grid-template-columns: repeat(2, 1fr);
   }
-
+  
   .about-us__top-content .showroom-info__image-block {
     margin-bottom: 0;
   }

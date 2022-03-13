@@ -61,7 +61,8 @@ ul.products {
 }
 
 .woocommerce-Price-currencySymbol {
-  margin-left: 10px;
+  /*margin-left: 10px;*/
+  margin-left: 4px;
 }
 
 .m_button_add_to_cart {
