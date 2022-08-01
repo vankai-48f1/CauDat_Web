@@ -558,3 +558,15 @@ function caudat_pagination_product()
 }
 
 add_action('woocommerce_after_shop_loop', 'caudat_pagination_product', 10);
+
+// change woocommerce thumbnail image size
+add_filter('woocommerce_get_image_size_gallery_thumbnail', 'override_woocommerce_image_size_gallery_thumbnail');
+function override_woocommerce_image_size_gallery_thumbnail($size)
+{
+    // Gallery thumbnails: proportional, max width 200px
+    return array(
+        'width'  => 400,
+        'height' => 0,
+        'crop'   => 0,
+    );
+}

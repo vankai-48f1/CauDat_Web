@@ -357,9 +357,9 @@ jQuery(document).ready(function () {
         }
     });
 
-    jQuery(document).on("contextmenu", function (e) {        
-        e.preventDefault();
-    });
+    // jQuery(document).on("contextmenu", function (e) {        
+    //     e.preventDefault();
+    // });
     
 
 }); // close ready 

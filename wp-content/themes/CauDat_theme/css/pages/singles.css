@@ -67,7 +67,7 @@
 .list-posts__item-title {
   display: inline-block;
 
-  font-family: var(--font-second-bold);
+  font-family: var(--font-prm-semibold);
   font-size: 18px;
   line-height: 1.5;
   margin-bottom: 15px;

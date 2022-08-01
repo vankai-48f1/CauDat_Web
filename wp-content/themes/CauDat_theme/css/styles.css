@@ -46,6 +46,7 @@
 :root {
   --color-prm: #ffee00;
   --font-prm: "Averta-Regular";
+  --font-prm-semibold: "Averta-Semibold";
   --font-prm-bold: "Averta-Bold";
 
   --font-second-rgl: "Havelock-Titling-Medium";
@@ -597,7 +598,7 @@ h3.ss-product__title {
 }
 
 .ss-product__name {
-  font-family: var(--font-second-bold);
+  font-family: var(--font-prm-semibold);
   font-size: 18px;
   line-height: 1.5;
   padding-top: 10px;
@@ -702,7 +703,7 @@ h3.ss-product__title {
 }
 
 .ss-collections__content h3 {
-  font-family: var(--font-second-bold);
+  font-family: var(--font-prm-bold);
   font-weight: 500;
   font-size: 25px;
   line-height: 1.5;
@@ -770,6 +771,7 @@ h3.ss-product__title {
 }
 
 .ss-news__item-title {
+  font-family: var(--font-prm-semibold);
   font-size: 14px;
   font-weight: 600;
   line-height: 1.5;
