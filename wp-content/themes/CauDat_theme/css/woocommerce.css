@@ -382,6 +382,10 @@ h1.product_title {
   border-top: 1px solid #ececec;
 }
 
+.product-description-tabs a {
+  color: #0a58ca;
+}
+
 .product-description .attr-product__list {
   background-color: transparent;
 }

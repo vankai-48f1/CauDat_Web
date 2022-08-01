@@ -224,7 +224,7 @@ function caudat_single_product_gu()
     global $product;
 
     if ($product->get_attribute('pa_gu')) :
-        echo '<div class="sg-product-gu">( ' . $product->get_attribute('pa_gu') . ')</div>';
+        echo '<div class="sg-product-gu">(' . $product->get_attribute('pa_gu') . ')</div>';
     endif;
 }
 
