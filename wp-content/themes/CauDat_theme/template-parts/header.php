@@ -2,6 +2,14 @@
     <div class="container">
         <div class="header-part__content">
             <div class="row">
+                <?php if(is_product()): ?>
+                <div class="col-lg-12 col-12">
+                    <div class="header-part__breadcrumb single-product-breadcrum mg-bt-1">
+                        <?php m_breadcrumbs() ?>
+                    </div>
+                </div>
+                <?php endif; ?>
+                    
                 <div class="col-lg-7">
                     <div class="header-part__title">
 
@@ -62,9 +70,11 @@
                     </div>
                 </div>
                 <div class="col-lg-5">
+                    <?php if(!is_product()): ?>
                     <div class="header-part__breadcrumb mg-t-1">
                         <?php m_breadcrumbs() ?>
                     </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
