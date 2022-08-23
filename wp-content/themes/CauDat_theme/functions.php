@@ -78,15 +78,15 @@ function mini_blog_widgets_init()
         'after_widget'   => '</div>',
     ));
 
-    register_sidebar(array(
-        'name'            => __('Lọc theo Gu'),
-        'id'             => 'filter-gu',
-        'description'     => __('Lọc theo Gu'),
-        'before_title'   => '<h3>',
-        'after_title'   => '</h3>',
-        'before_widget'   => '<div class="filter-gu">',
-        'after_widget'   => '</div>',
-    ));
+    // register_sidebar(array(
+    //     'name'            => __('Lọc theo Gu'),
+    //     'id'             => 'filter-gu',
+    //     'description'     => __('Lọc theo Gu'),
+    //     'before_title'   => '<h3>',
+    //     'after_title'   => '</h3>',
+    //     'before_widget'   => '<div class="filter-gu">',
+    //     'after_widget'   => '</div>',
+    // ));
 
     register_sidebar(array(
         'name'            => __('Lọc theo kg'),

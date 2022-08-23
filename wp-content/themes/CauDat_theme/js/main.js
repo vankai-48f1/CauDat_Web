@@ -450,16 +450,18 @@ function backToTop() {
 
 
 if (typeof Storage !== "undefined") {
-    let popupElement = document.querySelector('.popup-global');
+    const popupElement = document.querySelector('.popup-global');
 
-    if (localStorage.numberAccess) {
-        localStorage.numberAccess = parseInt(localStorage.numberAccess, 10) + 1;
-        popupElement.classList.remove('open')
+    if(popupElement) {
+      if (localStorage.numberAccess) {
+          localStorage.numberAccess = parseInt(localStorage.numberAccess, 10) + 1;
+          popupElement.classList.remove('open')
 
-    } else {
-        localStorage.numberAccess = 0;
+      } else {
+          localStorage.numberAccess = 0;
 
-        popupElement.classList.add('open')
+          popupElement.classList.add('open')
+      }
     }
 
 }
