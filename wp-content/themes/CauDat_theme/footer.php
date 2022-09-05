@@ -236,6 +236,7 @@
                 'theme_location'  => 'main-menu',
                 'depth'  => 2,
                 'container'  => 'nav',
+                'container_class' => 'menu-main-menu-container',
                 'menu_class'  => 'menubar__nav',
             )
         );

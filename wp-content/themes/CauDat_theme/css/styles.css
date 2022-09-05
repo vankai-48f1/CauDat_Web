@@ -132,6 +132,9 @@ header.header-main {
 
 .menubar__container {
   overflow-y: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .header-top {
@@ -1653,19 +1656,19 @@ form input[type="submit"] {
 }
 
 .single-main-content h1 {
-    font-size: calc(1.375rem + 1.5vw);
+  font-size: calc(1.375rem + 1.5vw);
 }
 
 .single-main-content h2 {
-    font-size: calc(1.325rem + .9vw);
+  font-size: calc(1.325rem + 0.9vw);
 }
 
 .single-main-content h3 {
-    font-size: calc(1.3rem + .6vw);
+  font-size: calc(1.3rem + 0.6vw);
 }
 
 .single-main-content h4 {
-    font-size: calc(1.275rem + .3vw);
+  font-size: calc(1.275rem + 0.3vw);
 }
 
 .single-main-content h5 {

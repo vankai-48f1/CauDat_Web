@@ -73,6 +73,10 @@
   margin: 0 auto;
 }
 
+.partner__consult-form .wpcf7-spinner {
+  display: none;
+}
+
 .partner__consult input[type="submit"] {
   background-color: var(--color-prm);
 }
