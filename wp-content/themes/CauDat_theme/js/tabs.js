@@ -8,16 +8,16 @@ itemTabsContent.css("display", "none");
 
 navigationTarget.each((index, elemt) => {
     var elemtTarget = jQuery(elemt);
-    var dataIdSection = jQuery(elemt).attr("data-id-section");
+    var anchorSection = jQuery(elemt).attr("data-target");
 
 
     itemTabsContent.each((index, elmt) => {
         var contentElement = jQuery(elmt);
-        var contentId = contentElement.attr("id");
+        var contentId = contentElement.attr("data-anchor");
 
         if (elemtTarget.hasClass('active')) {
-            dataIdSection = jQuery(elemt).attr("data-id-section");
-            if (dataIdSection == contentId) {
+            anchorSection = jQuery(elemt).attr("data-target");
+            if (anchorSection == contentId) {
                 contentElement.css("display", "block");
             }
         }
@@ -26,6 +26,11 @@ navigationTarget.each((index, elemt) => {
     // CLICK ACTIVE TABS
     elemtTarget.on('click', function (e) {
         e.preventDefault();
+        
+        // const url = location.href + '?partner=' + anchorSection;
+        const url = new URL(window.location.href);
+        url.searchParams.set('partner', anchorSection);
+        window.history.replaceState(null, null, url);
 
         jQuery(this).closest('.partner__nav').find('li a').removeClass('active');
         jQuery(this).addClass('active');
@@ -33,9 +38,9 @@ navigationTarget.each((index, elemt) => {
 
         itemTabsContent.each((index, elmt) => {
             var contentElement = jQuery(elmt);
-            var contentId = contentElement.attr("id");
+            var contentId = contentElement.attr("data-anchor");
 
-            if (dataIdSection == contentId) {
+            if (anchorSection == contentId) {
                 contentElement.css("display", "block");
             }
         });
@@ -54,7 +59,7 @@ jQuery('.current-label').click(function () {
     jQuery('.partner__nav').toggleClass('partner__nav--open');
 })
 
-setCurrentLabel ();
+//setCurrentLabel ();
 
 
 // tabs form page my account

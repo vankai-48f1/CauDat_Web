@@ -653,4 +653,8 @@
   .woocommerce-cart-form button[name="apply_coupon"] {
     flex: 1;
   }
+
+  .partner__consult-form {
+    max-width: 100%;
+  }
 }

@@ -22,13 +22,13 @@
                     <?php get_template_part('template-parts/result', 'search'); ?>
                 <?php else : ?>
 
-                    <p>
+                    <div class="mb-4">
                         Không có bài viết nào phù hợp với từ khóa: <strong><?php the_search_query(); ?></strong>
-                    </p>
+                    </div>
 
                     <form action="<?php bloginfo('url'); ?>/">
                         <div class="input-group">
-                            <input type="text" class="form-control" value="<?php the_search_query(); ?>" name="s" placeholder="Search for...">
+                            <input type="text" class="form-control mb-0" value="<?php the_search_query(); ?>" name="s" placeholder="Search for...">
                             <span class="input-group-btn">
                                 <button class="btn btn-secondary" type="button">Go!</button>
                             </span>
