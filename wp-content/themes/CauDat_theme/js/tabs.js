@@ -31,7 +31,7 @@ navigationTarget.each((index, elemt) => {
         const url = new URL(window.location.href);
         url.searchParams.set('partner', anchorSection);
         window.history.replaceState(null, null, url);
-
+        
         jQuery(this).closest('.partner__nav').find('li a').removeClass('active');
         jQuery(this).addClass('active');
         jQuery(this).closest('.partner').find('.partner__content').css('display', 'none');

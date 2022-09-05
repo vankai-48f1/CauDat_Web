@@ -14,7 +14,6 @@ Template Name: Đối tác
         if (have_rows('partner_tabs')) : ?>
             <?php
             $current = $_GET['partner'] ? $_GET['partner'] : null;
-            $active = '';
             ?>
 
             <div class="current-label"><?php echo $current ? $current : get_field('partner_tabs')[0]['label'] ?></div>
