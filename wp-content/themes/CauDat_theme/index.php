@@ -221,6 +221,8 @@ Template Name: Home
         </div>
     </section>
 
+    <!--Hidden-->
+    <?php if(!is_front_page()) : ?>
     <!-- section image -->
     <?php $ss_image = get_field('section_image');
 
@@ -294,6 +296,8 @@ Template Name: Home
             </div>
         </div>
     </section>
+    <!-- End Hidden -->
+    <?php endif; ?> 
 </div>
 
 <?php get_footer() ?>

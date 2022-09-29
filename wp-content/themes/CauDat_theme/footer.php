@@ -2,7 +2,7 @@
 <footer>
     <div class="footer">
         <?php if (is_front_page() || is_shop() || is_product_category() || is_product()) : ?>
-            <div class="footer-top align-ct">
+            <div class="footer-top align-ct" style="display:none;">
                 <div class="container">
                     <div class="footer-top__contact mg-bt-2">
                         <p>HOTLINE: <a class="footer-top__contact-hotline hover-red" href="tel:<?php the_field('hotline', 'option') ?>"><span><?php the_field('hotline', 'option') ?></span></a></p>

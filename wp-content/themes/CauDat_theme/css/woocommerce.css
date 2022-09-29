@@ -1387,5 +1387,5 @@ table.shop_table .product-thumbnail {
 }
 
 .single-product-breadcrum .m-breadcrumb {
-  justify-content: flex-start;
+    justify-content: flex-start;
 }

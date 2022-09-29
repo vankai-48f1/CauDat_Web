@@ -118,6 +118,7 @@
                                         'theme_location'  => 'main-menu',
                                         'depth'  => 3,
                                         'container'  => 'nav',
+                                        'container_class' => 'menu-main-menu-container',
                                         'menu_class'  => 'header-nav__menu',
                                     )
                                 );
