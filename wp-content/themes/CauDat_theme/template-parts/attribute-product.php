@@ -1,8 +1,10 @@
-<?php global $product; ?>
+<?php global $product;
+if($args['product']) {
+    $product = $args['product'];
+}
+?>
 <div class="attr-product">
     <!-- <div class="attr-product__inner"> -->
-
-
     <ul class="attr-product__list">
         <?php if (is_product()) : ?>
             <li class="attr-product__SKU">

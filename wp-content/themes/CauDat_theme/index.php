@@ -35,40 +35,30 @@ Template Name: Home
             <?php endwhile; ?>
         </section>
     <?php endif; ?>
+
+    <!-- Sản phẩm bán chạy -->
     <section>
         <div class="container">
             <div class="ss-product">
+                <?php $best_selling_products = get_field('best_selling_products'); ?>
                 <div class="ss-title align-ct">
-                    <h3 class="ss-product__title title-type-prm">Sản Phẩm</h3>
+                    <h3 class="ss-product__title title-type-prm"><?php echo $best_selling_products['title'] ? $best_selling_products['title'] : "Sản Phẩm Bán Chạy"; ?></h3>
                 </div>
                 <div class="ss-product__slider pd-t-3 pd-bt-3">
                     <?php
-                    $products = array(
-                        'post_type' => 'product',
-                        'showposts'  => 9,
-                        'orderby'     => 'date',
-                        'order'     => 'DESC',
-                        'tax_query' => array(
-                            array(
-                                'taxonomy' => 'product_cat',
-                                'field' => 'term_id',
-                                'terms' => 27,
-                            )
-                        )
-                    );
+                    if ($best_selling_products['select_products']) :
+                        foreach ($best_selling_products['select_products'] as $post) :
 
-                    $query_product = new WP_Query($products);
-
-                    // The Loop
-                    if ($query_product->have_posts()) :
-                        while ($query_product->have_posts()) : $query_product->the_post();
-                            global $product;
+                            // Setup this post for WP functions (variable must be named $post).
+                            setup_postdata($post);
+                            $product = wc_get_product( $post->ID );
                     ?>
+
                             <div class="ss-product__item">
                                 <div class="ss-product__thumb-wrap">
                                     <a href="<?php echo get_the_permalink() ?>" class="ss-product__thumb hover-black">
                                         <?php echo woocommerce_get_product_thumbnail('woocommerce_thumbnail') ?>
-                                        <?php get_template_part('template-parts/attribute', 'product'); ?>
+                                        <?php get_template_part('template-parts/attribute', 'product', array('product' => $product)); ?>
                                     </a>
                                 </div>
                                 <div class="ss-product__content align-ct">
@@ -97,10 +87,6 @@ Template Name: Home
                                         </div>
                                     </div>
                                     <div class="ss-product__price mg-bt-1">
-                                        <?php
-
-                                        global $product;
-                                        ?>
 
                                         <?php if ($price_html = $product->get_price_html()) : ?>
                                             <a href="<?php echo get_the_permalink() ?>" class="hover-red">
@@ -116,65 +102,61 @@ Template Name: Home
                                 </div>
 
                             </div>
-                    <?php endwhile;
+                        <?php endforeach; ?>
+                    <?php
+                        wp_reset_postdata();
                     endif;
-                    wp_reset_postdata();
                     ?>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="bg-white-dark">
+    <!-- Sản phẩm nguyên bản đặc trưng -->
+    <section>
         <div class="container">
-            <div class="ss-collections pd-t-2">
-                <div class="ss-title align-ct mg-bt-3">
-                    <p class="ss-title__subtitle">Khám phá</p>
-                    <h3 class="title-type-prm">Bộ sưu tập</h3>
+            <div class="ss-product">
+                <?php $original_product = get_field('original_product'); ?>
+                <div class="ss-title align-ct">
+                    <h3 class="ss-product__title title-type-prm"><?php echo $original_product['title'] ? $original_product['title'] : "Sản phẩm nguyên bản đặc trưng"; ?></h3>
                 </div>
+                <?php if ($original_product['select_category']) : ?>
+                    <div class="ss-product__slider pd-t-3 pd-bt-3">
+                        <?php
+                        $products = array(
+                            'post_type' => 'product',
+                            'showposts'  => 9,
+                            'orderby'     => 'date',
+                            'order'     => 'DESC',
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'product_cat',
+                                    'field' => 'term_id',
+                                    'terms' => $original_product['select_category'],
+                                )
+                            )
+                        );
 
-                <?php
-                $collection = array(
-                    'post_type' => 'product',
-                    'showposts'  => 3,
-                    'orderby'     => 'date',
-                    'order'     => 'DESC',
-                    'tax_query' => array(
-                        array(
-                            'taxonomy' => 'product_cat',
-                            'field' => 'term_id',
-                            'terms' => 28,
-                        )
-                    )
-                );
+                        $query_product = new WP_Query($products);
 
-                $query_collection = new WP_Query($collection);
-
-                // The Loop
-                if ($query_collection->have_posts()) : ?>
-                    <div class="ss-collections__list">
-                        <?php while ($query_collection->have_posts()) : $query_collection->the_post();
-                            global $product; ?>
-                            <div class="ss-collections__wrap">
-                                <div class="ss-collections__item bg-prm">
-                                    <div class="ss-collections__thumb">
-                                        <div class="ss-collections__thumb-wrap">
-                                            <?php echo woocommerce_get_product_thumbnail('woocommerce_single') ?>
-                                        </div>
+                        // The Loop
+                        if ($query_product->have_posts()) :
+                            while ($query_product->have_posts()) : $query_product->the_post();
+                                global $product;
+                        ?>
+                                <div class="ss-product__item">
+                                    <div class="ss-product__thumb-wrap">
+                                        <a href="<?php echo get_the_permalink() ?>" class="ss-product__thumb hover-black">
+                                            <?php echo woocommerce_get_product_thumbnail('woocommerce_thumbnail') ?>
+                                            <?php get_template_part('template-parts/attribute', 'product'); ?>
+                                        </a>
                                     </div>
-                                    <div class="ss-collections__content">
-                                        <div class="ss-collections__content-wrap mg-bt-2">
-                                            <h3><?php echo  get_the_title() ?></h3>
-                                            <div class="ss-collections__subtitle">
-                                                <?php echo get_field('subtitle') ?>
-                                            </div>
-                                        </div>
-
-                                        <div class="ss-collections__description mg-bt-2">
-                                            <?php the_excerpt() ?>
-                                        </div>
-
-                                        <div class="ss-collections__rating mg-bt-1 cl-white">
+                                    <div class="ss-product__content align-ct">
+                                        <a href="<?php echo get_the_permalink() ?>" class="hover-red">
+                                            <h3 class="ss-product__name mg-bt-1"><?php echo  get_the_title() ?></h3>
+                                            <p class="mg-bt-1"><?php echo $product->get_attribute('pa_loai-pha') ?></p>
+                                        </a>
+                                        <div class="ss-product__ratings mg-bt-1">
                                             <div class="ratings-wrap">
                                                 <div class="back-stars">
                                                     <i class="fas fa-star"></i>
@@ -194,8 +176,11 @@ Template Name: Home
                                                 <div class="average-rating mg-bt-1"><input type="hidden" class="val-average-rating" value="<?php echo $product->get_average_rating() ?>"></div>
                                             </div>
                                         </div>
-
                                         <div class="ss-product__price mg-bt-1">
+                                            <?php
+
+                                            global $product;
+                                            ?>
 
                                             <?php if ($price_html = $product->get_price_html()) : ?>
                                                 <a href="<?php echo get_the_permalink() ?>" class="hover-red">
@@ -203,101 +188,292 @@ Template Name: Home
                                                 </a>
                                             <?php endif; ?>
                                         </div>
-
                                         <div class="ss-product__buy-now">
-                                            <a href="<?php echo get_the_permalink() ?>" class="hover-red radius-5 bg-black cl-prm">
+                                            <a href="<?php echo get_the_permalink() ?>" class="hover-red radius-5 bg-prm">
                                                 Mua ngay&ensp;<i class="fas fa-cart-plus"></i>&ensp;<i class="fas fa-angle-double-right"></i>
                                             </a>
                                         </div>
                                     </div>
+
                                 </div>
-                            </div>
-                        <?php endwhile; ?>
-                    </div>
-                <?php endif;
-                wp_reset_postdata();
-                ?>
-            </div>
-        </div>
-    </section>
-
-    <!--Hidden-->
-    <?php if(!is_front_page()) : ?>
-    <!-- section image -->
-    <?php $ss_image = get_field('section_image');
-
-    if ($ss_image) : ?>
-        <section>
-            <div class="container">
-                <div class="ss-image-wrap">
-                    <img src="<?php echo $ss_image['url'] ?>" alt="">
-                </div>
-                <?php $button_read_more = get_field('button_read_more');
-
-                if ($button_read_more) : ?>
-                    <div class="align-ct mg-bt-2">
-                        <a class="ss-image__button bg-prm hover-red" href="<?php echo $button_read_more['url'] ?>/#aboutUsSlider"><?php echo $button_read_more['title'] ?></a>
+                        <?php endwhile;
+                        endif;
+                        wp_reset_postdata();
+                        ?>
                     </div>
                 <?php endif; ?>
             </div>
-        </section>
-    <?php endif; ?>
+        </div>
+    </section>
 
+    <!-- Khám phá bộ sưu tập -->
     <section>
-        <div class="ss-news" style="background-image: url(<?php the_field('background_news_home') ?>);">
-            <div class="container">
-                <div class="ss-title align-ct pd-t-2 mg-bt-3">
-                    <h3 class="title-type-prm">Tin tức</h3>
+        <div class="container">
+            <div class="ss-product">
+                <?php $collection = get_field('collection'); ?>
+                <div class="ss-title align-ct">
+                    <h3 class="ss-product__title title-type-prm"><?php echo $collection['title'] ? $collection['title'] : "Khám phá bộ sưu tập"; ?></h3>
                 </div>
+                <?php if ($collection['select_category']) : ?>
+                    <div class="ss-product__slider pd-t-3 pd-bt-3">
+                        <?php
+                        $args_collection = array(
+                            'post_type' => 'product',
+                            'showposts'  => 9,
+                            'orderby'     => 'date',
+                            'order'     => 'DESC',
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'product_cat',
+                                    'field' => 'term_id',
+                                    'terms' => $collection['select_category'],
+                                )
+                            )
+                        );
 
-                <div class="ss-news__list">
-                    <?php
-                    $news = array(
-                        'post_status' => 'publish',
-                        'post_type' => 'post',
-                        'showposts' => 4,
-                        'cat' => 19,
-                    );
+                        $the_query_collection = new WP_Query($args_collection);
 
-                    $query_news = new WP_Query($news);
-                    // The Loop
-                    if ($query_news->have_posts()) :
-                        while ($query_news->have_posts()) : $query_news->the_post();
-                    ?>
-                            <article class="ss-news__item mg-bt-1">
-                                <div class="ss-news__item-thumb">
-                                    <a href="<?php the_permalink() ?>" class="ss-news__item-thumb-wrap">
-                                        <?php the_post_thumbnail('post-small') ?>
-                                    </a>
-                                </div>
+                        // The Loop
+                        if ($the_query_collection->have_posts()) :
+                            while ($the_query_collection->have_posts()) : $the_query_collection->the_post();
+                                global $product;
+                        ?>
+                                <div class="ss-product__item">
+                                    <div class="ss-product__thumb-wrap">
+                                        <a href="<?php echo get_the_permalink() ?>" class="ss-product__thumb hover-black">
+                                            <?php echo woocommerce_get_product_thumbnail('woocommerce_thumbnail') ?>
+                                            <?php get_template_part('template-parts/attribute', 'product'); ?>
+                                        </a>
+                                    </div>
+                                    <div class="ss-product__content align-ct">
+                                        <a href="<?php echo get_the_permalink() ?>" class="hover-red">
+                                            <h3 class="ss-product__name mg-bt-1"><?php echo  get_the_title() ?></h3>
+                                            <p class="mg-bt-1"><?php echo $product->get_attribute('pa_loai-pha') ?></p>
+                                        </a>
+                                        <div class="ss-product__ratings mg-bt-1">
+                                            <div class="ratings-wrap">
+                                                <div class="back-stars">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
 
-                                <div class="ss-news__item-content">
-                                    <a href="<?php the_permalink() ?>" class="hover-black">
-                                        <h3 class="ss-news__item-title"><?php the_title() ?></h3>
-                                        <div class="ss-news__item-excerpt">
-                                            <?php the_excerpt() ?>
+                                                    <div class="front-stars">
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="average-rating mg-bt-1"><input type="hidden" class="val-average-rating" value="<?php echo $product->get_average_rating() ?>"></div>
+                                            </div>
                                         </div>
-                                    </a>
+                                        <div class="ss-product__price mg-bt-1">
+                                            <?php
+
+                                            global $product;
+                                            ?>
+
+                                            <?php if ($price_html = $product->get_price_html()) : ?>
+                                                <a href="<?php echo get_the_permalink() ?>" class="hover-red">
+                                                    <span class="price"><b><?php echo $price_html; ?></b></span>
+                                                </a>
+                                            <?php endif; ?>
+                                        </div>
+                                        <div class="ss-product__buy-now">
+                                            <a href="<?php echo get_the_permalink() ?>" class="hover-red radius-5 bg-prm">
+                                                Mua ngay&ensp;<i class="fas fa-cart-plus"></i>&ensp;<i class="fas fa-angle-double-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+
                                 </div>
-                            </article>
-                    <?php endwhile;
-                    endif;
-
-                    // Reset Post Data
-                    wp_reset_postdata();
-
-                    ?>
-                </div>
-
-                <?php $view_all_news = get_field('view_all_news'); ?>
-                <div class="ss-news__view-all align-ct">
-                    <a class="bg-prm hover-red" href="<?php echo get_category_link($view_all_news->term_id); ?>">Xem tất cả</a>
-                </div>
+                        <?php endwhile;
+                        endif;
+                        wp_reset_postdata();
+                        ?>
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
     </section>
-    <!-- End Hidden -->
-    <?php endif; ?> 
+
+
+    <!--Hidden-->
+    <?php if (!is_front_page()) : ?>
+        <section class="bg-white-dark">
+            <div class="container">
+                <div class="ss-collections pd-t-2">
+                    <div class="ss-title align-ct mg-bt-3">
+                        <p class="ss-title__subtitle">Khám phá</p>
+                        <h3 class="title-type-prm">Bộ sưu tập</h3>
+                    </div>
+
+                    <?php
+                    $collection = array(
+                        'post_type' => 'product',
+                        'showposts'  => 3,
+                        'orderby'     => 'date',
+                        'order'     => 'DESC',
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'product_cat',
+                                'field' => 'term_id',
+                                'terms' => 28,
+                            )
+                        )
+                    );
+
+                    $query_collection = new WP_Query($collection);
+
+                    // The Loop
+                    if ($query_collection->have_posts()) : ?>
+                        <div class="ss-collections__list">
+                            <?php while ($query_collection->have_posts()) : $query_collection->the_post();
+                                global $product; ?>
+                                <div class="ss-collections__wrap">
+                                    <div class="ss-collections__item bg-prm">
+                                        <div class="ss-collections__thumb">
+                                            <div class="ss-collections__thumb-wrap">
+                                                <?php echo woocommerce_get_product_thumbnail('woocommerce_single') ?>
+                                            </div>
+                                        </div>
+                                        <div class="ss-collections__content">
+                                            <div class="ss-collections__content-wrap mg-bt-2">
+                                                <h3><?php echo  get_the_title() ?></h3>
+                                                <div class="ss-collections__subtitle">
+                                                    <?php echo get_field('subtitle') ?>
+                                                </div>
+                                            </div>
+
+                                            <div class="ss-collections__description mg-bt-2">
+                                                <?php the_excerpt() ?>
+                                            </div>
+
+                                            <div class="ss-collections__rating mg-bt-1 cl-white">
+                                                <div class="ratings-wrap">
+                                                    <div class="back-stars">
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+
+                                                        <div class="front-stars">
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="average-rating mg-bt-1"><input type="hidden" class="val-average-rating" value="<?php echo $product->get_average_rating() ?>"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="ss-product__price mg-bt-1">
+
+                                                <?php if ($price_html = $product->get_price_html()) : ?>
+                                                    <a href="<?php echo get_the_permalink() ?>" class="hover-red">
+                                                        <span class="price"><b><?php echo $price_html; ?></b></span>
+                                                    </a>
+                                                <?php endif; ?>
+                                            </div>
+
+                                            <div class="ss-product__buy-now">
+                                                <a href="<?php echo get_the_permalink() ?>" class="hover-red radius-5 bg-black cl-prm">
+                                                    Mua ngay&ensp;<i class="fas fa-cart-plus"></i>&ensp;<i class="fas fa-angle-double-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endwhile; ?>
+                        </div>
+                    <?php endif;
+                    wp_reset_postdata();
+                    ?>
+                </div>
+            </div>
+        </section>
+
+        <!-- section image -->
+        <?php $ss_image = get_field('section_image');
+
+        if ($ss_image) : ?>
+            <section>
+                <div class="container">
+                    <div class="ss-image-wrap">
+                        <img src="<?php echo $ss_image['url'] ?>" alt="">
+                    </div>
+                    <?php $button_read_more = get_field('button_read_more');
+
+                    if ($button_read_more) : ?>
+                        <div class="align-ct mg-bt-2">
+                            <a class="ss-image__button bg-prm hover-red" href="<?php echo $button_read_more['url'] ?>/#aboutUsSlider"><?php echo $button_read_more['title'] ?></a>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </section>
+        <?php endif; ?>
+
+        <section>
+            <div class="ss-news" style="background-image: url(<?php the_field('background_news_home') ?>);">
+                <div class="container">
+                    <div class="ss-title align-ct pd-t-2 mg-bt-3">
+                        <h3 class="title-type-prm">Tin tức</h3>
+                    </div>
+
+                    <div class="ss-news__list">
+                        <?php
+                        $news = array(
+                            'post_status' => 'publish',
+                            'post_type' => 'post',
+                            'showposts' => 4,
+                            'cat' => 19,
+                        );
+
+                        $query_news = new WP_Query($news);
+                        // The Loop
+                        if ($query_news->have_posts()) :
+                            while ($query_news->have_posts()) : $query_news->the_post();
+                        ?>
+                                <article class="ss-news__item mg-bt-1">
+                                    <div class="ss-news__item-thumb">
+                                        <a href="<?php the_permalink() ?>" class="ss-news__item-thumb-wrap">
+                                            <?php the_post_thumbnail('post-small') ?>
+                                        </a>
+                                    </div>
+
+                                    <div class="ss-news__item-content">
+                                        <a href="<?php the_permalink() ?>" class="hover-black">
+                                            <h3 class="ss-news__item-title"><?php the_title() ?></h3>
+                                            <div class="ss-news__item-excerpt">
+                                                <?php the_excerpt() ?>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </article>
+                        <?php endwhile;
+                        endif;
+
+                        // Reset Post Data
+                        wp_reset_postdata();
+
+                        ?>
+                    </div>
+
+                    <?php $view_all_news = get_field('view_all_news'); ?>
+                    <div class="ss-news__view-all align-ct">
+                        <a class="bg-prm hover-red" href="<?php echo get_category_link($view_all_news->term_id); ?>">Xem tất cả</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Hidden -->
+    <?php endif; ?>
 </div>
 
 <?php get_footer() ?>

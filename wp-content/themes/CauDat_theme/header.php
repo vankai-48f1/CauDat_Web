@@ -49,47 +49,66 @@
     <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/lightGallery-master/dist/css/lightgallery-bundle.css" />
     <?php wp_head() ?>
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-WXV49WK');</script>
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WXV49WK');
+    </script>
     <!-- End Google Tag Manager -->
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MZD7G1K3V8"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-MZD7G1K3V8');
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-MZD7G1K3V8');
     </script>
 </head>
 
 <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WXV49WK"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WXV49WK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <!-- Navigation -->
     <header class="header-main">
         <div class="header" id="header">
             <div class="header-top">
                 <div class="container">
-                    <div class="row">
+                    <div class="row align-items-center">
                         <div class="col-9">
-                            <div class="hotline align-ct">
-                                <a href="tel:<?php the_field('hotline', 'option') ?>"><b>HOTLINE: <span><?php the_field('hotline', 'option') ?></span></b></a>
-                            </div>
+                            <div class="welcome-text"><?php echo get_field('welcome_text', 'option') ?></div>
+                            <!-- <div class="hotline align-ct">
+                                <a href="tel:< ?php the_field('hotline', 'option') ?>"><b>HOTLINE: <span>< ?php the_field('hotline', 'option') ?></span></b></a>
+                            </div> -->
                         </div>
                         <div class="col-3">
-                            <div class="language-flag">
-                                <?php
-                                wp_nav_menu(array(
-                                    'theme_location' => 'language',
-                                    'container'  => false,
-                                ));
-                                ?>
+                            <div class="language-nav">
+                                <div class="language-nav__menu-wrap">
+                                    <div class="language-nav__label">Ngôn ngữ</div>
+                                    <?php
+                                    wp_nav_menu(array(
+                                        'theme_location' => 'language',
+                                        'container'  => false,
+                                        'menu_class'  => 'language-nav__menu',
+                                    ));
+                                    ?>
+                                </div>
+                                <div class="language-nav__active"><?php echo do_shortcode('[language-switcher]'); ?></div>
                             </div>
                         </div>
                     </div>
@@ -100,7 +119,7 @@
                     <div class="header-nav__container">
                         <div class="header-nav__row">
 
-                            <div class="header-nav__col">
+                            <div class="header-nav__col header-nav__col--left">
                                 <div class="header__logo">
                                     <?php $logo_home = get_theme_mod('Logo'); ?>
                                     <a href="<?php echo home_url() ?>">
@@ -111,38 +130,32 @@
                                 </div>
                             </div>
 
-                            <div class="header-nav__col">
-                                <?php
-                                wp_nav_menu(
-                                    array(
-                                        'theme_location'  => 'main-menu',
-                                        'depth'  => 3,
-                                        'container'  => 'nav',
-                                        'container_class' => 'menu-main-menu-container',
-                                        'menu_class'  => 'header-nav__menu',
-                                    )
-                                );
-                                ?>
+                            <div class="header-nav__col header-nav__col--mid">
+                                <div class="header-navmid">
+                                    <div class="header-navmid__content">
+                                        <div class="header-navmid__all-product">
+                                            <a href="#">All</a>
+                                        </div>
+                                        <?php dynamic_sidebar('search-product'); ?>
+                                    </div>
+                                </div>
 
                             </div>
 
-                            <div class="header-nav__col">
+                            <div class="header-nav__col header-nav__col--right">
                                 <div class="header-nav__mega">
 
-                                    <div class="search-block">
+                                    <!-- <div class="search-block">
                                         <button class="search-block__open">
                                             <span class="search-block__open-icon"></span>&ensp;<span>Tìm kiếm</span>
                                         </button>
                                         <ul class="search-block__form search-block__product">
-                                            <?php dynamic_sidebar('search-product'); ?>
+                                            </?php dynamic_sidebar('search-product'); ?>
                                         </ul>
-                                    </div>
+                                    </div> -->
 
                                     <ul class="usser-login">
                                         <!-- < ?php dynamic_sidebar('login'); ?> -->
-
-                                    
-
                                         <?php
                                         if (is_user_logged_in()) { ?>
                                             <li><a href="<?php echo  wp_logout_url(get_permalink(wc_get_page_id('myaccount'))) ?>">Đăng xuất</a></li>
@@ -166,6 +179,19 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="header-main-menu">
+                            <?php
+                            wp_nav_menu(
+                                array(
+                                    'theme_location'  => 'main-menu',
+                                    'depth'  => 3,
+                                    'container'  => 'nav',
+                                    'container_class' => 'menu-main-menu-container',
+                                    'menu_class'  => 'header-nav__menu',
+                                )
+                            );
+                            ?>
                         </div>
                     </div>
                 </div>

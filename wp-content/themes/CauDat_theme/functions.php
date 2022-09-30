@@ -259,13 +259,36 @@ function caudat_main_menu($atts, $item, $args)
 {
 
     $main_menu = wp_get_nav_menu_items('main-menu');
+    $secondary_menu = wp_get_nav_menu_items('secondary-menu');
+
     $page_ids = array();
+    
+    // Menu Main
+    if($main_menu) {
+        addAddtributeMenuItem($main_menu, $item->ID, $atts);
+    }
+    // Menu Secondary
+    if($secondary_menu) {
+        addAddtributeMenuItem($secondary_menu, $item->ID, $atts);
+    }
 
-    foreach ($main_menu as $menu_item) {
 
-        // echo '<pre>', var_dump($menu_item), '</pre>';
+    return $atts;
+}
 
-        if ($item->ID == $menu_item->ID) {
+/**
+ * Insert attribute to menu item
+ *
+ *
+ * @param menu    $menu  array menu items of a navigation menu.
+ * @param menu_item_id    $menu_item_id  id item menu.
+ * @return void 
+ */
+function addAddtributeMenuItem($menu, $menu_item_id, &$atts) {
+    //var_dump($atts);
+    foreach ($menu as $menu_item) {
+
+        if ($menu_item_id == $menu_item->ID) {
             $atts['class'] = 'menu-item-link';
             if ($menu_item->type === 'post_type') {
                 $atts['data-thumb'] = get_the_post_thumbnail_url($menu_item->object_id);
@@ -283,11 +306,8 @@ function caudat_main_menu($atts, $item, $args)
             }
         }
     }
-
-
-
-    return $atts;
 }
+
 
 // custom comment
 

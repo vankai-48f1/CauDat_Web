@@ -189,9 +189,9 @@ jQuery(document).ready(function () {
                                     <div class="submenu-info">
                                         <div class="submenu-info__ctn">
                                             <div class="submenu-info__content">
-                                                <div class="submenu-info__title">${title}</div>
-                                                <div class="submenu-info__excerpt">${excerpt}</div>
-                                                <div class="submenu-info__link"><a href="${url}">Xem tất cả</a></div>
+                                                <div class="submenu-info__title">${title ? title : ''}</div>
+                                                <div class="submenu-info__excerpt">${excerpt ? excerpt : ''}</div>
+                                                <div class="submenu-info__link"><a href="${url ? url : '#'}">Xem tất cả</a></div>
                                             </div>
                                             <div class="submenu-info__thumb">
                                               ${thumb_html}
@@ -346,22 +346,26 @@ jQuery(document).ready(function () {
     
      // // prevent copy cut, f12 in website
 
-    jQuery("body").bind("cut copy", function (e) {
-        e.preventDefault();
-    });
+    // jQuery("body").bind("cut copy", function (e) {
+    //     e.preventDefault();
+    // });
 
-    jQuery(document).keydown(function (event) {
-        if (event.keyCode == 123) { // Prevent F12
-            return false;
-        } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I        
-            return false;
-        }
-    });
+    // jQuery(document).keydown(function (event) {
+    //     if (event.keyCode == 123) { // Prevent F12
+    //         return false;
+    //     } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I        
+    //         return false;
+    //     }
+    // });
 
-    jQuery(document).on("contextmenu", function (e) {        
-        e.preventDefault();
-    });
+    // jQuery(document).on("contextmenu", function (e) {        
+    //     e.preventDefault();
+    // });
     
+    // language dropdown
+    $('.language-nav__label').on('click', function () {
+      $('.language-nav__menu').slideToggle();
+    });
 
 }); // close ready 
 

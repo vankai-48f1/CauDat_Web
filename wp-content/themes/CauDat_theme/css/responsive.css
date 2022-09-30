@@ -468,6 +468,14 @@
     background-color: #ededed;
     border-bottom: 2px solid var(--color-prm);
   }
+
+  .form-gift form input[type="submit"] {
+    width: fit-content;
+  }
+
+  .form-gift form .col-md-2 {
+    text-align: center;
+  }
 }
 
 @media (max-width: 577px) {
