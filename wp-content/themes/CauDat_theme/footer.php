@@ -256,6 +256,16 @@
             )
         );
         ?>
+        <!-- language -->
+        <div class="sidemenu-language">
+            <?php
+            wp_nav_menu(array(
+                'theme_location' => 'language',
+                'container'  => false,
+                'menu_class'  => 'sidemenu-language__menu',
+            ));
+            ?>
+        </div>
         <ul class="usser-login">
             <?php dynamic_sidebar('login'); ?>
         </ul>

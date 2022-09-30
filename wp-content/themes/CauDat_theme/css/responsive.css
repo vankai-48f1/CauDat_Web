@@ -314,6 +314,10 @@
   .about-us__top-content .showroom-info__image-block {
     margin-bottom: 0;
   }
+
+  .header-top {
+    display: none;
+  }
 }
 
 @media (max-width: 767px) {

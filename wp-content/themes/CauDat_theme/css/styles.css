@@ -1880,3 +1880,36 @@ form input[type="submit"] {
 .form-gift .wpcf7 .ajax-loader {
   display: none;
 }
+
+.sidemenu-language__menu li a {
+  display: block;
+  padding: 10px;
+  text-align: center;
+  transition: all 250ms ease;
+  -webkit-transition: all 250ms ease;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.sidemenu-language__menu li:nth-child(odd) {
+  background-color: var(--color-prm);
+}
+
+.sidemenu-language__menu li:nth-child(odd) a:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.sidemenu-language__menu li:nth-child(even) {
+  background-color: #000;
+}
+
+.sidemenu-language__menu li:nth-child(even) a {
+  color: #fff;
+}
+
+.sidemenu-language__menu li:nth-child(even) a:hover {
+  background-color: var(--color-prm);
+  color: #000;
+}
