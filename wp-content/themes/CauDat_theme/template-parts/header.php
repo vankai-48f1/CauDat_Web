@@ -2,20 +2,26 @@
     <div class="container">
         <div class="header-part__content">
             <div class="row">
-                <?php if(is_product()): ?>
-                <div class="col-lg-12 col-12">
-                    <div class="header-part__breadcrumb single-product-breadcrum mg-bt-1">
-                        <?php m_breadcrumbs() ?>
+                <?php if (is_product()) : ?>
+                    <div class="col-lg-12 col-12">
+                        <div class="header-part__breadcrumb single-product-breadcrum mg-bt-1">aaa
+                            <?php
+                            if (function_exists('yoast_breadcrumb')) {
+                                yoast_breadcrumb('<ul class="m-breadcrumb">', '</ul>');
+                            } else {
+                                m_breadcrumbs();
+                            }
+                            ?>
+                        </div>
                     </div>
-                </div>
                 <?php endif; ?>
-                    
+
                 <div class="col-lg-7">
                     <div class="header-part__title">
 
                         <?php
 
-// var_dump(get_query_var('post_type'));
+                        // var_dump(get_query_var('post_type'));
                         if (is_page()) : ?>
                             <h1><?php echo get_the_title() ?></h1>
                         <?php endif; ?>
@@ -62,18 +68,24 @@
 
                         <?php
                         if (is_product() || get_query_var('post_type') == 'product') :
-                            
-                            $shop_page = get_option( 'woocommerce_shop_page_id' );
-                            echo get_field('description_page', $shop_page) ;
-                            // var_dump($shop_page);
+
+                            $shop_page = get_option('woocommerce_shop_page_id');
+                            echo get_field('description_page', $shop_page);
+                        // var_dump($shop_page);
                         endif; ?>
                     </div>
                 </div>
                 <div class="col-lg-5">
-                    <?php if(!is_product()): ?>
-                    <div class="header-part__breadcrumb mg-t-1">
-                        <?php m_breadcrumbs() ?>
-                    </div>
+                    <?php if (!is_product()) : ?>
+                        <div class="header-part__breadcrumb mg-t-1">
+                            <?php
+                            if (function_exists('yoast_breadcrumb')) {
+                                yoast_breadcrumb('<ul class="m-breadcrumb">', '</ul>');
+                            } else {
+                                m_breadcrumbs();
+                            }
+                            ?>
+                        </div>
                     <?php endif; ?>
                 </div>
             </div>
