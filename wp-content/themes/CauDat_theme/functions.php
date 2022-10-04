@@ -254,7 +254,7 @@ require_once get_template_directory() . '/func-part/ajax-add-to-cart.php';
 
 // custom menu
 
-add_filter('nav_menu_link_attributes', 'caudat_main_menu', 10, 3);
+//add_filter('nav_menu_link_attributes', 'caudat_main_menu', 10, 3);
 function caudat_main_menu($atts, $item, $args)
 {
 

@@ -90,25 +90,28 @@
             <div class="header-top">
                 <div class="container">
                     <div class="row align-items-center">
-                        <div class="col-9">
+                        <div class="col-2"></div>
+                        <div class="col-8">
                             <div class="welcome-text"><?php echo get_field('welcome_text', 'option') ?></div>
                             <!-- <div class="hotline align-ct">
                                 <a href="tel:< ?php the_field('hotline', 'option') ?>"><b>HOTLINE: <span>< ?php the_field('hotline', 'option') ?></span></b></a>
                             </div> -->
                         </div>
-                        <div class="col-3">
+                        <div class="col-2">
                             <div class="language-nav">
                                 <div class="language-nav__menu-wrap">
                                     <div class="language-nav__label">Ngôn ngữ</div>
+                                </div>
+                                <div class="language-nav__active">
+                                    <div class="language-nav__current"><?php echo do_shortcode('[language-switcher]'); ?></div>
                                     <?php
-                                    wp_nav_menu(array(
-                                        'theme_location' => 'language',
-                                        'container'  => false,
-                                        'menu_class'  => 'language-nav__menu',
-                                    ));
+                                        wp_nav_menu(array(
+                                            'theme_location' => 'language',
+                                            'container'  => false,
+                                            'menu_class'  => 'language-nav__menu',
+                                        ));
                                     ?>
                                 </div>
-                                <div class="language-nav__active"><?php echo do_shortcode('[language-switcher]'); ?></div>
                             </div>
                         </div>
                     </div>
@@ -134,7 +137,7 @@
                                 <div class="header-navmid">
                                     <div class="header-navmid__content">
                                         <div class="header-navmid__all-product">
-                                            <a href="#">All</a>
+                                            <a href="<?php echo get_permalink( wc_get_page_id( 'shop' ) ); ?>">All</a>
                                         </div>
                                         <?php dynamic_sidebar('search-product'); ?>
                                     </div>

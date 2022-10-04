@@ -134,6 +134,10 @@
   .contact__form {
     width: 100%;
   }
+  
+  .header-top {
+    display: none;
+  }
 }
 
 @media (max-width: 992px) {
@@ -314,10 +318,6 @@
   .about-us__top-content .showroom-info__image-block {
     margin-bottom: 0;
   }
-
-  .header-top {
-    display: none;
-  }
 }
 
 @media (max-width: 767px) {
@@ -478,6 +478,14 @@
   }
 
   .form-gift form .col-md-2 {
+    text-align: center;
+  }
+  
+  .footer-form-gift {
+    padding-bottom: 15px;
+  }
+  
+  .footer-form-gift__text {
     text-align: center;
   }
 }

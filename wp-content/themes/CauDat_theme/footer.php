@@ -69,12 +69,12 @@
             <section class="footer-form-gift">
                 <div class="container">
                     <div class="row align-items-center">
-                        <div class="col-md-6">
+                        <div class="col-lg-6">
                             <div class="footer-form-gift__text">Hãy để lại thông tin liên hệ để chúng tôi gởi cho bạn 1 phần quà nhé.</div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-lg-6">
                             <div class="form-gift">
-                                <?php echo do_shortcode('[contact-form-7 id="1316" title="Form gift"]'); ?>
+                                <?php echo do_shortcode('[contact-form-7 id="2016" title="Form gift"]'); ?>
                             </div>
                         </div>
                     </div>

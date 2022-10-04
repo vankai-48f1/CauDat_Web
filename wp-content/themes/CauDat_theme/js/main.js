@@ -363,7 +363,7 @@ jQuery(document).ready(function () {
     // });
     
     // language dropdown
-    $('.language-nav__label').on('click', function () {
+    $('.language-nav__current').on('click', function () {
       $('.language-nav__menu').slideToggle();
     });
 

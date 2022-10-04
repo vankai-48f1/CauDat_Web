@@ -36,12 +36,12 @@
             ?>
         </div>
 
-        <!-- <div class="sidebar-row">
-            < ?php
-            $filter_muc_dich_kinh_doanh = array('filter_name' => 'loc_theo_muc_dich_kinh_doanh');
-            get_template_part('template-parts/filter/filter', 'by-attribute', $filter_muc_dich_kinh_doanh);
-            ?>
-        </div> -->
+        <!--<div class="sidebar-row">-->
+        <!--    < ?php-->
+        <!--    $filter_muc_dich_kinh_doanh = array('filter_name' => 'loc_theo_muc_dich_kinh_doanh');-->
+        <!--    get_template_part('template-parts/filter/filter', 'by-attribute', $filter_muc_dich_kinh_doanh);-->
+        <!--    ?>-->
+        <!--</div>-->
 
         <div class="sidebar-row">
             <?php dynamic_sidebar('filter-kg') ?>
