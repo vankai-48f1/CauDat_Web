@@ -71,6 +71,7 @@
     padding: 5px 0;
   }
 
+
   .menubar .menu-main-menu-container li a:hover {
     color: var(--color-prm);
     background-color: transparent;
@@ -133,7 +134,7 @@
   .contact__form {
     width: 100%;
   }
-
+  
   .header-top {
     display: none;
   }
@@ -313,11 +314,11 @@
   .related-product .related ul.products {
     grid-template-columns: repeat(2, 1fr);
   }
-
+  
   .about-us__top-content .showroom-info__image-block {
     margin-bottom: 0;
   }
-
+  
   .product-description .variations-item select {
     width: auto;
     min-width: max-content;
@@ -484,11 +485,11 @@
   .form-gift form .col-md-2 {
     text-align: center;
   }
-
+  
   .footer-form-gift {
     padding-bottom: 15px;
   }
-
+  
   .footer-form-gift__text {
     text-align: center;
   }
@@ -683,12 +684,12 @@
   .ss-product .attr-product {
     display: none;
   }
-
+  
   .woocommerce-cart-form input[name="coupon_code"],
   .woocommerce-cart-form button[name="apply_coupon"] {
     flex: 1;
   }
-
+  
   .partner__consult-form {
     max-width: 100%;
   }

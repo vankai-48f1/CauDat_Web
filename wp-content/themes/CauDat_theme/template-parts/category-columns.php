@@ -26,11 +26,14 @@
         <div class="showroom">
             <?php while ($query_post_showroom->have_posts()) : $query_post_showroom->the_post(); ?>
                 <div class="showroom__item">
-
+                    <?php
+                    if (has_post_thumbnail()) :
+                    ?>
                     <a href="<?php the_permalink(); ?>" class="showroom__image-wrap">
                         <?php the_post_thumbnail() ?>
                     </a>
-
+                    <?php endif; ?>
+                    
                     <div class="showroom__content">
                         <h2 class="showroom__title mg-bt-1">
                             <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="hover-red"><?php the_title(); ?></a>

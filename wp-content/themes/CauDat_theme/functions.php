@@ -466,3 +466,10 @@ if( function_exists('acf_add_options_page') ) {
         )
     );
 }
+
+// Redirect after login
+function caudat_custom_after_login()
+{
+    return home_url();
+}
+add_filter('woocommerce_login_redirect', 'caudat_custom_after_login');

@@ -4,7 +4,7 @@
             <div class="row">
                 <?php if (is_product()) : ?>
                     <div class="col-lg-12 col-12">
-                        <div class="header-part__breadcrumb single-product-breadcrum mg-bt-1">aaa
+                        <div class="header-part__breadcrumb single-product-breadcrum mg-bt-1">
                             <?php
                             if (function_exists('yoast_breadcrumb')) {
                                 yoast_breadcrumb('<ul class="m-breadcrumb">', '</ul>');

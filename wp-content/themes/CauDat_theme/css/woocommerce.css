@@ -603,6 +603,7 @@ h1.product_title {
   -webkit-appearance: none; /* Safari and Chrome */
   appearance: none;
   width: 132px;
+  color: #000;
 }
 
 .reset_variations {
