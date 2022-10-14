@@ -262,13 +262,13 @@ function caudat_main_menu($atts, $item, $args)
     $secondary_menu = wp_get_nav_menu_items('secondary-menu');
 
     $page_ids = array();
-    
+
     // Menu Main
-    if($main_menu) {
+    if ($main_menu) {
         addAddtributeMenuItem($main_menu, $item->ID, $atts);
     }
     // Menu Secondary
-    if($secondary_menu) {
+    if ($secondary_menu) {
         addAddtributeMenuItem($secondary_menu, $item->ID, $atts);
     }
 
@@ -284,7 +284,8 @@ function caudat_main_menu($atts, $item, $args)
  * @param menu_item_id    $menu_item_id  id item menu.
  * @return void 
  */
-function addAddtributeMenuItem($menu, $menu_item_id, &$atts) {
+function addAddtributeMenuItem($menu, $menu_item_id, &$atts)
+{
     //var_dump($atts);
     foreach ($menu as $menu_item) {
 
@@ -458,7 +459,7 @@ add_filter('login_headerurl', 'my_login_logo_url');
 
 
 
-if( function_exists('acf_add_options_page') ) {
+if (function_exists('acf_add_options_page')) {
     acf_add_options_page(
         array(
             'page_title'    => __('Popup'),
@@ -473,3 +474,148 @@ function caudat_custom_after_login()
     return home_url();
 }
 add_filter('woocommerce_login_redirect', 'caudat_custom_after_login');
+
+// Insert coupon code to database
+function cau_dat_insert_data_to_database()
+{
+    global $wpdb;
+    $date = date('Y-m-d H:i:s');
+    $referenceId = uniqid();
+    $table = 'wp_caudatposts';
+    $table_2 = 'wp_caudatpostmeta';
+
+    for ($i = 1; $i <= 500; $i++) { // start for
+        echo str_pad($i, 3, '0', STR_PAD_LEFT);
+
+        // Table 1
+        $data = array(
+            'post_author' => 7,
+            'post_date' => $date,
+            'post_date_gmt' => $date,
+            'post_content' => '',
+            'post_title' => 'FCD_PVD' . str_pad($i, 3, '0', STR_PAD_LEFT),
+            'post_excerpt' => 'Event 18/10',
+            'post_status' => 'publish',
+            'comment_status' => 'closed',
+            'ping_status' => 'closed',
+            'post_password' => '',
+            'post_name' => 'fcd_pvd' . str_pad($i, 3, '0', STR_PAD_LEFT),
+            'to_ping'   => '',
+            'pinged'   => '',
+            'post_modified'   => $date,
+            'post_modified_gmt'   => $date,
+            'post_content_filtered'   => '',
+            'post_parent'   => 0,
+            'guid'  => '',
+            'menu_order' => 0,
+            'post_type' => 'shop_coupon',
+            'post_mime_type' => '',
+            'comment_count' => 0,
+        );
+
+
+        $wpdb->insert($table, $data);
+        $coupon_id = $wpdb->insert_id;
+        echo $coupon_id;
+
+        // Table 2
+        $data_2 = array(
+            array(
+                'post_id' => $coupon_id,
+                'meta_key' => '_edit_lock',
+                'meta_value' => strtotime($date)
+            ),
+            array(
+                'post_id' => $coupon_id,
+                'meta_key' => '_edit_last',
+                'meta_value' => '1'
+            ),
+            array(
+                'post_id' => $coupon_id,
+                'meta_key' => 'discount_type',
+                'meta_value' => 'fixed_product'
+            ),
+            array(
+                'post_id' => $coupon_id,
+                'meta_key' => 'coupon_amount',
+                'meta_value' => '30000'
+            ),
+            array(
+                'post_id' => $coupon_id,
+                'meta_key' => 'individual_use',
+                'meta_value' => 'yes'
+            ),
+            array(
+                'post_id' => $coupon_id,
+                'meta_key' => 'usage_limit',
+                'meta_value' => '1'
+            ),
+            array(
+                'post_id' => $coupon_id,
+                'meta_key' => 'usage_limit_per_user',
+                'meta_value' => '1'
+            ),
+            array(
+                'post_id' => $coupon_id,
+                'meta_key' => 'limit_usage_to_x_items',
+                'meta_value' => '0'
+            ),
+            array(
+                'post_id' => $coupon_id,
+                'meta_key' => 'usage_count',
+                'meta_value' => '0'
+            ),
+            array(
+                'post_id' => $coupon_id,
+                'meta_key' => 'date_expires',
+                'meta_value' => '1668963600'
+            ),
+            array(
+                'post_id' => $coupon_id,
+                'meta_key' => 'free_shipping',
+                'meta_value' => 'no'
+            ),
+            array(
+                'post_id' => $coupon_id,
+                'meta_key' => 'product_categories',
+                'meta_value' => 'a:1:{i:0;i:20;}'
+            ),
+            array(
+                'post_id' => $coupon_id,
+                'meta_key' => 'exclude_product_categories',
+                'meta_value' => 'a:6:{i:0;i:25;i:1;i:22;i:2;i:23;i:3;i:21;i:4;i:163;i:5;i:24;}'
+            ),
+            array(
+                'post_id' => $coupon_id,
+                'meta_key' => 'exclude_sale_items',
+                'meta_value' => 'no'
+            ),
+            array(
+                'post_id' => $coupon_id,
+                'meta_key' => 'minimum_amount',
+                'meta_value' => '100000'
+            ),
+            array(
+                'post_id' => $coupon_id,
+                'meta_key' => '_wc_gla_sync_status',
+                'meta_value' => 'not-synced'
+            ),
+            array(
+                'post_id' => $coupon_id,
+                'meta_key' => '_used_by',
+                'meta_value' => '7'
+            )
+        );
+        foreach ($data_2 as $item) {
+            $wpdb->insert($table_2, $item);
+        }
+    } // end for
+}
+add_action('wp_ajax_insert_data', 'cau_dat_insert_data_to_database');
+add_action('wp_ajax_nopriv_insert_data', 'cau_dat_insert_data_to_database');
+
+// for($i = 1; $i <= 150; $i++){
+//     echo '<pre>'.str_pad($i, 3, '0', STR_PAD_LEFT).'</pre>';
+//     // echo str_pad($i, 3, '0', STR_PAD_LEFT);
+// }
+// die;

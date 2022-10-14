@@ -346,21 +346,21 @@ jQuery(document).ready(function () {
     
      // // prevent copy cut, f12 in website
 
-    jQuery("body").bind("cut copy", function (e) {
-        e.preventDefault();
-    });
+   //  jQuery("body").bind("cut copy", function (e) {
+   //      e.preventDefault();
+   //  });
 
-    jQuery(document).keydown(function (event) {
-        if (event.keyCode == 123) { // Prevent F12
-            return false;
-        } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I        
-            return false;
-        }
-    });
+   //  jQuery(document).keydown(function (event) {
+   //      if (event.keyCode == 123) { // Prevent F12
+   //          return false;
+   //      } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I        
+   //          return false;
+   //      }
+   //  });
 
-    jQuery(document).on("contextmenu", function (e) {        
-        e.preventDefault();
-    });
+   //  jQuery(document).on("contextmenu", function (e) {        
+   //      e.preventDefault();
+   //  });
     
     // language dropdown
     $('.language-nav__current').on('click', function () {
@@ -474,3 +474,34 @@ else {
     alert('Browser not support Storage')
 }
 
+(function ($) {
+
+   $(document).on('click', '#insert_data', function (e) {
+       e.preventDefault();
+
+       var data = {
+           action: 'insert_data',
+       };
+
+
+       $.ajax({
+           type: 'post',
+           url: wc_add_to_cart_params.ajax_url,
+           data: data,
+           beforeSend: function (response) {
+
+         },
+           complete: function (response) {
+
+         },
+           success: function (response) {
+
+               
+            // console.log('thêm thành công');
+            alert('thêm thành công');
+           },
+       });
+
+       return false;
+   });
+})(jQuery);
