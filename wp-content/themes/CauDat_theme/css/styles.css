@@ -72,10 +72,10 @@ a {
 }
 
 /* @media (min-width: 1400px) {
-    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
-        max-width: 1200px;
-    }
-} */
+      .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+          max-width: 1200px;
+      }
+  } */
 
 /*  ---- Header ---- */
 #header {
@@ -152,11 +152,11 @@ header.header-main {
   font-size: calc(5px + 0.35vw);
   line-height: 1.5;
   /* position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%); */
   width: 100%;
 }
 
@@ -488,9 +488,9 @@ header.header-main {
 }
 
 /* .m-breadcrumb {
-    font-size: 15px;
-    font-weight: 600;
-} */
+      font-size: 15px;
+      font-weight: 600;
+  } */
 
 .m-breadcrumb li {
   display: inline-block;
@@ -507,9 +507,9 @@ header.header-main {
   /* margin-right: 10px; */
 }
 /* 
-.m-breadcrumb span {
-    margin-right: 10px;
-} */
+  .m-breadcrumb span {
+      margin-right: 10px;
+  } */
 
 .breadcrumb-delimiter i {
   vertical-align: middle;
@@ -1025,8 +1025,8 @@ h3.ss-product__title {
 }
 
 /* .footer-bottom__container > .row > div[class^="col"]:not(:last-child) {
-    border-right: 1px solid var(--color-prm);
-} */
+      border-right: 1px solid var(--color-prm);
+  } */
 
 .float-logo {
   height: 100%;
@@ -1495,25 +1495,25 @@ form input[type="submit"] {
 }
 
 /* .page-content h2,
-.page-content h3,
-.page-content h4,
-.page-content h5,
-.page-content p,
-.page-content ul,
-.page-content ol,
-.page-content li,
-.page-content table,
-.page-content tr,
-.page-content td,
-.page-content tbody {
-  font-size: revert;
-  margin: revert;
-  padding: revert;
-  font-weight: revert;
-  line-height: 1.5;
-  border: revert;
-  list-style: revert;
-} */
+  .page-content h3,
+  .page-content h4,
+  .page-content h5,
+  .page-content p,
+  .page-content ul,
+  .page-content ol,
+  .page-content li,
+  .page-content table,
+  .page-content tr,
+  .page-content td,
+  .page-content tbody {
+    font-size: revert;
+    margin: revert;
+    padding: revert;
+    font-weight: revert;
+    line-height: 1.5;
+    border: revert;
+    list-style: revert;
+  } */
 
 .page-content table,
 .page-content th,
@@ -1926,7 +1926,7 @@ form input[type="submit"] {
   .welcome-text {
     font-size: 11px;
   }
-  
+
   .footer-form-gift__text {
     font-size: 12px;
   }
