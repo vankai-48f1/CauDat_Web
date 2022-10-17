@@ -57,6 +57,7 @@ Template Name: Home
                             <div class="ss-product__item">
                                 <div class="ss-product__thumb-wrap">
                                     <a href="<?php echo get_the_permalink() ?>" class="ss-product__thumb hover-black">
+                                        <?php wc_get_template('loop/sale-flash.php'); ?>
                                         <?php echo woocommerce_get_product_thumbnail('woocommerce_thumbnail') ?>
                                         <?php get_template_part('template-parts/attribute', 'product', array('product' => $product)); ?>
                                     </a>
@@ -147,6 +148,7 @@ Template Name: Home
                                 <div class="ss-product__item">
                                     <div class="ss-product__thumb-wrap">
                                         <a href="<?php echo get_the_permalink() ?>" class="ss-product__thumb hover-black">
+                                            <?php wc_get_template('loop/sale-flash.php'); ?>
                                             <?php echo woocommerce_get_product_thumbnail('woocommerce_thumbnail') ?>
                                             <?php get_template_part('template-parts/attribute', 'product'); ?>
                                         </a>
@@ -241,6 +243,7 @@ Template Name: Home
                                 <div class="ss-product__item">
                                     <div class="ss-product__thumb-wrap">
                                         <a href="<?php echo get_the_permalink() ?>" class="ss-product__thumb hover-black">
+                                            <?php wc_get_template('loop/sale-flash.php'); ?>
                                             <?php echo woocommerce_get_product_thumbnail('woocommerce_thumbnail') ?>
                                             <?php get_template_part('template-parts/attribute', 'product'); ?>
                                         </a>

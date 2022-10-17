@@ -475,6 +475,7 @@ function caudat_custom_after_login()
 }
 add_filter('woocommerce_login_redirect', 'caudat_custom_after_login');
 
+
 // Insert coupon code to database
 function cau_dat_insert_data_to_database()
 {
@@ -614,8 +615,65 @@ function cau_dat_insert_data_to_database()
 add_action('wp_ajax_insert_data', 'cau_dat_insert_data_to_database');
 add_action('wp_ajax_nopriv_insert_data', 'cau_dat_insert_data_to_database');
 
-// for($i = 1; $i <= 150; $i++){
-//     echo '<pre>'.str_pad($i, 3, '0', STR_PAD_LEFT).'</pre>';
-//     // echo str_pad($i, 3, '0', STR_PAD_LEFT);
-// }
-// die;
+// Custom sale price
+// For variable product
+add_filter('woocommerce_variable_price_html', 'custom_variable_prices_range_formatted', 100, 2);
+function custom_variable_prices_range_formatted($price, $product)
+{
+    global $woocommerce_loop;
+    // Not on single products
+    if ((is_product() && isset($woocommerce_loop['name']) && !empty($woocommerce_loop['name'])) || !is_product()) {
+        // For on sale variable product
+        if ($product->is_on_sale()) {
+            $regular_price_min = $product->get_variation_regular_price('min', true);
+            $regular_price_max = $product->get_variation_regular_price('max', true);
+
+            $active_price_min = $product->get_variation_price('min', true);
+            $active_price_max = $product->get_variation_price('max', true);
+
+            if ($regular_price_min !== $active_price_min || $regular_price_max !== $active_price_max) {
+                // Regular price range (for <del> html tag)
+                if ($regular_price_min !== $regular_price_max) {
+                    $regular_price_del_html = sprintf('<del class="custom-before-sale-price">%s – %s</del>', wc_price($regular_price_min), wc_price($regular_price_max));
+                } else {
+                    $regular_price_del_html = sprintf('<del class="custom-before-sale-price">%s</del>', wc_price($regular_price_min));
+                }
+
+                // Active price range (for <ins> html tag)
+                if ($active_price_min !== $active_price_max) {
+                    $active_price_ins_html = sprintf('<ins class="custom-after-sale-price">%s – %s</ins>', wc_price($active_price_min), wc_price($active_price_max));
+                } else {
+                    $active_price_ins_html = sprintf('<ins class="custom-after-sale-price">%s</ins>', wc_price($active_price_min));
+                }
+
+                $price = sprintf('<p class="custom-price-variation">%s %s</p>', $regular_price_del_html, $active_price_ins_html);
+            }
+        }
+    }
+    return $price;
+}
+
+// Custom price simple product
+add_filter('woocommerce_get_price_html', 'custom_price_simple_product_html', 100, 2);
+function custom_price_simple_product_html($price, $product)
+{
+
+    if ($product->is_type('simple')) {
+        // $price_og = $product->get_price();
+        $price_rgl = $product->get_regular_price();
+        $price_sale = $product->get_sale_price();
+        if (!empty($price_sale) && $price_sale !== $price_rgl) {
+            $regular_price_del_html = sprintf('<del class="custom-before-sale-price">%s</del>', wc_price($price_rgl)) . '&nbsp;';
+            $active_price_ins_html = sprintf('<ins class="custom-after-sale-price">%s</ins>', wc_price($price_sale));
+        } else {
+            $regular_price_del_html = '';
+            $active_price_ins_html = sprintf('<ins>%s</ins>', wc_price($price_rgl));
+        }
+
+        $price_html = $regular_price_del_html . $active_price_ins_html;
+
+        $price = sprintf('<p class="price custom-price-simple-product">%s</p>', $price_html);
+    }
+
+    return $price;
+}
