@@ -583,7 +583,8 @@ header.header-main {
 }
 
 h3.ss-product__title {
-  line-height: 1.8;
+  line-height: 1.5 !important;
+  font-size: 32px !important;
 }
 
 .ss-product .slick-arrow {
@@ -1522,8 +1523,33 @@ form input[type="submit"] {
 }
 
 .page-content * {
-  all: revert;
+  /*all: revert;*/
   line-height: 1.5;
+}
+
+img.alignright {
+  float: right;
+  margin: 0 0 1em 1em;
+}
+img.alignleft {
+  float: left;
+  margin: 0 1em 1em 0;
+}
+img.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.alignright {
+  float: right;
+}
+.alignleft {
+  float: left;
+}
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ---- Back To Top ---- */
