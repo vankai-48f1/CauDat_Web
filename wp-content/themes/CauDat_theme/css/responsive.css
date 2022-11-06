@@ -568,7 +568,7 @@
 
   .title-type-prm {
     /* font-size: 27px; */
-    font-size: calc(1rem + 1.71vw);
+    font-size: calc(1rem + 1.71vw) !important;
   }
 
   .ss-title h3::before {

@@ -98,7 +98,10 @@ get_template_part('template-parts/header'); ?>
                      */
                     do_action('woocommerce_no_products_found');
                 }
-
+			
+                        woocommerce_taxonomy_archive_description();
+                        woocommerce_product_archive_description();
+                    
                 /**
                  * Hook: woocommerce_after_main_content.
                  *

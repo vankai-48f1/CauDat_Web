@@ -99,7 +99,12 @@
             );
             ?>
         </div>
-
+		<div class="sidebar-row">
+            <h3>Theo dõi chúng tôi</h3>
+			<div class="page-face">
+				<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffromcaudatcoffee&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="100%" height="400" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+			</div>
+		</div>
         <div class="sidebar-row">
             <h3>Bài đăng gần đây</h3>
 
@@ -142,32 +147,7 @@
             </ul>
         </div>
 
-        <div class="sidebar-row">
-            <h3>Tags</h3>
-
-            <ul class="tags-news">
-
-                <?php
-                $args_tags = array(
-                    'type'      => 'post',
-                    'orderby'   => 'date',
-                    'order'     => 'DESC',
-                    'number'    => 10,
-                    'child_of'  => 0,
-                    'taxonomy'  => 'post_tag',
-                    'hide_empty' => 0
-                );
-                $tags_list = get_categories($args_tags);
-                foreach ($tags_list as $tags) : ?>
-                    <li>
-                        <a class="hover-red" href="<?php echo $tags->slug; ?>">
-                            <?php echo $tags->name; ?>
-                        </a>
-                    </li>
-                <?php endforeach; ?>
-
-            </ul>
-        </div>
+      
 
     <?php }
     ?>

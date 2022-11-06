@@ -50,5 +50,11 @@
         </div>
     <?php endif;
     wp_reset_postdata(); ?>
-
+	<div class="term-description pt-3">
+		 <?php
+		if (is_category()) : ?>
+			<?php echo category_description() ?>
+		<?php endif; ?>
+	</div>
+	
 </div>

@@ -89,42 +89,45 @@
                             <?php endwhile; ?>
 
                         <?php endif; ?>
-                        <div class="single__nav">
-                            <div class="single__nav-previous">
-                                <div class="mg-bt-1">
-                                    <?php next_post_link('%link', 'Previous', true); ?>
-                                </div>
-                                <div class="single__nav-title mg-bt-1">
-                                    <a href="<?php echo get_next_post()->guid ?>">
-                                        <?php echo get_next_post()->post_title ?>
-                                    </a>
-                                </div>
-                                <div class="list-posts__item-date">
-                                    <?php
-                                    $date_prev = date_create(get_next_post()->post_date);
-                                    echo date_format($date_prev, "F j, Y");
-                                    ?>
-                                </div>
-                            </div>
+                        
+						<?php
+	$categories = get_the_category($post->ID);
+	if ($categories) 
+	{
+		$category_ids = array();
+		foreach($categories as $individual_category) $category_ids[] = $individual_category->term_id;
 
-                            <div class="single__nav-next">
-                                <div class="mg-bt-1">
-                                    <?php previous_post_link('%link', 'Next', true); ?>
-                                </div>
-                                <div class="single__nav-title mg-bt-1">
-                                    <a href="<?php echo get_previous_post()->guid ?>">
-                                        <?php echo get_previous_post()->post_title ?>
-                                    </a>
-                                </div>
-                                <div class="list-posts__item-date">
-                                    <?php
-                                    $date_next = date_create(get_previous_post()->post_date);
-                                    echo date_format($date_next, "F j, Y");
-                                    ?>
-                                </div>
-                            </div>
-                        </div>
-
+		$args=array(
+		'category__in' => $category_ids,
+		'post__not_in' => array($post->ID),
+		'showposts'=>4, // Số bài viết bạn muốn hiển thị.
+		'caller_get_posts'=>1
+		);
+		$my_query = new wp_query($args);
+		if( $my_query->have_posts() ) 
+		{
+			echo '<h3>Bài viết liên quan</h3><div class="list-posts list-1">';
+			while ($my_query->have_posts())
+			{
+				$my_query->the_post();
+				?>
+				<article class="list-posts__item">
+					<div class="list-posts__thumb">
+						<a href="<?php the_permalink(); ?>" class="list-posts__thumb-wrap"><?php the_post_thumbnail(array(85, 75)); ?></a>
+					</div>
+					<div class="list-posts__content">
+						<h4><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>" class="list-posts__item-title hover-black"><?php the_title(); ?></a></h4>
+					</div>
+				</article>
+				<?php
+			}
+			echo '</div>';
+		}
+	}
+?>
+						
+						
+						
                         <?php
                         if (comments_open() || get_comments_number()) {
                             comments_template();

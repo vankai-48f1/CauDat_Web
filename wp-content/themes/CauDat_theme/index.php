@@ -35,14 +35,16 @@ Template Name: Home
             <?php endwhile; ?>
         </section>
     <?php endif; ?>
-
+	<h1 style="display:none">
+		Cà phê đặc sản chất lượng cao From Cầu Đất
+	</h1>
     <!-- Sản phẩm bán chạy -->
     <section>
         <div class="container">
             <div class="ss-product">
                 <?php $best_selling_products = get_field('best_selling_products'); ?>
                 <div class="ss-title align-ct">
-                    <h3 class="ss-product__title title-type-prm"><?php echo $best_selling_products['title'] ? $best_selling_products['title'] : "Sản Phẩm Bán Chạy"; ?></h3>
+                    <h2 class="ss-product__title title-type-prm"><?php echo $best_selling_products['title'] ? $best_selling_products['title'] : "Sản Phẩm Bán Chạy"; ?></h2>
                 </div>
                 <div class="ss-product__slider pd-t-3 pd-bt-3">
                     <?php
@@ -58,7 +60,7 @@ Template Name: Home
                                 <div class="ss-product__thumb-wrap">
                                     <a href="<?php echo get_the_permalink() ?>" class="ss-product__thumb hover-black">
                                         <?php wc_get_template('loop/sale-flash.php'); ?>
-                                        <?php echo woocommerce_get_product_thumbnail('woocommerce_thumbnail') ?>
+                                        <?php echo woocommerce_get_product_thumbnail('product-home') ?>
                                         <?php get_template_part('template-parts/attribute', 'product', array('product' => $product)); ?>
                                     </a>
                                 </div>
@@ -119,7 +121,7 @@ Template Name: Home
             <div class="ss-product">
                 <?php $original_product = get_field('original_product'); ?>
                 <div class="ss-title align-ct">
-                    <h3 class="ss-product__title title-type-prm"><?php echo $original_product['title'] ? $original_product['title'] : "Sản phẩm nguyên bản đặc trưng"; ?></h3>
+                    <h2 class="ss-product__title title-type-prm"><?php echo $original_product['title'] ? $original_product['title'] : "Sản phẩm nguyên bản đặc trưng"; ?></h2>
                 </div>
                 <?php if ($original_product['select_category']) : ?>
                     <div class="ss-product__slider pd-t-3 pd-bt-3">
@@ -149,7 +151,7 @@ Template Name: Home
                                     <div class="ss-product__thumb-wrap">
                                         <a href="<?php echo get_the_permalink() ?>" class="ss-product__thumb hover-black">
                                             <?php wc_get_template('loop/sale-flash.php'); ?>
-                                            <?php echo woocommerce_get_product_thumbnail('woocommerce_thumbnail') ?>
+                                            <?php echo woocommerce_get_product_thumbnail('product-home') ?>
                                             <?php get_template_part('template-parts/attribute', 'product'); ?>
                                         </a>
                                     </div>
@@ -214,7 +216,7 @@ Template Name: Home
             <div class="ss-product">
                 <?php $collection = get_field('collection'); ?>
                 <div class="ss-title align-ct">
-                    <h3 class="ss-product__title title-type-prm"><?php echo $collection['title'] ? $collection['title'] : "Khám phá bộ sưu tập"; ?></h3>
+                    <h2 class="ss-product__title title-type-prm"><?php echo $collection['title'] ? $collection['title'] : "Khám phá bộ sưu tập"; ?></h2>
                 </div>
                 <?php if ($collection['select_category']) : ?>
                     <div class="ss-product__slider pd-t-3 pd-bt-3">
@@ -244,7 +246,7 @@ Template Name: Home
                                     <div class="ss-product__thumb-wrap">
                                         <a href="<?php echo get_the_permalink() ?>" class="ss-product__thumb hover-black">
                                             <?php wc_get_template('loop/sale-flash.php'); ?>
-                                            <?php echo woocommerce_get_product_thumbnail('woocommerce_thumbnail') ?>
+                                            <?php echo woocommerce_get_product_thumbnail('product-home') ?>
                                             <?php get_template_part('template-parts/attribute', 'product'); ?>
                                         </a>
                                     </div>

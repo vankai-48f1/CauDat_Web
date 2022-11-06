@@ -292,7 +292,9 @@
 <div class="backtotop">
     <button onclick="backToTop()" id="backtotop-btn" class="backtotop__btn">A</button>
 </div>
-<!-- <button id="insert_data">Insert Data</button> -->
+
+<!--<button id="insert_data">Insert Data</button>-->
+
 <!-- popup -->
 <?php $image_popup_global = get_field('image_popup', 'option'); ?>
 <?php $link_popup_global = get_field('link_popup', 'option'); ?>

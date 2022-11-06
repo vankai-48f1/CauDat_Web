@@ -5,13 +5,7 @@
                 <?php if (is_product()) : ?>
                     <div class="col-lg-12 col-12">
                         <div class="header-part__breadcrumb single-product-breadcrum mg-bt-1">
-                            <?php
-                            if (function_exists('yoast_breadcrumb')) {
-                                yoast_breadcrumb('<ul class="m-breadcrumb">', '</ul>');
-                            } else {
-                                m_breadcrumbs();
-                            }
-                            ?>
+                            <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
                         </div>
                     </div>
                 <?php endif; ?>
@@ -56,15 +50,9 @@
                             <?php echo get_field('description_page') ?>
                         <?php endif; ?>
 
-                        <?php
-                        if (is_category()) : ?>
-                            <?php echo category_description() ?>
-                        <?php endif; ?>
+                       
 
-                        <?php
-                        woocommerce_taxonomy_archive_description();
-                        woocommerce_product_archive_description();
-                        ?>
+                       
 
                         <?php
                         if (is_product() || get_query_var('post_type') == 'product') :
