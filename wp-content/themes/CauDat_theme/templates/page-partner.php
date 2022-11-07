@@ -14,14 +14,17 @@ Template Name: Đối tác
         if (have_rows('partner_tabs')) : ?>
             <?php
             $current = $_GET['partner'] ? $_GET['partner'] : null;
+            // var_dump($current);
+            $i = 0;
             ?>
 
             <div class="current-label"><?php echo $current ? $current : get_field('partner_tabs')[0]['label'] ?></div>
             <ul class="partner__nav partner__nav-row">
-                <?php while (have_rows('partner_tabs')) : the_row(); ?>
+                <?php while (have_rows('partner_tabs')) : the_row();
+                    $i++; ?>
                     <?php
                     if ($current) {
-                        if ($current == strtolower(trim(get_sub_field('label')))) {
+                        if ($current == 'tab-' . $i) {
                             $active = 'active';
                         } else {
                             $active = '';
@@ -35,16 +38,17 @@ Template Name: Đối tác
                     }
                     ?>
 
-                    <li class="partner__nav-cold mg-bt-1"><a href="?partner=<?php echo strtolower(trim(get_sub_field('label'))) ?>" class="<?php echo $active; ?>" data-target="<?php echo strtolower(trim(get_sub_field('label'))); ?>"><?php echo trim(get_sub_field('label')) ?></a></li>
+                    <li class="partner__nav-cold mg-bt-1"><a href="?partner=tab-<?php echo $i ?>" class="<?php echo $active; ?>" data-target="tab-<?php echo $i ?>"><?php echo trim(get_sub_field('label')) ?></a></li>
                 <?php endwhile; ?>
             </ul>
         <?php endif; ?>
 
         <!-- Partner Tabs Content -->
         <?php
-        if (have_rows('partner_tabs')) : ?>
-            <?php while (have_rows('partner_tabs')) : the_row(); ?>
-                <div class="partner__content" data-anchor="<?php echo strtolower(trim(get_sub_field('label'))); ?>">
+        if (have_rows('partner_tabs')) : $j = 0; ?>
+            <?php while (have_rows('partner_tabs')) : the_row();
+                $j++; ?>
+                <div class="partner__content" data-anchor="tab-<?php echo $j ?>">
                     <div class="partner__infor-take-away mg-bt-3">
                         <?php echo get_sub_field('content') ?>
                     </div>

@@ -1,56 +1,35 @@
 var itemTabsContent = jQuery('.partner__content');
 var navigationTarget = jQuery('.partner__nav li a');
 
-jQuery('.partner__content').css("display", "none");
+var url = new URL(window.location.href);
+var valueUrl = url.searchParams.get('partner');
 
-
+// visible tab in param url
 itemTabsContent.css("display", "none");
+jQuery('.partner__content[data-anchor=' + valueUrl + ']').css('display', 'block');
 
-navigationTarget.each((index, elemt) => {
-    var elemtTarget = jQuery(elemt);
-    var anchorSection = jQuery(elemt).attr("data-target");
+// CLICK ACTIVE TABS
+jQuery('.partner__nav li a').on('click', function (e) {
+    e.preventDefault();
+    var valueTarget = jQuery(this).attr("data-target");
 
+    // const url = location.href + '?partner=' + anchorSection;
+    const url = new URL(window.location.href);
+    url.searchParams.set('partner', valueTarget);
+    window.history.replaceState(null, null, url);
 
-    itemTabsContent.each((index, elmt) => {
-        var contentElement = jQuery(elmt);
-        var contentId = contentElement.attr("data-anchor");
+    jQuery(this).closest('.partner__nav').find('li a').removeClass('active');
+    jQuery(this).addClass('active');
+    jQuery(this).closest('.partner').find('.partner__content').css('display', 'none');
 
-        if (elemtTarget.hasClass('active')) {
-            anchorSection = jQuery(elemt).attr("data-target");
-            if (anchorSection == contentId) {
-                contentElement.css("display", "block");
-            }
-        }
-    });
+    jQuery('.partner__content[data-anchor=' + valueTarget + ']').css('display', 'block');
 
-    // CLICK ACTIVE TABS
-    elemtTarget.on('click', function (e) {
-        e.preventDefault();
-        
-        // const url = location.href + '?partner=' + anchorSection;
-        const url = new URL(window.location.href);
-        url.searchParams.set('partner', anchorSection);
-        window.history.replaceState(null, null, url);
-        
-        jQuery(this).closest('.partner__nav').find('li a').removeClass('active');
-        jQuery(this).addClass('active');
-        jQuery(this).closest('.partner').find('.partner__content').css('display', 'none');
-
-        itemTabsContent.each((index, elmt) => {
-            var contentElement = jQuery(elmt);
-            var contentId = contentElement.attr("data-anchor");
-
-            if (anchorSection == contentId) {
-                contentElement.css("display", "block");
-            }
-        });
-
-        setCurrentLabel ();
-    })
-});
+    setCurrentLabel();
+})
 
 
-function setCurrentLabel () {
+
+function setCurrentLabel() {
     var currentLabel = jQuery('.partner__nav li a.active').text();
     jQuery('.current-label').html(currentLabel);
 }
