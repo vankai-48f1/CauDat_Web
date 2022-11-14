@@ -1471,3 +1471,11 @@ h3.ss-product__name {
     margin-bottom: 15px;
     display: block;
 }
+
+p.price.custom-price-simple-product,
+p.price.custom-price-variation {
+    display: flex;
+    align-items: center;
+    gap: 0 10px;
+    justify-content: center;
+}
