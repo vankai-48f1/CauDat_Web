@@ -665,14 +665,14 @@ function custom_price_simple_product_html($price, $product)
         $price_rgl = $product->get_regular_price();
         $price_sale = $product->get_sale_price();
         if (!empty($price_sale) && $price_sale !== $price_rgl) {
-            $regular_price_del_html = sprintf('<del class="custom-before-sale-price">%s</del>', wc_price($price_rgl)) . '&nbsp;';
+            $regular_price_del_html = sprintf('<del class="custom-before-sale-price">%s</del>', wc_price($price_rgl));
             $active_price_ins_html = sprintf('<ins class="custom-after-sale-price">%s</ins>', wc_price($price_sale));
         } else {
             $regular_price_del_html = '';
             $active_price_ins_html = sprintf('<ins>%s</ins>', wc_price($price_rgl));
         }
 
-        $price_html = $regular_price_del_html . '&nbsp;' . $active_price_ins_html;
+        $price_html = $regular_price_del_html . $active_price_ins_html;
 
         $price = sprintf('<p class="price custom-price-simple-product">%s</p>', $price_html);
     }
