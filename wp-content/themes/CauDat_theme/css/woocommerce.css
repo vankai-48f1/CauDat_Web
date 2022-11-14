@@ -1448,6 +1448,7 @@ table.shop_table .product-thumbnail {
 .ss-product__price .custom-after-sale-price{
   color: red;
   font-size: 19px;
+  display: inline-block;
 }
 
 .custom-price-variation .custom-before-sale-price {
