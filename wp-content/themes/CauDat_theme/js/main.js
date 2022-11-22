@@ -1,11 +1,11 @@
 const menuNavigation = document.querySelector('#header');
 
-setTimeout(()=> {
+setTimeout(() => {
     Object.assign(menuNavigation.style, {
         'visibility': 'visible',
-        'opacity'  : 1 
+        'opacity': 1
     });
-},0)
+}, 0)
 
 
 
@@ -67,14 +67,32 @@ jQuery(document).ready(function () {
     // });
     // close 
 
-    jQuery('.close-float__icon').on('click', function () {
+    jQuery('.close-float__icon').on('click', function (e) {
+        e.stopPropagation();
 
         removeOpenClass(sidebar);
         removeOpenClass(menubar);
         removeOpenClass(filter_sidebar);
-        removeOpenClass(popup_global);
+        // removeOpenClass(popup_global);
     });
 
+    jQuery('#popup-main .close-float__icon').on('click', function (e) {
+        e.stopPropagation()
+
+        $(this).closest('.popup-block').removeClass('open')
+        if (typeof Storage !== "undefined") {
+            localStorage.popupClass = 'close'
+        }
+    })
+
+    jQuery('#popup-checkout .close-float__icon').on('click', function (e) {
+        e.stopPropagation()
+
+        $(this).closest('.popup-block').removeClass('open')
+        if (typeof Storage !== "undefined") {
+            localStorage.popupCheckoutClass = 'close'
+        }
+    })
 
     // grid layout product
     jQuery('.product-view span[class^="product-view"]').on('click', function () {
@@ -198,7 +216,7 @@ jQuery(document).ready(function () {
                                             </div>
                                         </div>
                                     </div>`;
-          jQuery(this).closest('.sub-menu').append(html_submenu_info)
+            jQuery(this).closest('.sub-menu').append(html_submenu_info)
         }
     })
 
@@ -342,30 +360,36 @@ jQuery(document).ready(function () {
         // jQuery('li.menu-item-has-children .sub-menu').toggleClass('open-sub-menu');
         jQuery(this).closest('li.menu-item').find('.sub-menu').toggleClass('open-sub-menu');
     });
-    
-    
-     // // prevent copy cut, f12 in website
 
-    jQuery("body").bind("cut copy", function (e) {
-        e.preventDefault();
-    });
 
-    jQuery(document).keydown(function (event) {
-        if (event.keyCode == 123) { // Prevent F12
-            return false;
-        } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I        
-            return false;
-        }
-    });
+    // // prevent copy cut, f12 in website
 
-    jQuery(document).on("contextmenu", function (e) {        
-        e.preventDefault();
-    });
-    
+    // jQuery("body").bind("cut copy", function (e) {
+    //     e.preventDefault();
+    // });
+
+    // jQuery(document).keydown(function (event) {
+    //     if (event.keyCode == 123) { // Prevent F12
+    //         return false;
+    //     } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I        
+    //         return false;
+    //     }
+    // });
+
+    // jQuery(document).on("contextmenu", function (e) {        
+    //     e.preventDefault();
+    // });
+
     // language dropdown
     $('.language-nav__current').on('click', function () {
-      $('.language-nav__menu').slideToggle();
+        $('.language-nav__menu').slideToggle();
     });
+
+    // Hidden sibar cate menu if just one has class current-menu-item
+    if ($('.sidebar-list li').hasClass('current-menu-item')) {
+
+        $('.sidebar-list li:not(.current-menu-parent):not(.current-menu-parent li):not(.current-menu-item):not(.current-menu-item li)').css('display', 'none')
+    }
 
 }); // close ready 
 
@@ -451,24 +475,25 @@ function backToTop() {
     document.documentElement.scrollTop = 0;
 }
 
-// open popup
-
+// handle popup
 
 if (typeof Storage !== "undefined") {
-    const popupElement = document.querySelector('.popup-global');
+    const popupMain = document.querySelector('#popup-main');
+    const popupCheckout = document.querySelector('#popup-checkout');
 
-    if(popupElement) {
-      if (localStorage.numberAccess) {
-          localStorage.numberAccess = parseInt(localStorage.numberAccess, 10) + 1;
-          popupElement.classList.remove('open')
-
-      } else {
-          localStorage.numberAccess = 0;
-
-          popupElement.classList.add('open')
-      }
+    if (popupMain) {
+        if(!localStorage.popupClass || localStorage.popupClass != 'close') {
+            localStorage.popupClass = 'open'
+            popupMain.classList.add('open')
+        }
     }
-
+    if (popupCheckout) {
+        // checkout popup
+        if(!localStorage.popupCheckoutClass || localStorage.popupCheckoutClass != 'close') {
+            localStorage.popupCheckoutClass = 'open'
+            document.querySelector('#popup-checkout').classList.add('open');
+        }
+    }
 }
 else {
     alert('Browser not support Storage')
@@ -476,32 +501,32 @@ else {
 
 (function ($) {
 
-   $(document).on('click', '#insert_data', function (e) {
-       e.preventDefault();
+    $(document).on('click', '#insert_data', function (e) {
+        e.preventDefault();
 
-       var data = {
-           action: 'insert_data',
-       };
+        var data = {
+            action: 'insert_data',
+        };
 
 
-       $.ajax({
-           type: 'post',
-           url: wc_add_to_cart_params.ajax_url,
-           data: data,
-           beforeSend: function (response) {
+        $.ajax({
+            type: 'post',
+            url: wc_add_to_cart_params.ajax_url,
+            data: data,
+            beforeSend: function (response) {
 
-         },
-           complete: function (response) {
+            },
+            complete: function (response) {
 
-         },
-           success: function (response) {
+            },
+            success: function (response) {
 
-               
-            // console.log('thêm thành công');
-            alert('thêm thành công');
-           },
-       });
 
-       return false;
-   });
+                // console.log('thêm thành công');
+                alert('thêm thành công');
+            },
+        });
+
+        return false;
+    });
 })(jQuery);

@@ -1,0 +1,169 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: MOMO Payment Gateway\n"
+"POT-Creation-Date: 2019-03-22 01:24+0700\n"
+"PO-Revision-Date: 2019-03-22 01:25+0700\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.3\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: momo-gateway.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: momo-gateway.php:62
+msgid "Activate"
+msgstr "Kích hoạt"
+
+#: momo-gateway.php:64
+msgid "Activate the payment gateway for momo"
+msgstr "Kích hoạt thanh toán bằng momo"
+
+#: momo-gateway.php:68
+msgid "Name:"
+msgstr "Tên:"
+
+#: momo-gateway.php:70
+msgid "Name of payment method (as the customer sees it)"
+msgstr "Tên của phương thức thanh toán"
+
+#: momo-gateway.php:71
+msgid "Pay with Momo.vn"
+msgstr "Thanh toán bằng Ví điện tử MoMo"
+
+#: momo-gateway.php:76
+msgid "Payment gateway description"
+msgstr "Mô tả phương thức cổng thanh toán"
+
+#: momo-gateway.php:77
+msgid ""
+"Click place order and you will be directed to the momo.vn website in order "
+"to make payment"
+msgstr ""
+"Nhấn vào đặt hàng và bạn sẽ được dẫn đến trang web MOMO.VN để thực hiện "
+"thanh toán"
+
+#: momo-gateway.php:80
+msgid "Momo icon:"
+msgstr "Biểu tượng:"
+
+#: momo-gateway.php:82
+msgid "Default: \"https://static.momo.vn/momo.ico\""
+msgstr "Mặc định: \"https://static.momo.vn/momo.ico\""
+
+#: momo-gateway.php:83
+msgid "https://static.momo.vn/momo.ico"
+msgstr "https://static.momo.vn/momo.ico"
+
+#: momo-gateway.php:86
+msgid "Domain:"
+msgstr "Domain:"
+
+#: momo-gateway.php:88
+msgid "Default https://payment.momo.vn"
+msgstr "Mặc định https://payment.momo.vn"
+
+#: momo-gateway.php:89
+msgid "https://payment.momo.vn"
+msgstr "https://payment.momo.vn"
+
+#: momo-gateway.php:92
+msgid "Partner Code:"
+msgstr "Partner Code:"
+
+#: momo-gateway.php:94
+msgid ""
+"Get Partner Code in <a href=\"https://business.momo.vn/merchant/integrateInfo"
+"\" target=\"_blank\">here</a>"
+msgstr ""
+"Lấy Partner Code <a href=\"https://business.momo.vn/merchant/integrateInfo\" "
+"target=\"_blank\">ở đây</a>"
+
+#: momo-gateway.php:98
+msgid "Access Key:"
+msgstr "Access Key:"
+
+#: momo-gateway.php:100
+msgid ""
+"Get Access Key in <a href=\"https://business.momo.vn/merchant/integrateInfo"
+"\" target=\"_blank\">here</a>"
+msgstr ""
+"Lấy Access Key <a href=\"https://business.momo.vn/merchant/integrateInfo\" "
+"target=\"_blank\">ở đây</a>"
+
+#: momo-gateway.php:104
+msgid "Serect Key:"
+msgstr "Serect Key:"
+
+#: momo-gateway.php:106
+msgid ""
+"Get Serect Key in <a href=\"https://business.momo.vn/merchant/integrateInfo"
+"\" target=\"_blank\">here</a>"
+msgstr ""
+"Lấy Serect Key <a href=\"https://business.momo.vn/merchant/integrateInfo\" "
+"target=\"_blank\">ở đây</a>"
+
+#: momo-gateway.php:110
+msgid "Request Type:"
+msgstr "Request Type:"
+
+#: momo-gateway.php:115
+msgid "Merchant Name:"
+msgstr "Merchant Name:"
+
+#: momo-gateway.php:120
+msgid "Status:"
+msgstr "Trạng thái:"
+
+#: momo-gateway.php:123
+msgid "Order status after pay"
+msgstr "Tình trạng đơn hàng sau khi thanh toán"
+
+#: momo-gateway.php:261
+msgid "Đơn hàng đã được thanh toán THÀNH CÔNG!"
+msgstr "Đơn hàng đã được thanh toán THÀNH CÔNG!"
+
+#: momo-gateway.php:270
+msgid "Cảm ơn bạn. Chúng tôi sẽ chuyển bạn đến chi tiết đơn hàng sau 2 giây."
+msgstr "Cảm ơn bạn. Chúng tôi sẽ chuyển bạn đến chi tiết đơn hàng sau 2 giây."
+
+#: momo-gateway.php:272
+msgid "Cảm ơn bạn. Đơn hàng của bạn đã được thanh toán."
+msgstr "Đơn hàng đã được thanh toán THÀNH CÔNG."
+
+#: momo-gateway.php:297
+msgid "Settings"
+msgstr "Cài đặt"
+
+#: momo-gateway.php:311
+#, php-format
+msgid "Đã thanh toán <span class=\"count\">(%s)</span>"
+msgid_plural "Đã thanh toán <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+
+#. Plugin Name of the plugin/theme
+msgid "MOMO Payment Gateway"
+msgstr "Cổng thanh toán MOMO"
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "https://levantoan.com"
+msgstr "https://levantoan.com"
+
+#. Description of the plugin/theme
+msgid "Full integration for momo payment gateway for WooCommerce"
+msgstr "Tích hợp đầy đủ cổng thanh toán momo cho WooCommerce"
+
+#. Author of the plugin/theme
+msgid "Lê Văn Toản"
+msgstr "Lê Văn Toản"

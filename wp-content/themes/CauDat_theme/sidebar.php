@@ -10,7 +10,7 @@
             wp_nav_menu(
                 array(
                     'theme_location'  => 'cate_product',
-                    'depth'  => 2,
+                    'depth'  => 3,
                     'container'  => '',
                     'menu_class'  => 'sidebar-list',
                 )

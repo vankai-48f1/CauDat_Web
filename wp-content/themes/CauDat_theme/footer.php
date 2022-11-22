@@ -296,16 +296,17 @@
 <!--<button id="insert_data">Insert Data</button>-->
 
 <!-- popup -->
-<?php $image_popup_global = get_field('image_popup', 'option'); ?>
-<?php $link_popup_global = get_field('link_popup', 'option'); ?>
+<?php $image_popup = is_checkout() ? get_field('image_popup_checkout', 'option') : get_field('image_popup', 'option'); ?>
+<?php $link_popup = is_checkout() ? get_field('link_popup', 'option') : get_field('link_popup', 'option'); ?>
+<?php $id_popup = is_checkout() ? 'popup-checkout' : 'popup-main'; ?>
 <?php
-if ($image_popup_global) : ?>
-    <div class="popup-global">
+if ($image_popup) : ?>
+    <div class="popup-global popup-block" id="<?php echo $id_popup; ?>">
         <div class="popup-global-ctn">
             <div class="popup-global-content">
-                <a href="<?php echo $link_popup_global['url'] ?>">
+                <a href="<?php echo $link_popup['url'] ?>">
 
-                    <img src="<?php echo $image_popup_global['url'] ?>" alt="image popup">
+                    <img src="<?php echo $image_popup['url'] ?>" alt="image popup">
 
                 </a>
                 <div class="close-float">

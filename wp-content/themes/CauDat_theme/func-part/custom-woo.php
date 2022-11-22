@@ -570,3 +570,19 @@ function override_woocommerce_image_size_gallery_thumbnail($size)
         'crop'   => 0,
     );
 }
+
+
+// remove option orderby
+add_filter('woocommerce_catalog_orderby', 'remove_orderby_latest');
+function remove_orderby_latest($orderby) {
+    $orderby = array(
+        'menu_order' => __( 'Default sorting', 'woocommerce' ),
+        // 'popularity' => __( 'Sort by popularity', 'woocommerce' ),
+        // 'rating'     => __( 'Sort by average rating', 'woocommerce' ),
+        // 'date'       => __( 'Sort by latest', 'woocommerce' ),
+        'price'      => __( 'Sort by price: low to high', 'woocommerce' ),
+        'price-desc' => __( 'Sort by price: high to low', 'woocommerce' ),
+    );
+
+    return $orderby;
+}
