@@ -93,7 +93,7 @@ function caudat_add_rating()
                         <i class="fas fa-star"></i>
                     </div>
                 </div>
-                <div class="average-rating mg-bt-1"><input type="hidden" class="val-average-rating" value="' . $product->get_average_rating() .'"></div>
+                <div class="average-rating mg-bt-1"><input type="hidden" class="val-average-rating" value="' . $product->get_average_rating() . '"></div>
             </div>';
 }
 
@@ -574,15 +574,138 @@ function override_woocommerce_image_size_gallery_thumbnail($size)
 
 // remove option orderby
 add_filter('woocommerce_catalog_orderby', 'remove_orderby_latest');
-function remove_orderby_latest($orderby) {
+function remove_orderby_latest($orderby)
+{
     $orderby = array(
-        'menu_order' => __( 'Default sorting', 'woocommerce' ),
+        'menu_order' => __('Default sorting', 'woocommerce'),
         // 'popularity' => __( 'Sort by popularity', 'woocommerce' ),
         // 'rating'     => __( 'Sort by average rating', 'woocommerce' ),
         // 'date'       => __( 'Sort by latest', 'woocommerce' ),
-        'price'      => __( 'Sort by price: low to high', 'woocommerce' ),
-        'price-desc' => __( 'Sort by price: high to low', 'woocommerce' ),
+        'price'      => __('Sort by price: low to high', 'woocommerce'),
+        'price-desc' => __('Sort by price: high to low', 'woocommerce'),
     );
 
     return $orderby;
+}
+
+// accept coupon for user specific
+add_filter('woocommerce_coupon_is_valid', 'wc_custom_coupon_is_valid_for_specific_account', 20, 2);
+
+if (!function_exists('wc_custom_coupon_is_valid_for_specific_account')) {
+
+    function wc_custom_coupon_is_valid_for_specific_account($result, $coupon)
+    {
+
+        $agency_user = get_agency_user();
+        $agency_coupon = get_agency_coupon();
+
+        if (!is_user_logged_in() && $agency_coupon == $coupon->get_code()) return false;
+        $current_user = wp_get_current_user();
+
+
+        if ($agency_user['ID'] == $current_user->get('ID') && $agency_coupon == $coupon->get_code()) {
+            return true;
+        }
+
+        if ($agency_user['ID'] != $current_user->get('ID') && $agency_coupon == $coupon->get_code()) {
+            return false;
+        }
+
+        return $result;
+    }
+}
+
+
+
+if (!function_exists('get_agency_user')) :
+    /**
+     * check the current user match user agency
+     *
+     */
+
+    function get_agency_user()
+    {
+        $agency = get_field('coupon_for_agency', 'option');
+        $current_user = wp_get_current_user();
+
+        if ($agency['for_user']) {
+            foreach ($agency['for_user'] as $agency_user) {
+                if ($agency_user['ID'] == (int)$current_user->get('ID')) {
+                    return $agency_user;
+                }
+            }
+        }
+
+        return false;
+    }
+
+endif;
+
+if (!function_exists('get_agency_coupon')) :
+    /**
+     * check the coupon code agency valid
+     *
+     */
+
+    function get_agency_coupon()
+    {
+        $agency = get_field('coupon_for_agency', 'option');
+
+        if (!$agency['coupon_code']) return false;
+
+        if (wc_get_coupon_id_by_code($agency['coupon_code'])) return $agency['coupon_code'];
+
+        return false;
+    }
+
+endif;
+
+
+add_action('woocommerce_before_calculate_totals', 'enable_customer_loyalty_discount', 10, 1);
+function enable_customer_loyalty_discount($cart)
+{
+    if ((is_admin() && !defined('DOING_AJAX')) || !is_user_logged_in())
+        return;
+
+    // if ( did_action( 'woocommerce_before_calculate_totals' ) >= 2 )
+    //     return;
+    if (!get_agency_coupon() || !get_agency_user()) return;
+
+    //Your settings below
+    $coupon_code = get_agency_coupon();
+    $agency_user = get_agency_user();
+    // $total_spent = 30;
+
+    $user_id  = get_current_user_id(); // User ID
+
+    if (!in_array($coupon_code, $cart->get_applied_coupons()) && $user_id == $agency_user['ID']) {
+
+        // Get the WC_Customer instance Object
+        $customer = new WC_Customer($user_id);
+        $email    = $customer->get_billing_email(); // Billing email
+
+        // If the user total spent has not reached the define amount, we exit
+        // if( $customer->get_total_spent() < $total_spent ) {
+        //     return;
+        // }
+
+        // Get the WC_Coupon instance Object
+        $coupon = new WC_Coupon($coupon_code);
+        // If the coupon has already been used by the customer, we exit
+        // if( array_intersect( array($user_id, $email), $coupon->get_used_by() ) ) {
+        //     return;
+        // }
+
+        $cart->apply_coupon($coupon_code);
+    }
+}
+
+// Custom coupon label for agency
+add_filter('woocommerce_cart_totals_coupon_label', 'custom_total_coupon_label',  10, 2);
+function custom_total_coupon_label($mess, $coupon)
+{
+    if (get_agency_user() && $coupon->get_code() == get_agency_coupon()) {
+        $mess = 'Giảm giá giành cho đại lý';
+    }
+    return $mess;
 }

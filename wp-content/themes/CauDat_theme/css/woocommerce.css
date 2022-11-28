@@ -51,7 +51,7 @@ ul.products {
 
 .products > li.product .price {
   font-family: var(--font-prm-bold);
-  font-size: 17px;
+  font-size: 14px;
   margin-bottom: 15px;
   display: block;
 }
@@ -1447,7 +1447,7 @@ table.shop_table .product-thumbnail {
 .product-archive .custom-after-sale-price,
 .ss-product__price .custom-after-sale-price {
   color: red;
-  font-size: 19px;
+  font-size: 15px;
   display: inline-block;
 }
 
@@ -1477,7 +1477,7 @@ h3.ss-product__name {
 
 .ss-product__price .price {
   font-family: var(--font-prm-bold);
-  font-size: 17px;
+  font-size: 14px;
   margin-bottom: 15px;
   display: block;
 }
